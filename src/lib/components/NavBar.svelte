@@ -4,7 +4,9 @@
 
 	const routes = {
 		'/': 'home',
-		'/about': 'about'
+		'/shelf': 'shelf',
+		'/about': 'about',
+		'/about/contact': 'contact'
 	};
 </script>
 

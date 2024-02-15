@@ -2,8 +2,25 @@
 	import Header from '$lib/components/Header.svelte';
 </script>
 
-<Header></Header>
-<main>
-	<slot />
-</main>
-<footer></footer>
+<body>
+	<Header></Header>
+	<main>
+		<slot />
+	</main>
+	<footer></footer>
+</body>
+
+<style>
+	body {
+		margin: 0;
+		background: #eee;
+		color: #333;
+		font-family: sans-serif;
+	}
+
+	main {
+		padding: 1rem;
+		margin: 2rem auto;
+		max-width: 40rem;
+	}
+</style>

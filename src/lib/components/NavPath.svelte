@@ -7,32 +7,36 @@
 	 */
 
 	/**
+	 * @type SlugPath
+	 */
+	const home_slug = {
+		slug: '*',
+		full_path: '/'
+	};
+
+	/**
 	 * @param {string} path
 	 * @returns {SlugPath[]}
 	 *  */
 	function split_path(path) {
-		if (path == '/') {
-			return [
-				{
-					slug: 'home',
-					full_path: '/'
-				}
-			];
-		}
 		/**
 		 * @type {SlugPath[]}
 		 */
 		const paths = [];
 		var route = '';
-		path = path.substring(1); // remove leading '/'
+		//path = path.substring(1); // remove leading '/'
 		path.split('/').forEach((slug) => {
 			route += '/' + slug;
-			/** @type {SlugPath} */
-			const newSlugPath = {
-				slug: slug,
-				full_path: route
-			};
-			paths.push(newSlugPath);
+			if (route != '/') {
+				/** @type {SlugPath} */
+				const newSlugPath = {
+					slug: slug,
+					full_path: route.substring(1) // remove leading '/'
+				};
+				paths.push(newSlugPath);
+			} else {
+				paths.push(home_slug);
+			}
 		});
 		return paths;
 	}
@@ -59,9 +63,11 @@
 		margin: 0;
 		display: flex;
 		flex-wrap: wrap;
-		gap: 1rem;
 	}
-	li.path-item {
+	li.path-item::before {
+		content: '/';
+	}
+	a {
 		text-decoration: none;
 		color: inherit;
 	}
