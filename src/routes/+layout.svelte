@@ -1,16 +1,11 @@
 <script>
-import { page } from "$app/stores";
-import { onMount } from "svelte";
-
-let path = $page.url.hostname;
-
-// onMount(() => {
-//     path = window.location.hostname;
-// });
-
+	import Header from '$lib/components/Header.svelte';
+	import NavBar from '$lib/components/NavBar.svelte';
 </script>
 
-<h1>
-    Header {path}
-</h1>
-<slot />
+<Header></Header>
+<NavBar></NavBar>
+<main>
+	<slot />
+</main>
+<footer></footer>

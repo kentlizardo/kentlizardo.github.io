@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": null,
+  "[javascript][html][typescript]": {
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[svelte]": {
+	"editor.defaultFormatter": "svelte.svelte-vscode",
+  }
+}
