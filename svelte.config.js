@@ -1,5 +1,6 @@
 import static_adapter from '@sveltejs/adapter-static';
 import sveltePreprocess from 'svelte-preprocess';
+import { mdsvex } from 'mdsvex';
 
 const dev = process.argv.includes('dev');
 
@@ -16,7 +17,13 @@ const config = {
 			entries: ['*']
 		}
 	},
-	preprocess: [sveltePreprocess()],
+	extensions: ['.svelte', '.md'],
+	preprocess: [
+		sveltePreprocess(),
+		mdsvex({
+			extensions: ['.md']
+		})
+	]
 };
 
 export default config;
