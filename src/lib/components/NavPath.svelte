@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
 	/**
@@ -11,7 +11,7 @@
 	 * @type SlugPath
 	 */
 	const home_slug = {
-		slug: '*',
+		slug: 'home_sub',
 		full_path: '/'
 	};
 
@@ -49,11 +49,12 @@
 		{#each path_slugs as slug}
 			<li class="path-item">
 				{#if $page.url.pathname != slug.full_path}
-					<a href={base + slug.full_path}>{slug.slug}</a>
+					<a href={base + slug.full_path}>({base + slug.full_path}){slug.slug}</a>
 				{:else}
 					{slug.slug}
 				{/if}
 			</li>
+			::
 		{/each}
 	</ul>
 </div>
@@ -72,4 +73,4 @@
 		text-decoration: none;
 		color: inherit;
 	}
-</style>
+</style> -->
