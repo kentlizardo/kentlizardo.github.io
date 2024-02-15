@@ -1,8 +1,10 @@
 <script>
 	import { page } from '$app/stores';
-	let path = $page.url.hostname;
+	import NavBar from '$lib/components/NavBar.svelte';
+	let path = $page.url.host;
 </script>
 
 <h1>
-	Header {path}
+	{path}
 </h1>
+<NavBar></NavBar>
