@@ -1,0 +1,1 @@
+Added for strict mode
