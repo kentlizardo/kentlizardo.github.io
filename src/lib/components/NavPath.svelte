@@ -1,4 +1,4 @@
-<!-- <script>
+<script>
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
 	/**
@@ -20,6 +20,9 @@
 	 * @returns {SlugPath[]}
 	 *  */
 	function split_path(path) {
+		if (path == '/') {
+			return [home_slug];
+		}
 		/**
 		 * @type {SlugPath[]}
 		 */
@@ -73,4 +76,4 @@
 		text-decoration: none;
 		color: inherit;
 	}
-</style> -->
+</style>

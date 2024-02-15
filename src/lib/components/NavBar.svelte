@@ -1,5 +1,6 @@
 <script>
 	import { base } from '$app/paths';
+	import { page } from '$app/stores';
 	import NavPath from './NavPath.svelte';
 
 	const routes = {
