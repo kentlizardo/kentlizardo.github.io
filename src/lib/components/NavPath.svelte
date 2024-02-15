@@ -27,21 +27,20 @@
 		 * @type {SlugPath[]}
 		 */
 		const paths = [];
-		var route = '';
-		//path = path.substring(1); // remove leading '/'
-		path.split('/').forEach((slug) => {
-			route += '/' + slug;
-			if (route != '/') {
-				/** @type {SlugPath} */
-				const newSlugPath = {
-					slug: slug,
-					full_path: route.substring(1) // remove leading '/'
-				};
-				paths.push(newSlugPath);
-			} else {
-				paths.push(home_slug);
-			}
-		});
+		var route = path;
+		var i = route.lastIndexOf('/');
+		while (i >= 0) {
+			const slug = route.substring(i + 1);
+			/** @type {SlugPath} */
+			const newSlugPath = {
+				slug: slug,
+				full_path: route
+			};
+			paths.unshift(newSlugPath);
+			route = route.substring(0, i);
+			i = route.lastIndexOf('/');
+		}
+		paths.unshift(home_slug);
 		return paths;
 	}
 	$: path_slugs = split_path($page.url.pathname);
