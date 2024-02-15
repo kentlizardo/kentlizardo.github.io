@@ -14,7 +14,8 @@ const config = {
 			base: dev ? '' : process.env.BASE_PATH
 		},
 		prerender: {
-			entries: ['*']
+			entries: ['*'],
+			handleHttpError: 'warn'
 		}
 	},
 	extensions: ['.svelte', '.md'],
