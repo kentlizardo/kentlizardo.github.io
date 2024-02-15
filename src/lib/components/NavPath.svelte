@@ -51,7 +51,7 @@
 		{#each path_slugs as slug}
 			<li class="path-item">
 				{#if $page.url.pathname != slug.full_path}
-					<a href={base + slug.full_path}>({base + slug.full_path}){slug.slug}</a>
+					<a href={slug.full_path}>({base + slug.full_path}){slug.slug}</a>
 				{:else}
 					{slug.slug}
 				{/if}
