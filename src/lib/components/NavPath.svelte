@@ -44,20 +44,23 @@
 		return paths;
 	}
 	$: path_slugs = split_path($page.url.pathname);
+	$: console.log(path_slugs);
 </script>
 
 <div>
 	<ul class="path-list">
-		{#each path_slugs as slug}
-			<li class="path-item">
-				{#if $page.url.pathname != slug.full_path}
-					<a href={base + slug.full_path}>({base + slug.full_path}){slug.slug}</a>
-				{:else}
-					{slug.slug}
-				{/if}
-			</li>
-			::
-		{/each}
+		{#if $page.url.host != 'sveltekit-prerender'}
+			{#each path_slugs as slug}
+				<li class="path-item">
+					{#if $page.url.pathname != slug.full_path}
+						<a href={base + slug.full_path}>({base + slug.full_path}){slug.slug}</a>
+					{:else}
+						{slug.slug}
+					{/if}
+				</li>
+				::
+			{/each}
+		{/if}
 	</ul>
 </div>
 
