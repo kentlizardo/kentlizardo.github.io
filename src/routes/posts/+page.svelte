@@ -9,7 +9,9 @@
 			<h2>
 				<a href={post.path}>{post.meta.title}</a>
 			</h2>
-			Published {post.meta.date}
+			{#if post.meta.date}
+				Published {post.meta.date}
+			{/if}
 		</li>
 	{/each}
 </ul>

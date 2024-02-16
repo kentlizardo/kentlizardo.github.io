@@ -11,8 +11,8 @@
 	 * @type SlugPath
 	 */
 	const home_slug = {
-		slug: 'home_sub',
-		full_path: '/'
+		slug: '/',
+		full_path: ''
 	};
 
 	/**
@@ -53,12 +53,11 @@
 			{#each path_slugs as slug}
 				<li class="path-item">
 					{#if $page.url.pathname != slug.full_path}
-						<a href={base + slug.full_path}>({base + slug.full_path}){slug.slug}</a>
+						<a class="path-slug" href={base + slug.full_path}>{slug.slug}</a>
 					{:else}
-						{slug.slug}
+						<span class="path-slug">{slug.slug}</span>
 					{/if}
 				</li>
-				::
 			{/each}
 		{/if}
 	</ul>
@@ -66,16 +65,26 @@
 
 <style>
 	ul.path-list {
+		background-color: #f8f8f8;
+		border-radius: 8px;
 		list-style-type: none;
 		margin: 0;
+		padding: 0.2rem;
 		display: flex;
 		flex-wrap: wrap;
 	}
-	li.path-item::before {
-		content: '/';
+	li.path-item {
+		padding: 0;
 	}
-	a {
+	.path-slug {
+		border-radius: 0.2rem;
+		background-color: inherit;
+		transition: background-color 0.5s ease-out;
+		padding: 0.2rem;
 		text-decoration: none;
 		color: inherit;
+	}
+	.path-slug:hover {
+		background-color: #ccc;
 	}
 </style>
