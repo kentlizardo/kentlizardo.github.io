@@ -6,7 +6,7 @@
 	const allowed_hosts = ['kentmakes.games', 'kentlizardo.github.io'];
 </script>
 
-<div class="header">
+<div class="header oxygen-mono-regular">
 	<h1>
 		<!-- {#if $page.url.host != 'sveltekit-prerender'} -->
 		{#if allowed_hosts.includes($page.url.host)}

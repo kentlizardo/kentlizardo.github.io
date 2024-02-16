@@ -47,7 +47,7 @@
 	$: console.log(path_slugs);
 </script>
 
-<div>
+<div class="pt-sans-bold">
 	<ul class="path-list">
 		{#if $page.url.host != 'sveltekit-prerender'}
 			{#each path_slugs as slug}
@@ -68,7 +68,6 @@
 		background-color: #f8f8f8;
 		border-radius: 8px;
 		list-style-type: none;
-		margin: 0;
 		padding: 0.2rem;
 		display: flex;
 		flex-wrap: wrap;
@@ -77,7 +76,7 @@
 		padding: 0;
 	}
 	.path-slug {
-		border-radius: 0.2rem;
+		border-radius: 8px;
 		background-color: inherit;
 		transition: background-color 0.5s ease-out;
 		padding: 0.2rem;
