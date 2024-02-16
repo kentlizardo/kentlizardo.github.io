@@ -1,4 +1,5 @@
 <script>
+	import { base } from '$app/paths';
 	export let data;
 </script>
 
@@ -7,7 +8,7 @@
 	{#each data.posts as post}
 		<li>
 			<h2>
-				<a href={post.path}>
+				<a href={base + post.path}>
 					{#if post.meta && post.meta.title}
 						{post.meta.title}
 					{:else}
