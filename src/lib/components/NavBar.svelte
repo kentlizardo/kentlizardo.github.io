@@ -1,12 +1,11 @@
 <script>
 	import { base } from '$app/paths';
-	import { page } from '$app/stores';
-	import NavPath from './NavPath.svelte';
 
 	const routes = {
 		'/': 'home',
 		'/shelf': 'shelf',
 		'/about': 'about',
+		'/posts': 'posts',
 		'/about/contact': 'contact'
 	};
 </script>
