@@ -39,6 +39,6 @@
 		background: #f8f8f8;
 		padding: 1rem;
 		margin: 2rem auto;
-		max-width: 40rem;
+		max-width: min(40rem, 80%);
 	}
 </style>

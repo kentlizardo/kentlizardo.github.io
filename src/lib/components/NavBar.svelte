@@ -11,7 +11,7 @@
 </script>
 
 <nav>
-	<ul class="nav-list">
+	<ul class="nav-list pt-sans-bold">
 		{#each Object.entries(routes) as [route, route_name]}
 			<li class="nav-item">
 				<a href={base + route}>{route_name}</a>
@@ -23,6 +23,7 @@
 <style>
 	nav {
 		display: flex;
+		margin: 1rem;
 		flex-wrap: wrap;
 		justify-content: center;
 	}

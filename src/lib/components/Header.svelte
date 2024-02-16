@@ -6,28 +6,45 @@
 	const allowed_hosts = ['kentmakes.games', 'kentlizardo.github.io'];
 </script>
 
-<div class="header oxygen-mono-regular">
-	<h1>
-		<!-- {#if $page.url.host != 'sveltekit-prerender'} -->
-		{#if allowed_hosts.includes($page.url.host)}
-			{path}
-		{:else}
-			dev({path})
-		{/if}
-	</h1>
-	<NavPath></NavPath>
+<div class="header">
+	<div class="header-logo">
+		<h1 class="oxygen-mono-regular">
+			<!-- {#if $page.url.host != 'sveltekit-prerender'} -->
+			{#if allowed_hosts.includes($page.url.host)}
+				{path}
+			{:else}
+				dev({path})
+			{/if}
+		</h1>
+		<div class="subheader">
+			<NavPath></NavPath>
+		</div>
+	</div>
 </div>
 <NavBar></NavBar>
 
 <style>
-	div.header {
+	.header {
+		margin: 1rem;
 		display: flex;
-		flex-direction: row;
 		flex-wrap: wrap;
 		align-items: center;
+		justify-content: center;
+	}
+
+	.header-logo {
+		display: flex;
+		justify-content: center;
+		position: relative;
+	}
+
+	.subheader {
+		position: absolute;
+		right: 10%;
+		bottom: -10%;
 	}
 
 	h1 {
-		margin: 2rem;
+		margin: 1rem 2rem;
 	}
 </style>
