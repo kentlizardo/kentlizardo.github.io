@@ -1,6 +1,9 @@
 <script>
 	import { base } from '$app/paths';
 
+	/** @type {string} */
+	export let selected_route = '';
+
 	const routes = {
 		'/': 'home',
 		'/shelf': 'shelf',
@@ -14,7 +17,22 @@
 	<ul class="nav-list pt-sans-bold">
 		{#each Object.entries(routes) as [route, route_name]}
 			<li class="nav-item">
-				<a href={base + route}>{route_name}</a>
+				<!-- svelte-ignore a11y-mouse-events-have-key-events -->
+				<a
+					on:focusin={() => {
+						selected_route = route;
+					}}
+					on:focusout={() => {
+						if (selected_route == route) selected_route = '';
+					}}
+					on:mouseover={() => {
+						selected_route = route;
+					}}
+					on:mouseleave={() => {
+						if (selected_route == route) selected_route = '';
+					}}
+					href={base + route}>{route_name}</a
+				>
 			</li>
 		{/each}
 	</ul>

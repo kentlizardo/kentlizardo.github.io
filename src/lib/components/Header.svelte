@@ -2,8 +2,17 @@
 	import { page } from '$app/stores';
 	import NavBar from '$lib/components/NavBar.svelte';
 	import NavPath from '$lib/components/NavPath.svelte';
+	import Typewriter from './Typewriter.svelte';
 	let path = $page.url.host;
 	const allowed_hosts = ['kentmakes.games', 'kentlizardo.github.io'];
+
+	/** @type {string} */
+	let selected_route = '';
+	/** @type {Typewriter} */
+	let path_typer;
+	$: {
+		if (path_typer) path_typer.setTarget(selected_route);
+	}
 </script>
 
 <div class="header">
@@ -17,11 +26,15 @@
 			{/if}
 		</h1>
 		<div class="subheader">
-			<NavPath></NavPath>
+			{#if selected_route != ''}
+				<Typewriter bind:this={path_typer}></Typewriter>
+			{:else}
+				<NavPath></NavPath>
+			{/if}
 		</div>
 	</div>
 </div>
-<NavBar></NavBar>
+<NavBar bind:selected_route></NavBar>
 
 <style>
 	.header {
