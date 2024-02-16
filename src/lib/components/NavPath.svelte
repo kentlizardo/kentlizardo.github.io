@@ -53,7 +53,13 @@
 			{#each path_slugs as slug}
 				<li class="path-item">
 					{#if $page.url.pathname != slug.full_path}
-						<a class="path-slug" href={base + slug.full_path}>{slug.slug}</a>
+						{#if slug.full_path != '/'}
+							<a class="path-slug active" href={base + slug.full_path}>{slug.slug}</a><span
+								class="path-slug">/</span
+							>
+						{:else}
+							<a class="path-slug active" href={base + slug.full_path}>{slug.slug}</a>
+						{/if}
 					{:else}
 						<span class="path-slug">{slug.slug}</span>
 					{/if}
@@ -84,7 +90,7 @@
 		text-decoration: none;
 		color: inherit;
 	}
-	.path-slug:hover {
+	.active:hover {
 		background-color: #ccc;
 	}
 </style>
