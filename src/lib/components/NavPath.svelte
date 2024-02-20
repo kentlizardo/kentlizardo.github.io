@@ -64,7 +64,7 @@
 <div class="container pt-sans">
 	{#if $page.url.host != 'sveltekit-prerender'}
 		{#if typed_pathname == ''}
-			<ul class="path-list" in:fly={{ y: -20, duration: 250 }} out:fly={{ y: 20, duration: 250 }}>
+			<ul class="path-list" in:fly={{ y: -20, duration: 250 }} out:fly={{ y: -20, duration: 250 }}>
 				{#each path_slugs as slug, index}
 					<li class="path-item">
 						{#if index != path_slugs.length - 1}
@@ -87,7 +87,7 @@
 		{#if typed_pathname != ''}
 			<ul
 				class="path-list path-list-typed"
-				in:fly={{ y: -20, duration: 250 }}
+				in:fly={{ y: 20, duration: 250 }}
 				out:fly={{ y: 20, duration: 250 }}
 			>
 				{#each typed_slugs as slug, index}
