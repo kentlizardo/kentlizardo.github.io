@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
 	import { fly, slide } from 'svelte/transition';
+	import Typewriter from './Typewriter.svelte';
 	/**
 	 * @typedef SlugPath
 	 * @prop {string} slug The slug, e.g 'about'
@@ -94,12 +95,12 @@
 					<li class="path-item">
 						{#if index != typed_slugs.length - 1}
 							{#if slug.full_path != '/'}
-								<span>{slug.slug}</span><span>/</span>
+								<span><Typewriter target={slug.slug} /></span><span>/</span>
 							{:else}
-								<span>{slug.slug}</span>
+								<span><Typewriter target={slug.slug} /></span>
 							{/if}
 						{:else}
-							<span class="path-slug">{slug.slug}</span>
+							<span class="path-slug"><Typewriter target={slug.slug} /></span>
 						{/if}
 					</li>
 				{/each}

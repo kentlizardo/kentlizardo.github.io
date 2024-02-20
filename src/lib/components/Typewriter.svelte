@@ -1,28 +1,35 @@
 <script>
-	/**
-	 * @type {string}
-	 */
-	export let content = '';
+	import { onMount } from 'svelte';
+	const char_type_delay = 0.2;
 
 	/** @type {string} */
 	export let target = '';
+	/** @type {string} */
+	let visible = '';
+	let remaining = '';
 
-	/** @param ms {number} */
-	const delay = (ms) => new Promise((res) => setTimeout(res, ms));
-	const char_type_delay = 0.02;
+	let index = 0;
+	onMount(() => {
+		const interval = setInterval(() => {
+			if (index <= target.length) {
+				index += 1;
+			}
+		}, 1000 * char_type_delay);
+		return () => {
+			clearInterval(interval);
+		};
+	});
 
-	/** @param x {string} */
-	export const setTarget = async (x) => {
-		content = '';
-		target = x;
-		let end = 0;
-		while (content != target) {
-			await delay(char_type_delay * 1000);
-			content = target.substring(0, end);
-			end += 1;
-		}
-	};
-	setTarget(target);
+	$: {
+		visible = target.substring(0, index);
+		remaining = target.substring(index);
+	}
 </script>
 
-<div>{content}</div>
+<span>{visible}</span><span class="invis">{remaining}</span>
+
+<style>
+	.invis {
+		color: transparent;
+	}
+</style>
