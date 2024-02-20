@@ -1,11 +1,22 @@
 <script>
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
+	import { fly, slide } from 'svelte/transition';
 	/**
 	 * @typedef SlugPath
 	 * @prop {string} slug The slug, e.g 'about'
 	 * @prop {string} full_path The full path a slug leads to, e.g. 'posts/5'
 	 */
+
+	/**
+	 * @type {string}
+	 */
+	export let typed_pathname = '';
+
+	/** @type {SlugPath[]} */
+	let path_slugs = [];
+	/** @type {SlugPath[]} */
+	let typed_slugs = [];
 
 	/**
 	 * @type SlugPath
@@ -20,6 +31,9 @@
 	 * @returns {SlugPath[]}
 	 *  */
 	function split_path(path) {
+		if (path == '') {
+			return [];
+		}
 		if (path == '/') {
 			return [home_slug];
 		}
@@ -44,45 +58,81 @@
 		return paths;
 	}
 	$: path_slugs = split_path($page.url.pathname);
-	$: console.log(path_slugs);
+	$: typed_slugs = split_path(typed_pathname);
 </script>
 
-<div class="pt-sans">
-	<ul class="path-list">
-		{#if $page.url.host != 'sveltekit-prerender'}
-			{#each path_slugs as slug}
-				<li class="path-item">
-					{#if $page.url.pathname != slug.full_path}
-						{#if slug.full_path != '/'}
-							<a class="path-slug active" href={base + slug.full_path}
-								><span>{slug.slug}</span><span>/</span></a
-							>
+<div class="container pt-sans">
+	{#if $page.url.host != 'sveltekit-prerender'}
+		{#if typed_pathname == ''}
+			<ul class="path-list" in:fly={{ y: -20, duration: 250 }} out:fly={{ y: 20, duration: 250 }}>
+				{#each path_slugs as slug, index}
+					<li class="path-item">
+						{#if index != path_slugs.length - 1}
+							{#if slug.full_path != '/'}
+								<a class="path-slug active" href={base + slug.full_path}>
+									<span>{slug.slug}</span><span>/</span>
+								</a>
+							{:else}
+								<a class="path-slug active" href={base + slug.full_path}>
+									<span>{slug.slug}</span>
+								</a>
+							{/if}
 						{:else}
-							<a class="path-slug active" href={base + slug.full_path}>
-								<span>{slug.slug}</span>
-							</a>
+							<span class="path-slug">{slug.slug}</span>
 						{/if}
-					{:else}
-						<span class="path-slug">{slug.slug}</span>
-					{/if}
-				</li>
-			{/each}
+					</li>
+				{/each}
+			</ul>
 		{/if}
-	</ul>
+		{#if typed_pathname != ''}
+			<ul
+				class="path-list path-list-typed"
+				in:fly={{ y: -20, duration: 250 }}
+				out:fly={{ y: 20, duration: 250 }}
+			>
+				{#each typed_slugs as slug, index}
+					<li class="path-item">
+						{#if index != typed_slugs.length - 1}
+							{#if slug.full_path != '/'}
+								<span>{slug.slug}</span><span>/</span>
+							{:else}
+								<span>{slug.slug}</span>
+							{/if}
+						{:else}
+							<span class="path-slug">{slug.slug}</span>
+						{/if}
+					</li>
+				{/each}
+			</ul>
+		{/if}
+	{/if}
 </div>
 
 <style>
+	.container {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+	}
+	.container > * {
+		grid-row: 1;
+		grid-column: 1;
+	}
 	ul.path-list {
+		display: inline-block;
 		background-color: #f8f8f8;
 		border-radius: 8px;
 		list-style-type: none;
-		margin: 0;
+		margin: 0 auto;
+		margin-right: 0;
 		padding: 0.2rem;
-		display: flex;
-		flex-wrap: wrap;
+	}
+	ul.path-list-typed {
+		background-color: antiquewhite;
 	}
 	li.path-item {
 		padding: 0;
+		display: inline-block;
 	}
 	span {
 		padding: 0.2rem;

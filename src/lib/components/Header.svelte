@@ -18,19 +18,16 @@
 <div class="header">
 	<div class="header-logo">
 		<h1 class="oxygen-mono-regular">
-			<!-- {#if $page.url.host != 'sveltekit-prerender'} -->
-			{#if allowed_hosts.includes($page.url.host)}
-				{path}
-			{:else}
-				dev({path})
+			{#if $page.url.host != 'sveltekit-prerender'}
+				{#if allowed_hosts.includes($page.url.host)}
+					{path}
+				{:else}
+					dev({path})
+				{/if}
 			{/if}
 		</h1>
 		<div class="subheader">
-			{#if selected_route != ''}
-				<Typewriter bind:this={path_typer}></Typewriter>
-			{:else}
-				<NavPath></NavPath>
-			{/if}
+			<NavPath typed_pathname={selected_route}></NavPath>
 		</div>
 	</div>
 </div>

@@ -4,11 +4,12 @@
 	 */
 	export let content = '';
 
+	/** @type {string} */
+	export let target = '';
+
 	/** @param ms {number} */
 	const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 	const char_type_delay = 0.02;
-
-	let target = 'undefined';
 
 	/** @param x {string} */
 	export const setTarget = async (x) => {
@@ -24,4 +25,4 @@
 	setTarget(target);
 </script>
 
-<span>{content}</span>
+<div>{content}</div>
