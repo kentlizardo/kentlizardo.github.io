@@ -39,20 +39,15 @@
 </nav>
 
 <style>
-	nav {
-		display: flex;
-		margin: 1rem;
-		flex-wrap: wrap;
-		justify-content: center;
-	}
 	ul.nav-list {
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: end;
 		list-style-type: none;
 		margin: 0;
-		display: flex;
-		flex-wrap: wrap;
+		margin-left: auto;
 		gap: 10px;
 		padding: 0;
-		padding-inline: 4rem;
 	}
 	a {
 		background-color: antiquewhite;

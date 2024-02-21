@@ -29,8 +29,10 @@
 			<NavPath typed_pathname={selected_route}></NavPath>
 		</div>
 	</div>
+	<div class="navbar-container">
+		<NavBar bind:selected_route></NavBar>
+	</div>
 </div>
-<NavBar bind:selected_route></NavBar>
 
 <style>
 	.header {
@@ -38,22 +40,26 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
-		justify-content: center;
+	}
+
+	.navbar-container {
+		margin: 0;
+		margin-left: auto;
 	}
 
 	.header-logo {
 		display: flex;
-		justify-content: center;
-		position: relative;
+		flex-wrap: nowrap;
+	}
+	.header-logo > h1 {
+		margin: 0;
+		padding: 0;
 	}
 
 	.subheader {
-		position: absolute;
-		right: 10%;
-		bottom: -10%;
-	}
-
-	h1 {
-		margin: 1rem 2rem;
+		/* position: relative; */
+		top: 0%;
+		left: 0%;
+		align-self: center;
 	}
 </style>
