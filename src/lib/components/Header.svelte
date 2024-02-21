@@ -15,7 +15,7 @@
 	let selected_route = '';
 	let bubble = '';
 	$: {
-		let newBubble = bubble;
+		let newBubble = '';
 		for (const [key, val] of Object.entries(icon_overrides)) {
 			if ($page.url.pathname.startsWith(key)) {
 				newBubble = val;
