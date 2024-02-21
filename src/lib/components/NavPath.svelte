@@ -58,9 +58,8 @@
 		paths.unshift(home_slug);
 		return paths;
 	}
-	$: path_slugs = split_path($page.url.pathname);
 	$: typed_slugs = split_path(typed_pathname);
-	$: console.log(typed_pathname == $page.url.pathname);
+	$: path_slugs = split_path($page.url.pathname);
 </script>
 
 <div class="container pt-sans">
@@ -68,7 +67,7 @@
 		{#if typed_pathname == '' || typed_pathname == $page.url.pathname}
 			<ul class="path-list" in:fly={{ y: -20, duration: 250 }} out:fly={{ y: -20, duration: 250 }}>
 				{#each path_slugs as slug, index}
-					<li class="path-item">
+					<li class="path-item" transition:slide={{ axis: 'x' }}>
 						{#if index != path_slugs.length - 1}
 							{#if slug.full_path != '/'}
 								<a class="path-slug active" href={base + slug.full_path}>
@@ -124,8 +123,8 @@
 		grid-column: 1;
 	}
 	ul.path-list {
-		/* display: inline-block; */
-		text-wrap: nowrap;
+		display: flex;
+		flex-wrap: wrap;
 		background-color: #f8f8f8;
 		border-radius: 8px;
 		list-style-type: none;
@@ -138,7 +137,6 @@
 	}
 	li.path-item {
 		padding: 0;
-		display: inline-block;
 	}
 	span {
 		padding: 0.2rem;
