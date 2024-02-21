@@ -40,9 +40,10 @@ export const resize = () => {
 	const h = canv.clientHeight;
 	if (canv.width !== w || canv.height !== h) {
 		renderer.setSize(w, h, false);
+		camera.aspect = w / h;
+		camera.updateProjectionMatrix();
+		renderer.setPixelRatio(window.devicePixelRatio);
 	}
-	camera.aspect = w / h;
-	camera.updateProjectionMatrix();
 };
 
 export const createScene = (/** @type {HTMLCanvasElement} */ el) => {
