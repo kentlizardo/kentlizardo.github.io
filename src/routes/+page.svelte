@@ -1,11 +1,12 @@
 <script>
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
-	import { onMount } from 'svelte';
+	import Shelf from '$lib/components/Shelf.svelte';
 </script>
 
 <h1>Home!</h1>
 <p>More thingies</p>
-<ProjectCard>
+<Shelf></Shelf>
+<!-- <ProjectCard>
 	<span slot="title">Hi</span>
 	<img slot="image" src="" />
-</ProjectCard>
+</ProjectCard> -->

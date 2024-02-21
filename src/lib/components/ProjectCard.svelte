@@ -12,7 +12,7 @@
 
 <style>
 	.card {
-		background-color: aqua;
+		background-color: beige;
 		aspect-ratio: 3/2;
 	}
 </style>
