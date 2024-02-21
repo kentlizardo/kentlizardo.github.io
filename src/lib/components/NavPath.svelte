@@ -135,7 +135,7 @@
 		padding: 0.2rem;
 	}
 	ul.path-list-typed {
-		background-color: antiquewhite;
+		background-color: rgb(149, 148, 223);
 	}
 	li.path-item {
 		padding: 0;

@@ -48,10 +48,11 @@
 
 <style>
 	.header {
-		margin: 1rem;
+		padding: 1rem;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
+		background-color: #e33969;
 	}
 	.header-logo {
 		display: flex;
