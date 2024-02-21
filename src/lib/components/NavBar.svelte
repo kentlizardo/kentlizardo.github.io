@@ -50,11 +50,13 @@
 		margin: 0;
 		display: flex;
 		flex-wrap: wrap;
-		gap: 2rem;
+		gap: 10px;
 		padding: 0;
 		padding-inline: 4rem;
 	}
 	a {
+		background-color: antiquewhite;
+		padding: 0.25rem 1.5rem;
 		text-decoration: none;
 		color: inherit;
 	}
