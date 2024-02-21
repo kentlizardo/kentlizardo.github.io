@@ -35,9 +35,9 @@
 				></div>
 			{/key}
 		</div>
-	</div>
-	<div class="subheader">
-		<NavPath typed_pathname={selected_route}></NavPath>
+		<div class="subheader">
+			<NavPath typed_pathname={selected_route}></NavPath>
+		</div>
 	</div>
 	<div class="navbar-container">
 		<NavBar bind:selected_route></NavBar>
@@ -93,9 +93,6 @@
 	}
 	.subheader {
 		margin: 0 0.2rem;
-		top: 0%;
-		left: 0%;
-		align-self: center;
 	}
 	.navbar-container {
 		margin: 0;

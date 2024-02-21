@@ -137,6 +137,7 @@
 	}
 	li.path-item {
 		padding: 0;
+		display: inline-block;
 	}
 	span {
 		padding: 0.2rem;
