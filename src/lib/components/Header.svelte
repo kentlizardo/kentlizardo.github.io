@@ -2,7 +2,6 @@
 	import { page } from '$app/stores';
 	import NavBar from '$lib/components/NavBar.svelte';
 	import NavPath from '$lib/components/NavPath.svelte';
-	import Typewriter from './Typewriter.svelte';
 	let path = $page.url.host;
 	const allowed_hosts = ['kentmakes.games', 'kentlizardo.github.io'];
 

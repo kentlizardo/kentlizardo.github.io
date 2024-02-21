@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
 	import { fly, slide } from 'svelte/transition';
-	import Typewriter from './Typewriter.svelte';
+	import Typewriter from 'svelte-typewriter';
 	/**
 	 * @typedef SlugPath
 	 * @prop {string} slug The slug, e.g 'about'
@@ -91,19 +91,23 @@
 				in:fly={{ y: 20, duration: 250 }}
 				out:fly={{ y: 20, duration: 250 }}
 			>
-				{#each typed_slugs as slug, index}
-					<li class="path-item">
-						{#if index != typed_slugs.length - 1}
-							{#if slug.full_path != '/'}
-								<span><Typewriter target={slug.slug} /></span><span>/</span>
-							{:else}
-								<span><Typewriter target={slug.slug} /></span>
-							{/if}
-						{:else}
-							<span class="path-slug"><Typewriter target={slug.slug} /></span>
-						{/if}
-					</li>
-				{/each}
+				<Typewriter>
+					{#key typed_slugs}
+						{#each typed_slugs as slug, index}
+							<li class="path-item">
+								{#if index != typed_slugs.length - 1}
+									{#if slug.full_path != '/'}
+										<span>{slug.slug}</span><span>/</span>
+									{:else}
+										<span>{slug.slug}</span>
+									{/if}
+								{:else}
+									<span>{slug.slug}</span>
+								{/if}
+							</li>
+						{/each}
+					{/key}
+				</Typewriter>
 			</ul>
 		{/if}
 	{/if}
