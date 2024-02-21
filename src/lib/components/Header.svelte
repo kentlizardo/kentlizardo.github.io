@@ -7,11 +7,6 @@
 
 	/** @type {string} */
 	let selected_route = '';
-	/** @type {Typewriter} */
-	let path_typer;
-	$: {
-		if (path_typer) path_typer.setTarget(selected_route);
-	}
 </script>
 
 <div class="header">

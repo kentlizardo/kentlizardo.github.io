@@ -91,7 +91,7 @@
 				in:fly={{ y: -20, duration: 250 }}
 				out:fly={{ y: -20, duration: 250 }}
 			>
-				<Typewriter>
+				<Typewriter mode="cascade">
 					{#key typed_slugs}
 						{#each typed_slugs as slug, index}
 							<li class="path-item">
