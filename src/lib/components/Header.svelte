@@ -15,11 +15,13 @@
 	let selected_route = '';
 	let bubble = '';
 	$: {
+		let newBubble = bubble;
 		for (const [key, val] of Object.entries(icon_overrides)) {
 			if ($page.url.pathname.startsWith(key)) {
-				bubble = val;
+				newBubble = val;
 			}
 		}
+		if (bubble != newBubble) bubble = newBubble; // weird logic due to reactive purporses and #key interactions.
 	}
 </script>
 
