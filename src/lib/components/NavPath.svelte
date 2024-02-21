@@ -60,11 +60,12 @@
 	}
 	$: typed_slugs = split_path(typed_pathname);
 	$: path_slugs = split_path($page.url.pathname);
+	$: show_normal_slugs = typed_pathname == '' || typed_pathname == $page.url.pathname;
 </script>
 
 <div class="container pt-sans">
 	{#if $page.url.host != 'sveltekit-prerender'}
-		{#if typed_pathname == '' || typed_pathname == $page.url.pathname}
+		{#if show_normal_slugs}
 			<ul class="path-list" in:fly={{ y: -20, duration: 250 }} out:fly={{ y: -20, duration: 250 }}>
 				{#each path_slugs as slug, index}
 					<li class="path-item" transition:slide={{ axis: 'x' }}>
@@ -84,7 +85,8 @@
 					</li>
 				{/each}
 			</ul>
-		{:else}
+		{/if}
+		{#if !show_normal_slugs}
 			<ul
 				class="path-list path-list-typed"
 				in:fly={{ y: 20, duration: 250 }}
