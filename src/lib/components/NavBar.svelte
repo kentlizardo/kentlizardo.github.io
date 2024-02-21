@@ -6,10 +6,10 @@
 
 	const routes = {
 		'/': 'home',
-		'/shelf': 'shelf',
 		'/about': 'about',
+		'/shelf': 'shelf',
 		'/posts': 'posts',
-		'/about/contact': 'contact'
+		'/contact': 'contact'
 	};
 </script>
 

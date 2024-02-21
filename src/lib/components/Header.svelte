@@ -1,15 +1,40 @@
 <script>
 	import NavBar from '$lib/components/NavBar.svelte';
 	import NavPath from '$lib/components/NavPath.svelte';
+	import { page } from '$app/stores';
+	import { fly } from 'svelte/transition';
+
+	const icon_overrides = {
+		'/posts': 'pencil',
+		'/projects': 'hammer',
+		'/shelf': 'sword',
+		'/contact': 'bubble'
+	};
 
 	/** @type {string} */
 	let selected_route = '';
+	let bubble = '';
+	$: {
+		for (const [key, val] of Object.entries(icon_overrides)) {
+			if ($page.url.pathname.startsWith(key)) {
+				bubble = val;
+			}
+		}
+	}
 </script>
 
 <div class="header">
 	<div class="header-logo">
 		<h1 class="oxygen-mono-regular">kentmakes.games</h1>
-		<div class="header-icon"></div>
+		<div class="icon-container">
+			{#key bubble}
+				<div
+					class="header-icon {bubble}"
+					in:fly={{ y: -20, duration: 250 }}
+					out:fly={{ y: 20, duration: 250 }}
+				></div>
+			{/key}
+		</div>
 	</div>
 	<div class="subheader">
 		<NavPath typed_pathname={selected_route}></NavPath>
@@ -36,16 +61,38 @@
 		padding: 0;
 	}
 	.header-icon {
+		margin: 0 4px;
 		width: 32px;
 		height: 32px;
 		background-image: url($lib/images/pfl-icons.png);
-		background-position: 0px 0px;
+		background-position: 64px 0px;
 		image-rendering: crisp-edges;
 		background-size: 400%;
 		filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.401));
 	}
+	.header-icon.pencil {
+		background-position: 0px 0px;
+	}
+	.header-icon.hammer {
+		background-position: -32px 0px;
+	}
+	.header-icon.sword {
+		background-position: -64px 0px;
+	}
+	.header-icon.bubble {
+		background-position: -96px 0px;
+	}
+	.icon-container {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+	}
+	.icon-container > * {
+		grid-row: 1;
+		grid-column: 1;
+	}
 	.subheader {
-		/* position: relative; */
+		margin: 0 0.2rem;
 		top: 0%;
 		left: 0%;
 		align-self: center;
