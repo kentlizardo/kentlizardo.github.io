@@ -1,8 +1,9 @@
 <script>
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
-	import { fly, slide } from 'svelte/transition';
+	import { fly, slide, fade } from 'svelte/transition';
 	import Typewriter from 'svelte-typewriter';
+	import { expoInOut, quadIn } from 'svelte/easing';
 	/**
 	 * @typedef SlugPath
 	 * @prop {string} slug The slug, e.g 'about'
@@ -18,6 +19,8 @@
 	let path_slugs = [];
 	/** @type {SlugPath[]} */
 	let typed_slugs = [];
+
+	let show_normal_slugs = true;
 
 	/**
 	 * @type SlugPath
@@ -58,15 +61,17 @@
 		paths.unshift(home_slug);
 		return paths;
 	}
-	$: typed_slugs = split_path(typed_pathname);
-	$: path_slugs = split_path($page.url.pathname);
-	$: show_normal_slugs = typed_pathname == '' || typed_pathname == $page.url.pathname;
+	$: {
+		typed_slugs = split_path(typed_pathname);
+		path_slugs = split_path($page.url.pathname);
+		show_normal_slugs = typed_pathname == '' || typed_pathname == $page.url.pathname;
+	}
 </script>
 
 <div class="container pt-sans">
 	{#if $page.url.host != 'sveltekit-prerender'}
 		{#if show_normal_slugs}
-			<ul class="path-list" in:fly={{ y: -20, duration: 250 }} out:fly={{ y: -20, duration: 250 }}>
+			<ul class="path-list" in:fly={{ y: -20, duration: 300, easing: expoInOut }}>
 				{#each path_slugs as slug, index}
 					<li class="path-item" transition:slide={{ axis: 'x' }}>
 						{#if index != path_slugs.length - 1}
@@ -80,30 +85,26 @@
 								</a>
 							{/if}
 						{:else}
-							<span class="path-slug">{slug.slug}</span>
+							<span class="path-slug tail">{slug.slug}</span>
 						{/if}
 					</li>
 				{/each}
 			</ul>
 		{/if}
 		{#if !show_normal_slugs}
-			<ul
-				class="path-list path-list-typed"
-				in:fly={{ y: 20, duration: 250 }}
-				out:fly={{ y: 20, duration: 250 }}
-			>
-				<Typewriter mode="cascade">
+			<ul class="path-list typed" in:fly={{ y: 20, duration: 300, easing: expoInOut }}>
+				<Typewriter mode="cascade" interval={60}>
 					{#key typed_slugs}
 						{#each typed_slugs as slug, index}
 							<li class="path-item">
 								{#if index != typed_slugs.length - 1}
 									{#if slug.full_path != '/'}
-										<span>{slug.slug}</span><span>/</span>
+										<span class="path-slug">{slug.slug}</span><span>/</span>
 									{:else}
-										<span>{slug.slug}</span>
+										<span class="path-slug">{slug.slug}</span>
 									{/if}
 								{:else}
-									<span>{slug.slug}</span>
+									<span class="path-slug tail">{slug.slug}</span>
 								{/if}
 							</li>
 						{/each}
@@ -132,27 +133,30 @@
 		list-style-type: none;
 		margin: 0 auto;
 		margin-left: 0;
-		padding: 0.2rem;
+		padding: 0.2rem 0.4rem;
+		padding-right: 0;
+		overflow: hidden;
 	}
-	ul.path-list-typed {
+	ul.path-list.typed {
 		background-color: rgb(149, 148, 223);
 	}
 	li.path-item {
 		display: inline-block;
-	}
-	span {
-		padding: 0.2rem;
 	}
 	a {
 		text-decoration: none;
 		color: inherit;
 	}
 	.path-slug {
+		padding: 0.2rem;
 		border-radius: 8px;
 		background-color: inherit;
 		transition: background-color 0.5s ease-out;
 	}
-	.active:hover {
+	.tail {
+		padding-right: 0.4rem;
+	}
+	.path-slug.active:hover {
 		background-color: #ccc;
 	}
 </style>
