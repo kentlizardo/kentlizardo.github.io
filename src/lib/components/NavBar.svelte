@@ -39,6 +39,9 @@
 </nav>
 
 <style>
+	nav {
+		margin: 0.5rem;
+	}
 	ul.nav-list {
 		display: flex;
 		flex-wrap: nowrap;

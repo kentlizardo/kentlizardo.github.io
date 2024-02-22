@@ -138,7 +138,6 @@
 		background-color: rgb(149, 148, 223);
 	}
 	li.path-item {
-		padding: 0;
 		display: inline-block;
 	}
 	span {

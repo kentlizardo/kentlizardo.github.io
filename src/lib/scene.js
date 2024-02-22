@@ -14,7 +14,7 @@ let cube;
 export let renderer;
 
 let _init = false;
-const init = () => {
+const init = (el) => {
 	scene = new THREE.Scene();
 	camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 	geometry = new THREE.BoxGeometry();
@@ -23,6 +23,10 @@ const init = () => {
 
 	scene.add(cube);
 	camera.position.z = 5;
+
+	renderer = new THREE.WebGLRenderer({ antialias: true, canvas: el });
+	animate();
+	resize();
 	_init = true;
 };
 
@@ -47,8 +51,5 @@ export const resize = () => {
 };
 
 export const createScene = (/** @type {HTMLCanvasElement} */ el) => {
-	if (!_init) init();
-	renderer = new THREE.WebGLRenderer({ antialias: true, canvas: el });
-	animate();
-	resize();
+	if (!_init) init(el);
 };

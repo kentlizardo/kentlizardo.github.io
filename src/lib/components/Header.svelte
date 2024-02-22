@@ -52,12 +52,14 @@
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
+		justify-content: center;
 		background-color: #e33969;
 	}
 	.header-logo {
 		display: flex;
 		flex-wrap: nowrap;
 		align-items: center;
+		margin-right: auto;
 	}
 	.header-logo > h1 {
 		margin: 0;
@@ -96,9 +98,5 @@
 	}
 	.subheader {
 		margin: 0 0.2rem;
-	}
-	.navbar-container {
-		margin: 0;
-		margin-left: auto;
 	}
 </style>
