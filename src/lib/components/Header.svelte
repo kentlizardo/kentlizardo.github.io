@@ -64,6 +64,7 @@
 	.header-logo > h1 {
 		margin: 0;
 		padding: 0;
+		color: #eee;
 	}
 	.header-icon {
 		margin: 0 4px;
