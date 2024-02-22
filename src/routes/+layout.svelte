@@ -1,6 +1,8 @@
 <script>
 	import Header from '$lib/components/Header.svelte';
+	import { fade } from 'svelte/transition';
 	import './fonts.css';
+	export let data;
 </script>
 
 <svelte:head>
@@ -29,7 +31,13 @@
 <body>
 	<Header></Header>
 	<main>
-		<slot />
+		<div class="content-wrapper">
+			{#key data.pathname}
+				<div class="content" in:fade>
+					<slot />
+				</div>
+			{/key}
+		</div>
 	</main>
 	<footer></footer>
 </body>
@@ -39,11 +47,22 @@
 		margin: 0;
 		background: #eee;
 		color: #333;
-		/* font-family: sans-serif; */
 		font-family: 'Fira Sans Condensed', sans-serif;
 		font-weight: 400;
 	}
-
+	.content-wrapper {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+	}
+	.content-wrapper:nth-last-child(0) {
+		margin-bottom: 0;
+	}
+	.content-wrapper > * {
+		grid-row: 1;
+		grid-column: 1;
+		padding: --spacing-sm;
+	}
 	main {
 		background: #f8f8f8;
 		padding: 1rem;

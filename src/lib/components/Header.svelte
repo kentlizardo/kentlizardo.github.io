@@ -25,7 +25,7 @@
 	}
 </script>
 
-<div class="header">
+<header>
 	<div class="header-logo">
 		<h1 class="oxygen-mono-regular">kentmakes.games</h1>
 		<div class="icon-container">
@@ -44,10 +44,10 @@
 	<div class="navbar-container">
 		<NavBar bind:selected_route></NavBar>
 	</div>
-</div>
+</header>
 
 <style>
-	.header {
+	header {
 		padding: 1rem;
 		display: flex;
 		flex-wrap: wrap;
