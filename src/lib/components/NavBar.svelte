@@ -6,9 +6,11 @@
 
 	const routes = {
 		'/': 'home',
+		'/projects': 'projects',
+		'/media': 'media',
 		'/about': 'about',
-		'/shelf': 'shelf',
-		'/posts': 'posts',
+		// '/shelf': 'shelf',
+		// '/posts': 'posts',
 		'/contact': 'contact'
 	};
 </script>
