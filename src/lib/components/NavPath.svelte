@@ -138,7 +138,7 @@
 		overflow: hidden;
 	}
 	ul.path-list.typed {
-		background-color: rgb(149, 148, 223);
+		background-color: #53a2be;
 	}
 	li.path-item {
 		display: inline-block;
