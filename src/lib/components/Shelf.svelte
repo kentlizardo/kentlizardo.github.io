@@ -13,7 +13,7 @@
 	/** @type {THREE.Mesh} */
 	let cube;
 	/** @type {THREE.WebGLRenderer} */
-	export let renderer;
+	let renderer;
 
 	const init = () => {
 		scene = new THREE.Scene();
