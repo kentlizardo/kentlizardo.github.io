@@ -45,8 +45,8 @@
 		 * @type {SlugPath[]}
 		 */
 		const paths = [];
-		var route = path;
-		var i = route.lastIndexOf('/');
+		let route = path;
+		let i = route.lastIndexOf('/');
 		while (i >= 0) {
 			const slug = route.substring(i + 1);
 			/** @type {SlugPath} */

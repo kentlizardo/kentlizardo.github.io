@@ -1,66 +1,46 @@
 <script>
 	import MediaCard from '$lib/components/MediaCard.svelte';
-	import { onMount } from 'svelte';
+	import Masonry from 'svelte-bricks/Masonry.svelte';
+	import { slide } from 'svelte/transition';
 
-	// export let data;
+	/**
+	 * @typedef {Object} MediaPost
+	 * @property {string} title
+	 * @property {string} url
+	 * @property {number} aspectRatio
+	 */
 
-	let posts = [
-		{
-			title: 'test',
-			desc: 'huh',
-			height: 200
-		},
-		{
-			title: 'hi',
-			desc: 'huh',
-			height: 400
-		},
-		{
-			title: 'random 1',
-			desc: 'huh',
-			height: 100
-		},
-		{
-			title: 'random 2',
-			desc: 'huh',
-			height: 200
-		},
-		{
-			title: 'random 3',
-			desc: 'huh',
-			height: 400
-		},
-		{
-			title: 'random 4',
-			desc: 'huh',
-			height: 200
-		}
-	];
+	/** @type {MediaPost[]} */
+	let posts = [];
 
-	onMount(() => {});
+	for (let i = 0; i < 20; i++) {
+		const w = Math.floor(Math.random() * 101) + 100;
+		const h = Math.floor(Math.random() * 101) + 100;
+		posts.push({
+			title: 'bruh ' + i.toString(),
+			url: '/media/' + i.toString(),
+			aspectRatio: w / h
+		});
+	}
 </script>
 
 <h1>Media</h1>
+
 <div>
-	<ul>
-		{#each posts as post, index}
-			<li>{index}<MediaCard {post}></MediaCard></li>
-		{/each}
-	</ul>
+	<Masonry items={posts} idKey="url" minColWidth={200} maxColWidth={600} gap={10} let:item>
+		<div class="grid-item"><MediaCard post={item}></MediaCard></div>
+	</Masonry>
 </div>
 
 <style>
-	ul {
+	:global(div.masonry) {
 		margin: 0;
 		padding: 0;
-		list-style: none;
-		gap: 25px;
+		width: 100%;
 	}
-
-	ul > li {
-		padding: 0;
+	.grid-item {
 		margin: 0;
-		display: block;
+		padding: 1rem;
 		border: solid 1px;
 	}
 </style>

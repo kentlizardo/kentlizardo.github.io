@@ -33,6 +33,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"svelte-bricks": "^0.2.1",
 		"three": "^0.161.0"
 	}
 }

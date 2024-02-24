@@ -1,10 +1,16 @@
 <script>
-	// @ts-nocheck
+	/** @type {any} */
 	export let post;
-	let height = post.height;
+	let ratio = post.aspectRatio;
 </script>
 
-<div style="min-height: {height + 'px'}">
-	<div>{post.title}</div>
-	<p>{post.desc}</p>
+<div class="wrapper" style="--aspect-ratio: {ratio}">
+	<div>{post.url}</div>
+	<p>{post.title}</p>
 </div>
+
+<style>
+	.wrapper {
+		aspect-ratio: var(--aspect-ratio);
+	}
+</style>
