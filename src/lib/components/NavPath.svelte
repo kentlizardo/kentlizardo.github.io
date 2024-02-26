@@ -76,12 +76,12 @@
 					<li class="path-item" transition:slide={{ axis: 'x' }}>
 						{#if index != path_slugs.length - 1}
 							{#if slug.full_path != '/'}
-								<a class="path-slug active" href={base + slug.full_path}>
-									<span>{slug.slug}</span><span>/</span>
+								<a class="active" href={base + slug.full_path}>
+									<span class="path-slug">{slug.slug}</span><span>/</span>
 								</a>
 							{:else}
-								<a class="path-slug active" href={base + slug.full_path}>
-									<span>{slug.slug}</span>
+								<a class="active" href={base + slug.full_path}>
+									<span class="path-slug">{slug.slug}</span>
 								</a>
 							{/if}
 						{:else}
@@ -156,7 +156,7 @@
 	.tail {
 		padding-right: 0.4rem;
 	}
-	.path-slug.active:hover {
+	.active:hover > .path-slug {
 		background-color: #ccc;
 	}
 </style>

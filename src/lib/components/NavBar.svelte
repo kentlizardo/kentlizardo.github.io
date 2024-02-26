@@ -1,23 +1,23 @@
 <script>
 	import { base } from '$app/paths';
 
-	/** @type {string} */
-	export let selected_route = '';
-
-	const routes = {
+	/** @type { {[key: string]: string} }*/
+	const ROUTES = {
 		'/': 'home',
-		'/projects': 'projects',
-		'/media': 'media',
+		// '/projects': 'projects',
 		'/about': 'about',
 		// '/shelf': 'shelf',
-		// '/posts': 'posts',
+		'/posts': 'posts',
 		'/contact': 'contact'
 	};
+
+	/** @type {string} */
+	export let selected_route = '';
 </script>
 
-<nav>
+<nav class="main">
 	<ul class="nav-list pt-sans-bold">
-		{#each Object.entries(routes) as [route, route_name]}
+		{#each Object.entries(ROUTES) as [route, route_name]}
 			<li class="nav-item">
 				<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 				<a
@@ -55,7 +55,8 @@
 		padding: 0;
 	}
 	a {
-		background-color: antiquewhite;
+		border-radius: 5px;
+		background-color: #f8f8f8;
 		padding: 0.25rem 1.5rem;
 		text-decoration: none;
 		color: inherit;

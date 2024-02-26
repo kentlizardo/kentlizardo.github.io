@@ -3,6 +3,7 @@
 	import NavPath from '$lib/components/NavPath.svelte';
 	import { page } from '$app/stores';
 	import { fly } from 'svelte/transition';
+	import SubNavBar from './SubNavBar.svelte';
 
 	const icon_overrides = {
 		'/posts': 'pencil',
@@ -13,7 +14,11 @@
 
 	/** @type {string} */
 	let selected_route = '';
+
+	let sel_main = '';
+	let sel_sub = '';
 	let bubble = '';
+	$: selected_route = sel_sub || sel_main || '';
 	$: {
 		let newBubble = '';
 		for (const [key, val] of Object.entries(icon_overrides)) {
@@ -41,10 +46,11 @@
 			<NavPath typed_pathname={selected_route}></NavPath>
 		</div>
 	</div>
-	<div class="navbar-container">
-		<NavBar bind:selected_route></NavBar>
+	<div class="nav-wrapper">
+		<NavBar bind:selected_route={sel_main}></NavBar>
 	</div>
 </header>
+<SubNavBar bind:selected_route={sel_sub}></SubNavBar>
 
 <style>
 	header {
