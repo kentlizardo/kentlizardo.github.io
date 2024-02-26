@@ -142,6 +142,7 @@
 	}
 	li.path-item {
 		display: inline-block;
+		text-wrap: nowrap;
 	}
 	a {
 		text-decoration: none;
