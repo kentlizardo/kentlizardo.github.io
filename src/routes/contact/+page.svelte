@@ -52,7 +52,11 @@
 				<textarea name="message" placeholder="write your message here!" required rows="3"
 				></textarea>
 			</div>
-			<div class="h-captcha" data-captcha="true"></div>
+			<!-- <div class="form-section">
+				<div class="captcha-section">
+					<div class="h-captcha" data-captcha="true"></div>
+				</div>
+			</div> -->
 			<div class="form-section"><input type="submit" /></div>
 			<div class="status">
 				<Typewriter>

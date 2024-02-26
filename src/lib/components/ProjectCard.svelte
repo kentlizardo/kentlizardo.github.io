@@ -1,18 +1,19 @@
 <script>
+	let color = 'white';
 </script>
 
-<div class="card">
-	<h2>
-		<slot name="title">Untitled</slot>
-	</h2>
+<div class="card" style="--theme-color: {color}">
 	<div>
-		<slot name="image" />
+		<h2>
+			<slot name="title">Untitled</slot>
+		</h2>
 	</div>
+	<div></div>
 </div>
 
 <style>
 	.card {
-		background-color: beige;
-		aspect-ratio: 3/2;
+		background-color: var(--theme-color);
+		aspect-ratio: 552/167;
 	}
 </style>

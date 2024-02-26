@@ -67,8 +67,12 @@
 		background: #f8f8f8;
 		padding: 1rem;
 		margin: 2rem auto;
-		max-width: min(60rem, 80%);
-		/* max-width: min(40rem, 80%); */
+		max-width: min(40rem, 80%);
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 	}
+	/* @media only screen and (min-width: 768px) {
+		main {
+			max-width: min(60rem, 80%);
+		}
+	} */
 </style>

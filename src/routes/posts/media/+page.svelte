@@ -1,7 +1,6 @@
 <script>
 	import MediaCard from '$lib/components/MediaCard.svelte';
 	import Masonry from 'svelte-bricks/Masonry.svelte';
-	import { slide } from 'svelte/transition';
 
 	/**
 	 * @typedef {Object} MediaPost
@@ -27,7 +26,7 @@
 <h1>Media</h1>
 
 <div>
-	<Masonry items={posts} idKey="url" minColWidth={200} maxColWidth={600} gap={10} let:item>
+	<Masonry items={posts} idKey="url" minColWidth={200} maxColWidth={300} gap={10} let:item>
 		<div class="grid-item"><MediaCard post={item}></MediaCard></div>
 	</Masonry>
 </div>
