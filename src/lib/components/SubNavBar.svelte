@@ -2,13 +2,13 @@
 	import { base } from '$app/paths';
 	import { page } from '$app/stores';
 	import { slide } from 'svelte/transition';
-	import { bounceOut } from 'svelte/easing';
+	import { bounceOut, quadOut, quartInOut, quartOut } from 'svelte/easing';
 
 	/** @type { {[key: string]: string[][]} }*/
 	const SUBROUTES = {
 		'/posts': [
-			['media', '/posts/media'],
-			['blog', '/posts/blog']
+			['/media', '/posts/media'],
+			['/blog', '/posts/blog']
 		]
 	};
 
@@ -30,11 +30,29 @@
 	$: subroutes = SUBROUTES[subroute_key];
 </script>
 
+<svelte:head>
+	<!-- PT Sans -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+		rel="stylesheet"
+	/>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap"
+		rel="stylesheet"
+	/>
+</svelte:head>
 <nav class="sub">
 	{#if subroutes}
-		<ul class="nav-list pt-sans-bold" transition:slide={{ duration: 500, easing: bounceOut }}>
+		<ul
+			class="nav-list overpass-nav"
+			transition:slide={{ delay: 100, duration: 500, easing: quadOut }}
+		>
 			{#each subroutes as [subroute_name, subroute]}
-				<li class="nav-item">
+				<li>
 					<!-- svelte-ignore a11y-mouse-events-have-key-events -->
 					<a
 						on:focusin={() => {
@@ -59,6 +77,7 @@
 
 <style>
 	nav {
+		padding: 0.25rem 0.5rem;
 		background-color: #7ab6cd;
 	}
 	ul.nav-list {
@@ -74,8 +93,15 @@
 	a {
 		border-radius: 5px;
 		background-color: #f8f8f8;
-		padding: 0.25rem 1.5rem;
+		padding: 0.25rem 0.5rem;
 		text-decoration: none;
 		color: inherit;
+		font-size: 1rem;
+	}
+	.overpass-nav {
+		font-family: 'Overpass', sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 600;
+		font-style: italic;
 	}
 </style>

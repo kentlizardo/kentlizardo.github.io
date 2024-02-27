@@ -4,6 +4,7 @@
 	import { page } from '$app/stores';
 	import { fly } from 'svelte/transition';
 	import SubNavBar from './SubNavBar.svelte';
+	import { expoIn, expoInOut, expoOut } from 'svelte/easing';
 
 	const icon_overrides = {
 		'/posts': 'pencil',
@@ -30,15 +31,31 @@
 	}
 </script>
 
+<svelte:head>
+	<!-- Rubik -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+		rel="stylesheet"
+	/>
+	<!-- Oxygen Mono -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+		rel="stylesheet"
+	/>
+</svelte:head>
 <header>
 	<div class="header-logo">
-		<h1 class="oxygen-mono-regular">kentmakes.games</h1>
+		<h1 class="rubik-logo">kentmakes.games</h1>
 		<div class="icon-container">
 			{#key bubble}
 				<div
 					class="header-icon {bubble}"
-					in:fly={{ y: -20, duration: 250 }}
-					out:fly={{ y: 20, duration: 250 }}
+					in:fly={{ y: -20, duration: 250, easing: expoOut }}
+					out:fly={{ y: 20, duration: 250, easing: expoOut }}
 				></div>
 			{/key}
 		</div>
@@ -54,7 +71,6 @@
 
 <style>
 	header {
-		padding: 1rem;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
@@ -62,6 +78,7 @@
 		background-color: #e33969;
 	}
 	.header-logo {
+		padding: 1rem;
 		display: flex;
 		flex-wrap: nowrap;
 		align-items: center;
@@ -105,5 +122,20 @@
 	}
 	.subheader {
 		margin: 0 0.2rem;
+	}
+
+	/* fonts */
+
+	.rubik-logo {
+		font-family: 'Rubik', sans-serif;
+		font-optical-sizing: auto;
+		font-weight: 600;
+		font-style: normal;
+	}
+
+	.oxygen-mono-regular {
+		font-family: 'Oxygen Mono', monospace;
+		font-weight: 400;
+		font-style: normal;
 	}
 </style>

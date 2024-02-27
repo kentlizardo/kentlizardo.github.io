@@ -1,25 +1,10 @@
 <script>
 	import Header from '$lib/components/Header.svelte';
 	import { fade } from 'svelte/transition';
-	import './fonts.css';
 	export let data;
 </script>
 
 <svelte:head>
-	<!-- PT Sans -->
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
-	<link
-		href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-		rel="stylesheet"
-	/>
-	<!-- Oxygen Mono -->
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-		rel="stylesheet"
-	/>
 	<!-- Fira Sans Condensed -->
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
@@ -50,6 +35,9 @@
 		font-family: 'Fira Sans Condensed', sans-serif;
 		font-weight: 400;
 	}
+	:global(h1) {
+		margin: 0.4rem 0rem;
+	}
 	.content-wrapper {
 		display: grid;
 		grid-template-columns: 1fr;
@@ -75,4 +63,114 @@
 			max-width: min(60rem, 80%);
 		}
 	} */
+
+	/* fonts */
+
+	.fira-sans condensed-thin {
+		font-family: 'Fira Sans Condensed', sans-serif;
+		font-weight: 100;
+		font-style: normal;
+	}
+
+	.fira-sans condensed-thin-italic {
+		font-family: 'Fira Sans Condensed', sans-serif;
+		font-weight: 100;
+		font-style: italic;
+	}
+
+	.fira-sans condensed-extralight {
+		font-family: 'Fira Sans Condensed', sans-serif;
+		font-weight: 200;
+		font-style: normal;
+	}
+
+	.fira-sans condensed-extralight-italic {
+		font-family: 'Fira Sans Condensed', sans-serif;
+		font-weight: 200;
+		font-style: italic;
+	}
+
+	.fira-sans condensed-light {
+		font-family: 'Fira Sans Condensed', sans-serif;
+		font-weight: 300;
+		font-style: normal;
+	}
+
+	.fira-sans condensed-light-italic {
+		font-family: 'Fira Sans Condensed', sans-serif;
+		font-weight: 300;
+		font-style: italic;
+	}
+
+	.fira-sans condensed-regular {
+		font-family: 'Fira Sans Condensed', sans-serif;
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	.fira-sans condensed-regular-italic {
+		font-family: 'Fira Sans Condensed', sans-serif;
+		font-weight: 400;
+		font-style: italic;
+	}
+
+	.fira-sans condensed-medium {
+		font-family: 'Fira Sans Condensed', sans-serif;
+		font-weight: 500;
+		font-style: normal;
+	}
+
+	.fira-sans condensed-medium-italic {
+		font-family: 'Fira Sans Condensed', sans-serif;
+		font-weight: 500;
+		font-style: italic;
+	}
+
+	.fira-sans condensed-semibold {
+		font-family: 'Fira Sans Condensed', sans-serif;
+		font-weight: 600;
+		font-style: normal;
+	}
+
+	.fira-sans condensed-semibold-italic {
+		font-family: 'Fira Sans Condensed', sans-serif;
+		font-weight: 600;
+		font-style: italic;
+	}
+
+	.fira-sans condensed-bold {
+		font-family: 'Fira Sans Condensed', sans-serif;
+		font-weight: 700;
+		font-style: normal;
+	}
+
+	.fira-sans condensed-bold-italic {
+		font-family: 'Fira Sans Condensed', sans-serif;
+		font-weight: 700;
+		font-style: italic;
+	}
+
+	.fira-sans condensed-extrabold {
+		font-family: 'Fira Sans Condensed', sans-serif;
+		font-weight: 800;
+		font-style: normal;
+	}
+
+	.fira-sans condensed-extrabold-italic {
+		font-family: 'Fira Sans Condensed', sans-serif;
+		font-weight: 800;
+		font-style: italic;
+	}
+
+	.fira-sans condensed-black {
+		font-family: 'Fira Sans Condensed', sans-serif;
+		font-weight: 900;
+		font-style: normal;
+	}
+
+	.fira-sans condensed-black-italic {
+		font-family: 'Fira Sans Condensed', sans-serif;
+		font-weight: 900;
+		font-style: italic;
+	}
 </style>

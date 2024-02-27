@@ -70,7 +70,7 @@
 <style>
 	form {
 		position: relative;
-		margin: 30px auto 30px auto;
+		margin: 15px auto 30px auto;
 	}
 	form * {
 		font-family: 'Fira Sans Condensed', sans-serif;
