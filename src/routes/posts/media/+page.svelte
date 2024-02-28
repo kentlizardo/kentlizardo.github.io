@@ -23,7 +23,7 @@
 	}
 </script>
 
-<h1>Media</h1>
+<h1>Media Gallery</h1>
 
 <div>
 	<Masonry items={posts} idKey="url" minColWidth={200} maxColWidth={300} gap={10} let:item>

@@ -28,6 +28,16 @@
 	</div>
 </article>
 
+<!-- <div class="full">
+	<Img
+		class="d"
+		{src}
+		on:click={() => {
+			console.log('bruh');
+		}}
+	/>
+</div> -->
+
 <style>
 	.img-card {
 		text-align: center;
@@ -37,8 +47,14 @@
 		display: inline-block;
 		margin: auto;
 		position: relative;
+
+		background-color: #ccc;
+		backdrop-filter: blur(2px);
+		box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25);
+		border: 4px solid #eee;
 	}
 	.content {
+		margin: -4px;
 		padding: 1rem;
 		position: absolute;
 		z-index: 1;
@@ -47,17 +63,37 @@
 		right: 0;
 	}
 	.content::before {
-		border: solid 2px white;
 		content: '';
 		position: absolute;
 		width: 100%;
 		height: 100%;
 		left: 0;
-		bottom: 4px;
+		bottom: 0;
 		z-index: -1;
-		background: linear-gradient(0deg, #ffffff44 30%, #ffffff00 100%);
+
+		background: linear-gradient(0deg, #ffffffad 60%, #ffffff00 100%);
+		backdrop-filter: blur(2px);
+		border-radius: 8px;
+		/* box-shadow: 0 1px 12px rgba(0, 0, 0, 0.25); */
+		border: 1px solid rgba(255, 255, 255, 0.3);
 	}
 	.date {
-		line-height: 1rem;
+		line-height: 0;
+	}
+
+	.full :global(img) {
+		max-width: 100%;
+		max-height: 100%;
+		bottom: 0;
+		left: 0;
+		margin: auto;
+		overflow: auto;
+		position: fixed;
+		right: 0;
+		top: 0;
+		object-fit: contain;
+		background-size: cover;
+		width: 100%;
+		height: 100%;
 	}
 </style>

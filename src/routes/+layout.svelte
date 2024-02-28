@@ -66,7 +66,7 @@
 
 	/* fonts */
 
-	.fira-sans condensed-thin {
+	/* .fira-sans condensed-thin {
 		font-family: 'Fira Sans Condensed', sans-serif;
 		font-weight: 100;
 		font-style: normal;
@@ -172,5 +172,5 @@
 		font-family: 'Fira Sans Condensed', sans-serif;
 		font-weight: 900;
 		font-style: italic;
-	}
+	} */
 </style>
