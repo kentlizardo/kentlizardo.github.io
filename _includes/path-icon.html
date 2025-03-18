@@ -4,7 +4,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     const iconOverrides = {
       '/home': 'sword',
-      '/projects': 'hammer',
+      '/projects': 'sword',
       '/categories': 'pencil',
       '/tags': 'pencil',
       '/gallery': 'hammer',
@@ -28,6 +28,13 @@
         currentIcon = icon;
         break;
       }
+    }
+    // If project subpath, then switch to hammer.
+    if (currentPath.startsWith('/projects/') && currentPath.slice(10).length > 0) {
+      currentIcon = 'hammer';
+    }
+    if (currentPath === '/') {
+      currentIcon = 'sword';
     }
 
     const currentState = window.history.state || {};
