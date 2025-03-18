@@ -23,7 +23,7 @@ An extensive list of the tools and topics I worked on at UIC.
 
 > ***What did you enjoy working with the most?***
 > 
-> My favorites were **Go** and **Typescript**. The focus on explicit semantics along with their build workflows in those languages made the dev experience really smooth. I wish I could use TS's type system in game engines like Godot or Unity. In the future, I'd also like to learn **F#** or more functional programming.
+> My favorites were **Go** and **Typescript**. The focus on explicit semantics along with their build workflows in those languages made the dev experience really smooth. I wish I could use TS's type system in game engines like Godot or Unity. In the future, I'd also like to learn more about **F#** or functional programming.
 {: .prompt-tip }
 
 # How to contact you?
