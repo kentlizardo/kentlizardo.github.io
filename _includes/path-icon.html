@@ -12,9 +12,17 @@
       '/about': 'bubble'
     };
 
+    const iconPositions = {
+      pencil: '0px 0px',
+      hammer: '-32px 0px',
+      sword: '-64px 0px',
+      bubble: '-96px 0px',
+      none: '0px, 32px'
+    };
+
     const currentPath = window.location.pathname;
 
-    let currentIcon = '';
+    let currentIcon = 'pencil';
     for (const [path, icon] of Object.entries(iconOverrides)) {
       if (currentPath.startsWith(path)) {
         currentIcon = icon;
@@ -22,9 +30,30 @@
       }
     }
 
+    const currentState = window.history.state || {};
+    const previousIcon = currentState.pathIcon || sessionStorage.getItem('pathIcon') || 'none';
+
     const pathIcon = document.getElementById('pathIcon');
-    if (pathIcon && currentIcon) {
-      pathIcon.classList.add(currentIcon);
+    if (pathIcon) {
+      if (previousIcon !== currentIcon) {
+        pathIcon.style.backgroundPosition = iconPositions[previousIcon];
+        void pathIcon.offsetWidth;
+        pathIcon.classList.add('animate');
+        pathIcon.style.backgroundPosition = iconPositions[currentIcon];
+        pathIcon.addEventListener(
+          'transitionnend',
+          function () {
+            pathIcon.classList.remove('animate');
+          },
+          { once: true }
+        );
+
+        const newState = { ...currentState, pathIcon: currentIcon };
+        window.history.replaceState(newState, document.title, window.location.href);
+        sessionStorage.setItem('pathIcon', currentIcon);
+      } else {
+        pathIcon.style.backgroundPosition = iconPositions[currentIcon];
+      }
     }
   });
 </script>
@@ -36,37 +65,13 @@
     width: 32px;
     height: 32px;
     background-image: url('/assets/img/pfl-icons.png');
-    background-position: 64px 0px;
+    background-position: 0px 32px;
     image-rendering: crisp-edges;
     background-size: 400%;
     filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.401));
-    animation: flyIn 250ms ease-out forwards;
   }
 
-  .path-icon.pencil {
-    background-position: 0px 0px;
-  }
-
-  .path-icon.hammer {
-    background-position: -32px 0px;
-  }
-
-  .path-icon.sword {
-    background-position: -64px 0px;
-  }
-
-  .path-icon.bubble {
-    background-position: -96px 0px;
-  }
-
-  @keyframes flyIn {
-    from {
-      transform: translateY(-20px);
-      opacity: 0;
-    }
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
+  .path-icon.animate {
+    transition: background-position 0.25s ease-out;
   }
 </style>
