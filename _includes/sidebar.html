@@ -13,7 +13,10 @@
       </a>
     {% endcomment %}
 
-    <a class="site-title d-block" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+    <a class="site-title d-block" href="{{ '/' | relative_url }}">
+      {%- include path-icon.html -%}
+      {{- site.title -}}
+    </a>
     <p class="site-subtitle fst-italic mb-0">{{ site.tagline }}</p>
   </header>
   <!-- .profile-wrapper -->

@@ -1,0 +1,72 @@
+<span class="path-icon" id="pathIcon"></span>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const iconOverrides = {
+      '/home': 'sword',
+      '/projects': 'hammer',
+      '/categories': 'pencil',
+      '/tags': 'pencil',
+      '/gallery': 'hammer',
+      '/archives': 'pencil',
+      '/about': 'bubble'
+    };
+
+    const currentPath = window.location.pathname;
+
+    let currentIcon = '';
+    for (const [path, icon] of Object.entries(iconOverrides)) {
+      if (currentPath.startsWith(path)) {
+        currentIcon = icon;
+        break;
+      }
+    }
+
+    const pathIcon = document.getElementById('pathIcon');
+    if (pathIcon && currentIcon) {
+      pathIcon.classList.add(currentIcon);
+    }
+  });
+</script>
+
+<style>
+  .path-icon {
+    display: inline-block;
+    margin: 0;
+    width: 32px;
+    height: 32px;
+    background-image: url('/assets/img/pfl-icons.png');
+    background-position: 64px 0px;
+    image-rendering: crisp-edges;
+    background-size: 400%;
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.401));
+    animation: flyIn 250ms ease-out forwards;
+  }
+
+  .path-icon.pencil {
+    background-position: 0px 0px;
+  }
+
+  .path-icon.hammer {
+    background-position: -32px 0px;
+  }
+
+  .path-icon.sword {
+    background-position: -64px 0px;
+  }
+
+  .path-icon.bubble {
+    background-position: -96px 0px;
+  }
+
+  @keyframes flyIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>
