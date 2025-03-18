@@ -14,7 +14,7 @@ timezone: America/Chicago
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: kent makes games <span><sup>(and more)</sup></span> # the main title
+title: kent makes games <span class="subtitle">(and more)</span> # the main title
 
 tagline: Portfolio for a CS graduate, gamedev, and creator. # it will display as the subtitle
 
