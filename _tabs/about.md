@@ -7,11 +7,12 @@ order: 6
 # Professional background
 I graduated from UIC with a Bachelors in Computer Science with a concentration in Software Engineering.
 
-An extensive list of the tools and topics I worked on at UIC.
+A list of the tools and topics I worked with/on at UIC.
 - C and C++
+- C# and F#
 - Go
-- F#
 - Javascript & Typescript
+- Python
 - Ruby
 - React.js
 - Firebase
@@ -23,7 +24,7 @@ An extensive list of the tools and topics I worked on at UIC.
 
 > ***What did you enjoy working with the most?***
 > 
-> My favorites were **Go** and **Typescript**. The focus on explicit semantics along with their build workflows in those languages made the dev experience really smooth. I wish I could use TS's type system in game engines like Godot or Unity. In the future, I'd also like to learn more about **F#** or functional programming.
+> My favorites were **Go** and **Typescript**. The focus on explicit semantics along with the dev environment in those languages made the experience of working with them really smooth. I wish I could use TS's type system in game engines like Godot or Unity. In the future, I'd also like to learn more about **F#** or functional programming.
 {: .prompt-tip }
 
 # How to contact you?
@@ -55,7 +56,7 @@ For version control, I use mainly **Git** & **Git Bash**.
 
 **PKM**
 
-I use **Obsidian-md** for my personal daybook, writing, project management, and research. I mainly use **Excalidraw**, **Obsidian Canvas**, or even **Paint** for visual organization, but for UML I use Mermaid and PlantUML.
+I use **Obsidian** for my personal daybook, writing, project management, and research. I mainly use **Excalidraw**, **Obsidian Canvas**, or even **Paint** for visual organization, but for UML I use Mermaid and PlantUML.
 
 **Ergonomics**
 
@@ -67,11 +68,11 @@ I spent a long amount of time using **GIMP** for digital art and image editing, 
 
 **General**
 
-My daily driver is a *Zephyrus Rog G14*. For my desktop, I use a *Focusrite Scarlett Solo* with an *AT2020 Condenser Mic*, listening with *ATH-M30x* headphones.
+My daily driver for programming is a *Zephyrus Rog G14*. For my desktop (a gaming prebuilt) I use a *Focusrite Scarlett Solo* with an *AT2020 Condenser Mic*, listening with *ATH-M30x* headphones. My favorite music setup by far is my Qudelix paired with a Koss KSC75.
 
 ## Why do you make games?
 
-I started making small games around ~2012 using *Scratch* and *GameMaker: Studio*. When I first had the feeling of when I starting up my own game made with my own code, there was no going back.
+I started making small games around ~2012 using *Scratch* and *GameMaker: Studio*. When I first had the feeling of starting up my own game made with my own code, there was no going back.
 
 Some of these included a Galaga clone, a Wolfenstein clone, idle clicker game, side scrollers, and more. I also made mods and server plugins for Minecraft to play with friends. I always loved working with new tools and languages; from console applications in Visual Basic, Python and PyGame, to Java and LWJGL, and more.
 
@@ -79,9 +80,9 @@ I stopped making games around high school but got back into it during university
 
 ## Why did you learn programming?
 
-I learned programming alongside game development using things like Windows Forms and VB, Python and Tkinter, and Java. Some projects I also made around then were an emailing program, a compiled scripting language, a voice controlled assistant.
+I learned programming alongside game development using things like Windows Forms and VB, Python and Tkinter, and Java. Some projects I made around then were an emailing program, a compiled scripting language, a voice controlled assistant.
 
-I also wanted to make electronics and game consoles but didn't have access to many of the tools and materials needed so I spent a larger portion of my time in software.
+When I was younger, I also wanted to work with electronics and microcontroller projects but didn't have access to many of the tools and materials needed; As a result, I spent a larger portion of my time in software.
 
 ## What is this site built with?
-[Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy/) by Cotes Chung, hosted with Github Pages using a deploy workflow action.
+[Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy/) by Cotes Chung, hosted with Github Pages using a deploy workflow action (not the automatic branch-based deployment).
