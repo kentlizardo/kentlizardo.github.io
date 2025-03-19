@@ -16,7 +16,7 @@ timezone: America/Chicago
 
 title: kent makes games # the main title
 
-tagline: Portfolio for a CS graduate, gamedev, and creator. # it will display as the subtitle
+tagline: Portfolio for a software engineer, gamedev, and creator. # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.

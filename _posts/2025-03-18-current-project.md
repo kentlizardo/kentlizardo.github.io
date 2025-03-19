@@ -8,7 +8,7 @@ tags: [godot, project management, c#, devlog, portfolio, webdev]
 
 # Hello Jekyll!
 
-This post is the first post on my new GH pages static site! I already had a minimal blog before using *SvelteKit* and *mdsvex*, but I was limited with what I could add that would be supported by *SvelteKit*'s static generation. This also made it so that I would have to leverage a lot more work to just write markdown posts which was really not my intention at the time. I decided to bite the bullet and use a Jekyll theme.
+This post marks the first step on my new static site portfolio! I already had a minimal blog before using *SvelteKit* and *mdsvex*, but I was limited with what I could add that would be supported by *SvelteKit*'s static generation. This also made it so that I would have to leverage a lot more work to just write markdown posts which was really not my intention at the time. I decided to bite the bullet and use a Jekyll theme.
 
 ~~Honestly I'd prefer to use Obsidian with some custom theming but Publish and Quartz don't support themes in their entirety at the moment.~~
 
