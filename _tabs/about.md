@@ -86,9 +86,9 @@ I learned programming alongside game development using frameworks like Windows F
 
 <p class="overflow-auto my-0">
 <div class="left" style="display: flex; flex-direction: row;">
-<img class="mx-1" src="/about-dddc0.png?updatedAt=1742489048765" style="width: 320px; height: 100%;">
-<img class="mx-1" src="/about-dddc2.gif?updatedAt=1742489073748" style="width: 320px; height: 100%;">
-<img class="mx-1" src="/about-dddc1.gif?updatedAt=1742489061182" style="width: 320px; height: 100%;">
+<img class="mx-1" src="/about-dddc0.png?updatedAt=1742489048765" style="width: 320px; height: 100%;" alt="An example script written in the scripting lang.">
+<img class="mx-1" src="/about-dddc2.gif?updatedAt=1742489073748" style="width: 320px; height: 100%;" alt="Dragging and dropping the script onto the compiler.">
+<img class="mx-1" src="/about-dddc1.gif?updatedAt=1742489061182" style="width: 320px; height: 100%;" alt="Running a basic program with input.">
 </div>
 When I was younger, I also wanted to work with electronics and microcontroller projects but didn't have access to many of the tools and materials needed; as a result, I spent a larger portion of my time making applications on the software side.
 </p>
