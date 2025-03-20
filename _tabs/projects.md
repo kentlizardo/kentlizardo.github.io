@@ -11,7 +11,7 @@ order: 2
   <div class="row g-0 flex-md-row">
 
   <div class="col-md-4">
-    <img class="card-img preview-img mt-0 px-1 py-1" src="/inventory-test.gif?updatedAt=1742350060048" alt="avatar" onerror="this.style.display='none'">
+    <img class="card-img preview-img mt-0 px-1 py-1" src="{{ '/assets/img/pfl-icons.png' | absolute_url }}" alt="avatar" onerror="this.style.display='none'">
   </div>
 
   <div class="col-md-8">
