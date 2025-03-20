@@ -43,12 +43,12 @@ order: 2
   {% if project.image %}
   <div class="col-md-4">
       {% capture src %}src="{{ project.image.path | default: project.image }}"{% endcapture %}
-      {% capture class %}class="preview-img{% if project.image.no_bg %}{{ ' no-bg' }}{% endif %}"{% endcapture %}
+      {% capture class %}class="card-img mt-0 px-1 py-1 preview-img{% if project.image.no_bg %}{{ ' no-bg' }}{% endif %}"{% endcapture %}
       {% capture alt %}alt="{{ project.image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
       {% if project.image.lqip %}
         {%- capture lqip -%}lqip="{{ project.image.lqip }}"{%- endcapture -%}
       {% endif %}
-      <img class="card-img preview-img mt-0 px-1 py-1" {{ src }} {{ class }} {{ alt }} onerror="this.style.display='none'">
+      <img {{ src }} {{ class }} {{ alt }} onerror="this.style.display='none'">
         {%- if project.image.alt -%}
           <figcaption class="text-center pt-2 pb-2">{{ project.image.alt }}</figcaption>
         {%- endif -%}
