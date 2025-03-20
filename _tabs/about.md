@@ -24,33 +24,33 @@ A list of the tools and topics I worked with/on at UIC.
 
 > ***What did you enjoy working with the most?***
 > 
-> My favorites were **Go** and **Typescript**. The focus on explicit semantics along with the dev environment in those languages made the experience of working with them really smooth. I wish I could use TS's type system in game engines like Godot or Unity. In the future, I'd also like to learn more about **F#** or functional programming.
+> My personal favorites were **Go** and **Typescript**. The focus on explicit semantics along with the dev environment made the experience of working with them really smooth. I wish I could use TS's type system in game engines like Godot or Unity. In the future, I'd also like to learn more about **F#** or functional programming in general.
 {: .prompt-tip }
 
 # How to contact you?
 
 For business or professional reasons, please reach out through [**LinkedIn**](https://www.linkedin.com/in/kentbrianlizardo) or the email below. If you have my number from a provided resume, you may contact me through that as well.
 
-For any other reasons, you can [email me](mailto:contact@kentmakes.games) at `contact@kentmakes.games`. It may take me a while to answer so be patient with me.
+For any other reasons, you can [email me](mailto:contact@kentmakes.games) at `contact@kentmakes.games`. It may take me a while to answer, so be patient with me.
 
 # Q&A
 
 ## What are your interests?
-- Video games as both art and software.
+- Video games as both art and software. The topics mentioned below are ones I am always interested in researching and implementing.
 	- Graphics and VFX programming.
 	- Procedural generation.
 	- User experience and accessibility.
 - TTRPGs. I've only played and dmed D&D 5E but want to try Call of Cthulhu and Pathfinder 2E.
   - Making character concepts and art.
   - Worldbuilding. I've experimented with using GIS Tools like leaflet and mapbox for making homebrew worlds come to life.
-- Digital art. Mostly experienced with pixel art.
-- Software development (as a hobby). I'm always looking to improve and learn more about conventions, best practices, and techniques so that I can use them in my own workflows and processes.
+- Digital art. However, I am more experienced with pixel art.
+- Software development (as a hobby). I'm always trying to improve and learn more about conventions, best practices, and techniques so that I can use them in my own workflows and processes.
 
 ## What's your setup for ___?
 
 **Development**
 
-For most software engineering projects, I use **VS Code**. In C#/.NET, **Jetbrains Rider** has really grown onto me, but I have worked much longer with **Visual Studio**.
+For most software engineering projects, I use **VS Code**. For C#/.NET specifically, **Jetbrains Rider** has really grown onto me, but I have worked much longer with **Visual Studio**.
 
 For version control, I use mainly **Git** & **Git Bash**.
 
@@ -60,7 +60,7 @@ I use **Obsidian** for my personal daybook, writing, project management, and res
 
 **Ergonomics**
 
-I use a wired low-profile **Lily58 Pro**, using XDA keycaps. I started off using the whole board with Qwerty then quickly switched to Colemak-DH with Callum style mods (34 keys). My mouse is a **Logitech MX Vertical**.
+I use a wired low-profile **Lily58 Pro**, with XDA keycaps. I started off using the whole board with Qwerty then quickly switched to Colemak-DH with Callum style mods (34 keys). My mouse is a **Logitech MX Vertical**.
 
 **Art**
 
@@ -68,21 +68,30 @@ I spent a long amount of time using **GIMP** for digital art and image editing, 
 
 **General**
 
-My daily driver for programming is a *Zephyrus Rog G14*. For my desktop (a gaming prebuilt) I use a *Focusrite Scarlett Solo* with an *AT2020 Condenser Mic*, listening with *ATH-M30x* headphones. My favorite music setup by far is my Qudelix paired with a Koss KSC75.
+My daily driver for programming is a Zephyrus Rog G14.
+
+For my desktop (a gaming prebuilt), my peripherals include a Focusrite Scarlett Solo with an AT2020 Condenser Mic, listening with ATH-M30x headphones. My favorite music setup by far is my Qudelix paired with a Koss KSC75.
 
 ## Why do you make games?
 
-I started making small games around ~2012 using *Scratch* and *GameMaker: Studio*. When I first had the feeling of starting up my own game made with my own code, there was no going back.
+I started making small games around ~2012 using *Scratch* and *GameMaker: Studio*. When I first had the feeling of starting up my own game made with code I had written myself, there was no going back.
 
-Some of these included a Galaga clone, a Wolfenstein clone, idle clicker game, side scrollers, and more. I also made mods and server plugins for Minecraft to play with friends. I always loved working with new tools and languages; from console applications in Visual Basic, Python and PyGame, to Java and LWJGL, and more.
+Some of these included a Galaga clone, a Wolfenstein clone, an idle clicker game, side scrollers, and more. I also made mods and server plugins for Minecraft to play with friends. I always loved creating and working with new tools and languages, from Visual Basic, to Python and PyGame, to Java and LWJGL, and more.
 
-I stopped making games around high school but got back into it during university when I entered a game jam online.
+I stopped making games around high school but got back into it during university when I entered a game jam online. You can find many of the games I made after this point on [my itch.io page](https://gamesbykent.itch.io/).
 
-## Why did you learn programming?
+## Why did you decide on software engineering?
 
-I learned programming alongside game development using things like Windows Forms and VB, Python and Tkinter, and Java. Some projects I made around then were an emailing program, a compiled scripting language, a voice controlled assistant.
+I learned programming alongside game development using frameworks like Windows Forms and VB, Python and Tkinter, and more. Some projects I made around then were an emailing program, a compiled scripting language, a voice-controlled assistant, and others.
 
-When I was younger, I also wanted to work with electronics and microcontroller projects but didn't have access to many of the tools and materials needed; As a result, I spent a larger portion of my time in software.
+<p class="overflow-auto my-0">
+<div class="left" style="display: flex; flex-direction: row;">
+<img class="mx-1" src="/about-dddc0.png?updatedAt=1742489048765" style="width: 320px; height: 100%;">
+<img class="mx-1" src="/about-dddc2.gif?updatedAt=1742489073748" style="width: 320px; height: 100%;">
+<img class="mx-1" src="/about-dddc1.gif?updatedAt=1742489061182" style="width: 320px; height: 100%;">
+</div>
+When I was younger, I also wanted to work with electronics and microcontroller projects but didn't have access to many of the tools and materials needed; as a result, I spent a larger portion of my time making applications on the software side.
+</p>
 
 ## What is this site built with?
-[Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy/) by Cotes Chung, hosted with Github Pages using a deploy workflow action (not the automatic branch-based deployment).
+A slightly modified version of [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy/) by Cotes Chung, hosted with Github Pages.
