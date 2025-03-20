@@ -51,7 +51,7 @@ Safe to say, I'm really satisfied with the current work I've done and the seamle
 
 The player body supports any gravitational force. "Ground" is determined by the direction of G forces applied to the player. The player also can sense "passive" forces similar to the functions of the inner ear, aligning the camera when needed. The forces are determined with a process which I will call "reverse force integration."
 
-Both Unity and Godot do not give access to accurate contact impulse with access to frictional impulses which was necessary for the systems I needed to calculate. However Godot is open-source, which meant I could "reverse integrate" the physics system's effect on the rigidbody's acceleration. This is done by comparing and tracking all applied forces while also adding properties  to the forces applied such as marking a specific force as a locomotion force. Jolt also helped with the natural stability of the physics system which made things easier.
+Both Unity and Godot do not give access to accurate contact impulses in addition to the frictional component of those impulses which was necessary for the systems I needed to calculate. However Godot is open-source, which meant I could "reverse integrate" the physics system's effect on the rigidbody's acceleration. This is done by comparing and tracking all applied forces while also adding properties to the forces applied such as marking a specific force as a locomotion force. Jolt also helped with the natural stability of the physics system which made things easier.
 
 ![Movement 2](/01-movement-c02.gif?updatedAt=1742422948119)
 

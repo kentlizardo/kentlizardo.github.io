@@ -13,3 +13,15 @@
   display: inline-block;
   margin: 0 0.5rem;
 }
+
+#projects > * {
+  color: var(--text-color);
+}
+
+#projects .card-text {
+  color: var(--text-muted-color);
+}
+
+#projects .card-body a {
+  text-decoration: underline;
+}
