@@ -22,6 +22,47 @@
   color: var(--text-muted-color);
 }
 
-#projects .card-body a {
+#projects .project-links a > span {
   text-decoration: underline;
+}
+
+#projects .project-tools span {
+  padding: .3rem .5rem;
+  border-radius: .75rem;
+}
+
+#projects .project-tools span * {
+  color: var(--sidebar-active-color);
+}
+
+html {
+  @media (prefers-color-scheme: light) {
+    &:not([data-mode]),
+    &[data-mode='light'] {
+      #projects .project-tools span {
+        background-color: rgb(116, 178, 243);
+      }
+    }
+
+    &[data-mode='dark'] {
+      #projects .project-tools span {
+        background-color: rgb(248, 138, 156);
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    &:not([data-mode]),
+    &[data-mode='dark'] {
+      #projects .project-tools span {
+        background-color: rgb(248, 138, 156);
+      }
+    }
+
+    &[data-mode='light'] {
+      #projects .project-tools span {
+        background-color: rgb(116, 178, 243);
+      }
+    }
+  }
 }

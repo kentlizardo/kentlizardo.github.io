@@ -2,10 +2,10 @@
 title: Project Title
 topics: ["Research", "Games"]
 order: -1
-tools: ["Unknown Lang"]
+tools: ["Unknown Lang", "C#"]
 links:
-  source: "#"
   link: "#"
+  source: "https://github.com/"
   third: "#"
 description: >-
   Project description and even more text to make this placeholder longer.

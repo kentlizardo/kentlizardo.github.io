@@ -30,19 +30,19 @@
     {{ project.description }}
     </p>
 
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between align-items-center">
       {% if project.tools %}
-        <ul class="list-group list-group-horizontal list-group-flush">
+        <ul class="project-tools list-group list-group-horizontal list-group-flush">
           {% for tool in project.tools %}
           <li class="list-group-item border-0 py-1 px-1">
-            <i>{{tool}}</i>
+            <span><i>{{tool}}</i></span>
           </li>
           {% endfor %}
         </ul>
         {% endif %}
 
       {% if project.links %}
-      <ul class="list-group list-group-horizontal list-group-flush">
+      <ul class="project-links list-group list-group-horizontal list-group-flush align-items-center">
         {% for link in project.links %}
         {% assign link_text = link[0] %}
         {% assign link_url = link[1] %}
@@ -61,7 +61,7 @@
             {% if link_icon_class %}
               <i class="{{link_icon_class}}"></i>
             {% endif %}
-            {{link_text}}
+            <span>{{link_text}}</span>
           </a>
         </li>
         {% endfor %}
