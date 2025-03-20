@@ -170,6 +170,8 @@ collections:
   tabs:
     output: true
     sort_by: order
+  projects:
+    sort_by: order
 
 defaults:
   - scope:
