@@ -1,0 +1,5 @@
+- base_url: https://github.com/
+  icon_class: "fab fa-github"
+
+- base_url: https://itch.io/
+  icon_class: "fab fa-itch-io"
