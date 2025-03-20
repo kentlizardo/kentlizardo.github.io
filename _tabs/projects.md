@@ -10,12 +10,26 @@ order: 2
 {%- endif -%}
 {% assign sorted_projects = projects | sort %}
 
-<section class="projects" id="projects">
+## Research
+
+<section class="projects">
 
 {% for project in sorted_projects %}
+  {% if project.topics[0] == "Research" %}
+    {% include project-card.html project=project %}
+  {% endif %}
+{% endfor %}
 
-{% include project-card.html project=project %}
+</section>
 
+## Personal
+
+<section class="Personal">
+
+{% for project in sorted_projects %}
+  {% if project.topics[0] == "Personal" %}
+    {% include project-card.html project=project %}
+  {% endif %}
 {% endfor %}
 
 </section>
