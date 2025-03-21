@@ -40,7 +40,7 @@
     {{ project.description }}
     </p>
 
-    <div class="d-flex flex-col justify-content-between align-items-center">
+    <div class="d-flex flex-col justify-content-between align-items-center overflow-auto">
       {% if project.tools %}
         <ul class="project-tools list-group list-group-horizontal list-group-flush align-items-center flex-row">
           {% for tool in project.tools %}
@@ -54,11 +54,12 @@
       {% if project.links %}
       <ul class="project-links list-group list-group-horizontal list-group-flush align-items-center flex-row">
         {% for link in project.links %}
-        {% assign link_text = link[0] %}
-        {% assign link_url = link[1] %}
+        {% assign link_data = link | first %}
+        {% assign link_text = link_data[0] %}
+        {% assign link_url = link_data[1] %}
 
         <li class="list-group-item border-0 py-1 px-2">
-          <a href="{{link_url}}" class="card-link">
+          <a href="{{link_url}}" class="card-link text-nowrap">
             {% assign link_icon_class = nil %}
             {% for project_link_type in site.data.project-links %}
               {% assign url_trimmed = link_url | slice: 0, project_link_type.base_url.size %}
@@ -67,6 +68,10 @@
                 {% break %}
               {% endif %}
             {% endfor %}
+
+            {% if link.icon_override %}
+              {% assign link_icon_class = link.icon_override %}
+            {% endif %}
 
             {% if link_icon_class %}
               <i class="{{link_icon_class}}"></i>

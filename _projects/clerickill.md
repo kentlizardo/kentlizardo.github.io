@@ -4,7 +4,7 @@ topics: ["Games", "Jam Games"]
 order: 6
 tools: ["Godot 4"]
 links:
-  itch: https://gamesbykent.itch.io/clerickill
+  - itch: https://gamesbykent.itch.io/clerickill
 image:
   path: https://ik.imagekit.io/uwzmgirgsx/pg-clerickill.png?updatedAt=1742521708766
 description: >-
