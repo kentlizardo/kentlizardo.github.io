@@ -6,7 +6,7 @@
   {% if project.image %}
   <div class="col-md-4">
       {% capture src %}src="{{ project.image.path | default: project.image }}"{% endcapture %}
-      {% capture class %}class="card-img mt-0 px-1 py-1 preview-img{% if project.image.no_bg %}{{ ' no-bg' }}{% endif %}"{% endcapture %}
+      {% capture class %}class="card-img mt-0 px-1 py-1 preview-img{% if project.image.no_bg %}{{ ' no-bg' }}{% endif %} justify-content-center"{% endcapture %}
       {% capture alt %}alt="{{ project.image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
       {% if project.image.lqip %}
         {%- capture lqip -%}lqip="{{ project.image.lqip }}"{%- endcapture -%}
@@ -57,8 +57,8 @@
         {% assign link_text = link[0] %}
         {% assign link_url = link[1] %}
 
-        <li class="list-group-item border-0 py-1 px-1">
-          <a href="{{link_url}}" class="card-link icon-link">
+        <li class="list-group-item border-0 py-1 px-2">
+          <a href="{{link_url}}" class="card-link">
             {% assign link_icon_class = nil %}
             {% for project_link_type in site.data.project-links %}
               {% assign url_trimmed = link_url | slice: 0, project_link_type.base_url.size %}

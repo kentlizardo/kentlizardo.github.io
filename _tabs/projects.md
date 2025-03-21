@@ -8,7 +8,7 @@ order: 2
 {%- if jekyll.environment == 'production' -%}
   {% assign projects = projects | where: "placeholder", "true" %}
 {%- endif -%}
-{% assign sorted_projects = projects | sort %}
+{% assign sorted_projects = projects | sort: "order" %}
 
 ---
 

@@ -1,0 +1,12 @@
+---
+title: Clerickill
+topics: ["Games", "Jam Games"]
+order: 4
+tools: ["Godot 4"]
+links:
+  itch: https://gamesbykent.itch.io/all-shadows-eve
+image:
+  path: https://ik.imagekit.io/uwzmgirgsx/pg-allshadows.png?updatedAt=1742521708939
+description: >-
+  Play a frenzy of microgames as you help the rookie alchemist Aqua Regia wrangle shadow creatures from the depths!
+---

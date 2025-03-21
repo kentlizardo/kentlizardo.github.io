@@ -3,3 +3,9 @@
 
 - base_url: https://itch.io/
   icon_class: "fab fa-itch-io"
+
+- base_url: https://gamesbykent.itch.io/
+  icon_class: "fab fa-itch-io"
+
+- base_url: https://www.youtube.com/
+  icon_class: "fab fa-youtube"
