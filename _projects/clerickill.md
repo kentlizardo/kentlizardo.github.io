@@ -1,7 +1,7 @@
 ---
 title: Clerickill
 topics: ["Games", "Jam Games"]
-order: 5
+order: 6
 tools: ["Godot 4"]
 links:
   itch: https://gamesbykent.itch.io/clerickill

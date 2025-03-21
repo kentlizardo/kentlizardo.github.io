@@ -1,7 +1,7 @@
 ---
 title: Lunar Memory
 topics: ["Games", "Jam Games"]
-order: 11
+order: 0
 tools: ["Godot 4"]
 links:
   itch: https://gamesbykent.itch.io/lunar-memory

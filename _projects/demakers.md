@@ -1,7 +1,7 @@
 ---
 title: Demaker's Game
 topics: ["Games", "Jam Games"]
-order: 10
+order: 1
 tools: ["Godot 4"]
 links:
   source: https://github.com/kentlizardo/demakers-game-jam

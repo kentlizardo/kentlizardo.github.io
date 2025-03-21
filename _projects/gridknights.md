@@ -1,7 +1,7 @@
 ---
 title: Gridknights
 topics: ["Games", "Jam Games"]
-order: 9
+order: 3
 tools: ["Godot 4"]
 links:
   itch: https://gamesbykent.itch.io/grid-knights-demo

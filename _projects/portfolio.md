@@ -1,7 +1,7 @@
 ---
 title: Static Portfolio using Chirpy
 topics: ["Research", "Websites"]
-order: 1
+order: 3
 tools: ["Jekyll", "CSS"]
 links:
   source: https://github.com/kentlizardo/kentlizardo.github.io

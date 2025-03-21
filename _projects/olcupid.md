@@ -1,7 +1,7 @@
 ---
 title: Save me, OL Cupid!
 topics: ["Games", "Jam Games"]
-order: 6
+order: 5
 tools: ["Godot 4"]
 links:
   source: https://github.com/kentlizardo/new-year-new-jam

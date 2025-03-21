@@ -1,7 +1,7 @@
 ---
 title: Dreadnought
 topics: ["Research", "Games"]
-order: 5
+order: 1
 tools: ["JS/TS", "React", "Express"]
 links:
   download summary: https://ik.imagekit.io/uwzmgirgsx/Dreadnought%20Summary%20Presentation.pptx?updatedAt=1742525117590

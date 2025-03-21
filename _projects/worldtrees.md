@@ -1,7 +1,7 @@
 ---
 title: Worldtrees
 topics: ["Games", "Jam Games"]
-order: 7
+order: 4
 tools: ["Godot 4"]
 links:
   itch: https://gamesbykent.itch.io/world-trees
