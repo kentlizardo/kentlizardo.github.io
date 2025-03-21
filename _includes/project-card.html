@@ -40,9 +40,9 @@
     {{ project.description }}
     </p>
 
-    <div class="d-flex justify-content-between align-items-center">
+    <div class="d-flex flex-col justify-content-between align-items-center">
       {% if project.tools %}
-        <ul class="project-tools list-group list-group-horizontal list-group-flush">
+        <ul class="project-tools list-group list-group-horizontal list-group-flush align-items-center flex-row">
           {% for tool in project.tools %}
           <li class="list-group-item border-0 py-1 px-1">
             <span><i>{{tool}}</i></span>
@@ -52,7 +52,7 @@
         {% endif %}
 
       {% if project.links %}
-      <ul class="project-links list-group list-group-horizontal list-group-flush align-items-center">
+      <ul class="project-links list-group list-group-horizontal list-group-flush align-items-center flex-row">
         {% for link in project.links %}
         {% assign link_text = link[0] %}
         {% assign link_url = link[1] %}
