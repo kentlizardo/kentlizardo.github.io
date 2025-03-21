@@ -1,7 +1,7 @@
 ---
 title: Bard
 topics: ["Research", "Games"]
-order: 1
+order: 2
 tools: ["Python"]
 links:
   source: https://github.com/kentlizardo/cs-423-bard
