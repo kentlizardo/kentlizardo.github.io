@@ -160,14 +160,14 @@ script_includes:
       "
     >
       <div class="license-wrapper">
-        {% if site.data.locales[lang].copyright.license.template %}
+        {% if site.data.locales['en'].copyright.license.template %}
           {% capture _replacement %}
-        <a href="{{ site.data.locales[lang].copyright.license.link }}">
-          {{ site.data.locales[lang].copyright.license.name }}
+        <a href="{{ site.data.locales['en'].copyright.license.link }}">
+          {{ site.data.locales['en'].copyright.license.name }}
         </a>
         {% endcapture %}
 
-          {{ site.data.locales[lang].copyright.license.template | replace: ':LICENSE_NAME', _replacement }}
+          {{ site.data.locales['en'].copyright.license.template | replace: ':LICENSE_NAME', _replacement }}
         {% endif %}
       </div>
 
