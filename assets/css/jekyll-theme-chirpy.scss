@@ -18,6 +18,10 @@
   color: var(--text-color);
 }
 
+.projects li {
+  border: 0;
+}
+
 .projects .card-text {
   color: var(--text-muted-color);
 }
