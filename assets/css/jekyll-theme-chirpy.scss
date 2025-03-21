@@ -8,6 +8,10 @@
 ';
 
 /* append your custom style below */
+.overflow-auto {
+  overflow: auto !important;
+}
+
 .subtitle {
   font-size: small;
   display: inline-block;
