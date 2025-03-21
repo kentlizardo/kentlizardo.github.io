@@ -1,7 +1,7 @@
 ---
-title: Clerickill
+title: All Shadows' Eve
 topics: ["Games", "Jam Games"]
-order: 4
+order: 7
 tools: ["Godot 4"]
 links:
   - itch: https://gamesbykent.itch.io/all-shadows-eve

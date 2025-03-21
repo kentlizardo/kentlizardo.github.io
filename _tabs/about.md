@@ -19,6 +19,7 @@ A list of the tools and topics I worked with/on at UIC.
 - MongoDB and MYSQL2
 - Postman
 - xv6 operating system
+- x86 & RISC-V Assembly
 - JIRA
 - Kanban
 
