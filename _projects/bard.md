@@ -1,6 +1,6 @@
 ---
 title: Bard
-topics: ["Research", "Games"]
+topics: ["Research", "Applications"]
 order: 2
 tools: ["Python"]
 links:

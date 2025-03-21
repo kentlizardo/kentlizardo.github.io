@@ -1,6 +1,6 @@
 ---
 title: Project Title
-topics: ["Personal", "Games"]
+topics: ["Games"]
 order: -1
 tools: ["Unknown Lang", "C#"]
 links:

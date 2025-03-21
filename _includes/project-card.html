@@ -20,10 +20,20 @@
   {% endif %}
 
   <div class="col-md-{{right_col}}">
-    <div class="card-header d-flex justify-content-between hide-border-bottom">
-      <h5 class="card-title m-0">
+    <div class="card-header d-flex flex-row justify-content-between align-items-center hide-border-bottom">
+      <h5 class="card-title d-inline my-1">
       {{ project.title }}
       </h5>
+      <span class="project-topics">
+        {% assign topic_idx = 1 %}
+        {% for topic in project.topics %}
+          {{topic}}
+          {%if topic_idx < project.topics.size %}
+          /
+          {% endif %}
+          {% assign topic_idx = topic_idx | plus: 1 %}
+        {% endfor %}
+      </span>
     </div>
     <div class="card-body">
     <p class="card-text">

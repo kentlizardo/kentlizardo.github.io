@@ -35,6 +35,10 @@
   color: var(--sidebar-active-color);
 }
 
+.project-topics {
+  color: var(--text-muted-color)g
+}
+
 html {
   @media (prefers-color-scheme: light) {
     &:not([data-mode]),
