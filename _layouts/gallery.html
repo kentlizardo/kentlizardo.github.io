@@ -95,13 +95,4 @@ layout: page
   {% include post-paginator.html %}
 {% endif %}
 
-<script>
-FlexMasonry.init('.mediapost-album', {
-  responsive: true,
-  breakpointCols: {
-      'min-width: 1500px': 3,
-      'min-width: 700px': 2,
-  },
-  numCols: 2,
-});
-</script>
+<script src="{{ '/assets/js/gallery-masonry.js' | relative_url }}"></script>

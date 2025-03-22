@@ -73,8 +73,8 @@
 {% endif %}
 
 {% if page.masonry %}
-  <link rel="stylesheet" href="/assets/css/flexmasonry.css">
-  <script src="/assets/js/flexmasonry.js"></script>
+  <link rel="stylesheet" href="{{ '/assets/css/flexmasonry.css' | relative_url }}">
+  <script src="{{ '/assets/js/flexmasonry.js' | relative_url }}"></script>
 {% endif %}
 
 <!-- Pageviews -->
