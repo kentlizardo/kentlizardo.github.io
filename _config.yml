@@ -163,7 +163,6 @@ pagination:
     before: 2
     after: 2
   extension: html
-  indexpage: 'index'
 
 # The base URL of your site
 baseurl: ""
@@ -188,6 +187,10 @@ collections:
     sort_by: order
   projects:
     sort_by: order
+  gallery:
+    output: true
+    sort_by: date
+    permalink: /:collection/:name
 
 defaults:
   - scope:
@@ -209,7 +212,15 @@ defaults:
       type: tabs # see `site.collections`
     values:
       layout: page
-      permalink: /:title/
+      permalink: /:title//
+  - scope:
+      path: ""
+      type: gallery
+    values:
+      layout: media-post
+      comments: true
+      toc: true
+      permalink: /gallery/:title/
 
 sass:
   style: compressed
