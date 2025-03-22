@@ -162,12 +162,12 @@ script_includes:
       <div class="post-tags">
         <i class="fa fa-tags fa-fw me-1"></i>
         {% for tag in page.tags %}
-          <a
-            href="{{ site.baseurl }}/tags/{{ tag | slugify | url_encode }}/"
+          <span
+            {% comment %} href="{{ site.baseurl }}/tags/{{ tag | slugify | url_encode }}/" {% endcomment %}
             class="post-tag no-text-decoration"
           >
             {{- tag -}}
-          </a>
+          </span>
         {% endfor %}
       </div>
     {% endif %}
