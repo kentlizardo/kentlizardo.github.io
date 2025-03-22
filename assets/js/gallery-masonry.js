@@ -1,5 +1,5 @@
 FlexMasonry.init('.mediapost-album', {
-  responsive: true,
+  responsive: false,
   numCols: 2,
   breakpointCols: {
       'min-width: 1500px': 3,
