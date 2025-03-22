@@ -26,3 +26,9 @@ const forceReload = () => {
 const forceReloadDebounced = debounce(forceReload, 400);
 
 window.addEventListener('resize', forceReloadDebounced);
+
+if (window.addEventListener) {
+  window.addEventListener('load', debounce(forceReload, 200), false);
+} else if (window.attachEvent) {
+  window.attachEvent('onload', debounce(forceReload, 200));
+}
