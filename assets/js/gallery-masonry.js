@@ -6,3 +6,23 @@ FlexMasonry.init('.mediapost-album', {
       'min-width: 700px': 2,
   },
 });
+
+const debounce = (func, delay) => {
+  let timeout;
+  return function (...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+          func.apply(this, args);
+      }, delay);
+  };
+}
+
+const forceReload = () => {
+  window.requestAnimationFrame(function() {
+    FlexMasonry.refreshAll();
+  });
+}
+
+const forceReloadDebounced = debounce(forceReload, 400);
+
+window.addEventListener('resize', forceReloadDebounced);
