@@ -6,7 +6,7 @@
 
 <!-- layout specified -->
 
-{% if page.layout == 'post' or page.layout == 'page' or page.layout == 'home' %}
+{% if page.layout == 'post' or page.layout == 'page' or page.layout == 'home' or page.layout == 'media' %}
   {% assign urls = urls | append: ',' | append: site.data.origin[type]['lazy-polyfill'].js %}
 
   {% unless page.layout == 'home' %}
@@ -22,6 +22,7 @@
 
 {% if page.layout == 'home'
   or page.layout == 'post'
+  or page.layout == 'media'
   or page.layout == 'archives'
   or page.layout == 'category'
   or page.layout == 'tag'
@@ -52,7 +53,7 @@
 {% include jsdelivr-combine.html urls=urls %}
 
 {% case page.layout %}
-  {% when 'home', 'categories', 'post', 'page' %}
+  {% when 'home', 'categories', 'post', 'page', 'media' %}
     {% assign js = page.layout %}
   {% when 'archives', 'category', 'tag' %}
     {% assign js = 'misc' %}
@@ -71,8 +72,13 @@
   <script id="MathJax-script" async src="{{ site.data.origin[type].mathjax.js | relative_url }}"></script>
 {% endif %}
 
+{% if page.masonry %}
+  <link rel="stylesheet" href="{{ '/assets/css/flexmasonry.css' | relative_url }}">
+  <script src="{{ '/assets/js/flexmasonry.js' | relative_url }}"></script>
+{% endif %}
+
 <!-- Pageviews -->
-{% if page.layout == 'post' %}
+{% if page.layout == 'post' or page.layout == 'media' %}
   {% assign provider = site.pageviews.provider %}
 
   {% if provider and provider != empty %}

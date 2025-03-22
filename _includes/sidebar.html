@@ -32,7 +32,19 @@
         </a>
       </li>
       <!-- the real tabs -->
+      {% assign tab_idx = 0 %}
       {% for tab in site.tabs %}
+
+        {% if tab_idx == 1 %}
+        <li class="nav-item{% if page.layout == 'gallery' %}{{ " active" }}{% endif %}">
+          <a href="{{ 'gallery/' | relative_url }}" class="nav-link">
+            <i class="fa-fw fas fa-photo-film"></i>
+            {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
+            <span>{{ "gallery" | upcase }}</span>
+          </a>
+        </li>
+        {% endif %}
+
         <li class="nav-item{% if tab.url == page.url %}{{ " active" }}{% endif %}">
           <a href="{{ tab.url | relative_url }}" class="nav-link">
             <i class="fa-fw {{ tab.icon }}"></i>
@@ -42,6 +54,7 @@
           </a>
         </li>
         <!-- .nav-item -->
+        {% assign tab_idx = tab_idx | plus: 1 %}
       {% endfor %}
     </ul>
   </nav>

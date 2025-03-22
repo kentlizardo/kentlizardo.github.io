@@ -3,9 +3,6 @@ layout: default
 refactor: true
 panel_includes:
   - toc
-tail_includes:
-  - related-posts
-  - post-nav
 script_includes:
   - comment
 ---
@@ -37,6 +34,7 @@ script_includes:
       {% endif %}
 
       {% if page.image %}
+        {% unless page.image.content-hide == true %}
         {% capture src %}src="{{ page.image.path | default: page.image }}"{% endcapture %}
         {% capture class %}class="preview-img{% if page.image.no_bg %}{{ ' no-bg' }}{% endif %}"{% endcapture %}
         {% capture alt %}alt="{{ page.image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
@@ -51,6 +49,7 @@ script_includes:
             <figcaption class="text-center pt-2 pb-2">{{ page.image.alt }}</figcaption>
           {%- endif -%}
         </div>
+        {% endunless %}
       {% endif %}
 
       <div class="d-flex justify-content-between">
@@ -124,6 +123,26 @@ script_includes:
 
   <div class="content">
     {{ content }}
+    {% if page.album %}
+      {% for image in page.album %}
+
+      {%- capture img_url -%}
+        {% include media-url.html src=image.path subpath=page.media_subpath absolute=true %}
+      {%- endcapture -%}
+
+      {% capture src %}src="{{ img_url | default: image }}"{% endcapture %}
+      {% capture class %}class="card-img mt-0 px-1 py-1{% if image.no_bg %}{{ ' no-bg' }}{% endif %} justify-content-center"{% endcapture %}
+      {% capture alt %}alt="{{ image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
+      {% if image.lqip %}
+        {%- capture lqip -%}lqip="{{ image.lqip }}"{%- endcapture -%}
+      {% endif %}
+      <img {{ src }} {{ class }} {{ alt }} onerror="this.style.display='none'">
+      {%- if image.alt -%}
+        <figcaption class="text-center pt-2 pb-2">{{ image.alt }}</figcaption>
+      {%- endif -%}
+
+      {% endfor %}
+    {% endif %}
   </div>
 
   <div class="post-tail-wrapper text-muted">
@@ -159,18 +178,6 @@ script_includes:
         d-flex justify-content-between align-items-center mt-5 pb-2
       "
     >
-      <div class="license-wrapper">
-        {% if site.data.locales['en'].copyright.license.template %}
-          {% capture _replacement %}
-        <a href="{{ site.data.locales['en'].copyright.license.link }}">
-          {{ site.data.locales['en'].copyright.license.name }}
-        </a>
-        {% endcapture %}
-
-          {{ site.data.locales['en'].copyright.license.template | replace: ':LICENSE_NAME', _replacement }}
-        {% endif %}
-      </div>
-
       {% include post-sharing.html lang=lang %}
     </div>
     <!-- .post-tail-bottom -->
