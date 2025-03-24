@@ -19,7 +19,7 @@ title: kent makes games # the main title
 tagline: Portfolio for a software engineer, gamedev, and creator. # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich Jekyll theme for technical writing.
+  A personal website used as a portfolio, blog, and gallery for a gamedev and creator.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -153,7 +153,7 @@ pagination:
   debug: true
   collection: 'posts'
   per_page: 10
-  permalink: '/page/:num/'
+  permalink: '/page:num/'
   title: ':title - page :num'
   limit: 0
   sort_field: 'date'
@@ -187,9 +187,6 @@ collections:
     sort_by: order
   projects:
     sort_by: order
-  gallery:
-    output: true
-    sort_by: date
 
 defaults:
   - scope:
@@ -203,6 +200,11 @@ defaults:
       # to update the code of all other post links in this project.
       permalink: /posts/:title/
   - scope:
+      path: "gallery/_posts/*"
+      type: posts
+    values:
+      layout: media
+  - scope:
       path: _drafts
     values:
       comments: false
@@ -212,14 +214,6 @@ defaults:
     values:
       layout: page
       permalink: /:title/
-  - scope:
-      path: ""
-      type: gallery
-    values:
-      layout: media
-      permalink: /gallery/:title/
-      # comments: true
-      # toc: true
 
 sass:
   style: compressed

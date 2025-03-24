@@ -163,7 +163,7 @@ script_includes:
         <i class="fa fa-tags fa-fw me-1"></i>
         {% for tag in page.tags %}
           <span
-            {% comment %} href="{{ site.baseurl }}/tags/{{ tag | slugify | url_encode }}/" {% endcomment %}
+            href="{{ site.baseurl }}/tags/{{ tag | slugify | url_encode }}/"
             class="post-tag no-text-decoration"
           >
             {{- tag -}}

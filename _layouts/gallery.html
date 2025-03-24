@@ -5,24 +5,9 @@ layout: page
 
 {% include lang.html %}
 
-{% assign all_normal = site.gallery | reverse | where_exp: 'item', 'item.hidden != true' %}
-{% assign mediaposts = '' | split: '' %}
+{% assign mediaposts = paginator.posts %}
 
 <!-- Get normal posts on current page -->
-
-{% assign visible_start = paginator.page | minus: 1 | times: paginator.per_page %}
-{% assign visible_end = visible_start | plus: paginator.per_page %}
-
-{% assign normal_size = paginator.posts | size %}
-
-{% if normal_size > 0 %}
-  {% assign normal_start = visible_start %}
-  {% assign normal_end = normal_start | plus: normal_size | minus: 1 %}
-
-  {% for i in (normal_start..normal_end) %}
-    {% assign mediaposts = mediaposts | push: all_normal[i] %}
-  {% endfor %}
-{% endif %}
 
 <div id="mediapost-list" class="flex-grow-1 px-xl-1">
   {% for post in mediaposts %}

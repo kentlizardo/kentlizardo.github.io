@@ -1,5 +1,6 @@
 ---
 title: School-based RPG
+categories: [Gamedev, Concept]
 tags: [pixel art, unity, 3d, rpg]
 date: 2022-05-01
 description: >-
