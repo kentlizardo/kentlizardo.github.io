@@ -39,8 +39,10 @@ permalink: /feed.xml
       <name>{{ post.author | default: site.social.name }}</name>
     </author>
 
-  {% if post.categories %}
-    {% for category in post.categories %}
+  {% assign leaf_categories_n = page.categories | size | minus: 1 %}
+  {% assign leaf_categories = page.categories | slice: 1, leaf_categories_n %}
+  {% if leaf_categories %}
+    {% for category in leaf_categories %}
     <category term="{{ category }}" />
     {% endfor %}
   {% endif %}

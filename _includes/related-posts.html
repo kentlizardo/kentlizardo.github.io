@@ -13,7 +13,9 @@
 
 {% assign match_posts = '' | split: '' %}
 
-{% for category in page.categories %}
+{% assign leaf_categories_n = page.categories | size | minus: 1 %}
+{% assign leaf_categories = page.categories | slice: 1, leaf_categories_n %}
+{% for category in leaf_categories %}
   {% assign match_posts = match_posts | push: site.categories[category] | uniq %}
 {% endfor %}
 
@@ -40,7 +42,7 @@
     {% endif %}
   {% endfor %}
 
-  {% for category in post.categories %}
+  {% for category in leaf_categories %}
     {% if page.categories contains category %}
       {% assign score = score | plus: CATEGORY_SCORE %}
     {% endif %}

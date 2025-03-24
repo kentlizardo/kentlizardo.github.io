@@ -1,6 +1,7 @@
 ---
 title: Gridknights Showcase
-tags: [godot, jam]
+categories: [Game Development, Showcase]
+tags: [godot, jam, tactics]
 date: 2024-01-25
 description: >-
   Video showcasing gameplay of Gridknights.
