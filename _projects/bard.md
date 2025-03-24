@@ -1,6 +1,6 @@
 ---
 title: Bard
-topics: ["Research", "Applications"]
+topics: ["Research", "Games"]
 order: 2
 tools: ["Python", "PyGame", "Whisper", "UX/UI"]
 links:

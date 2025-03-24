@@ -3,10 +3,13 @@ title: The Player Body Problem - Reverse Force Integration
 author: kent
 date: 2025-03-22
 categories: [Game Development, Devlog]
-tags: [godot, physics, c#, gamedev]
+tags: [godot, physics, c#, devlog]
+image:
+  path: https://ik.imagekit.io/uwzmgirgsx/01-movement-c02.gif?updatedAt=1742422948119
+  content-hide: true
 ---
 
-Physics-based player mobility is commonly defined by rules and assumptions. Many assumptions and constraints are made to simplify the implementation of player controllers. The most common player controller in games is driven by kinematics. The player's input directly changes velocity and acceleration through calculations decided by the developer.
+Physics-based player mobility is commonly defined by rules and assumptions. Many assumptions and constraints are chosen to simplify the implementation of player controllers. The most common player controller in games is driven by kinematics, where the player's input directly changes velocity and acceleration through calculations decided by the developer.
 
 ## Kinematics, Kinetics, and Mechanics
 

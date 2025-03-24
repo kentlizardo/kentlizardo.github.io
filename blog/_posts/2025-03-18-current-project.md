@@ -6,13 +6,13 @@ categories: [General, Reflection]
 tags: [godot, project management, c#, devlog, portfolio, webdev]
 ---
 
-# Hello Jekyll!
+# Hello!
 
-This post marks the first step on my new static site portfolio! I already had a minimal blog before using *SvelteKit* and *mdsvex*, but I was limited with what I could add that would be supported by *SvelteKit*'s static generation. This also made it so that I would have to leverage a lot more work just to write markdown posts, which was not my intention at the time. I decided to bite the bullet and set up a Jekyll theme.
+This post marks the first step on my new static site portfolio! I already had started making a minimal blog before using *SvelteKit* and *mdsvex*, but I was limited with what I could add that would be supported by *SvelteKit*'s static generation. This also made it so that I would have to leverage a lot more work just to write markdown posts, which was not my intention at the time. I decided to finally bite the bullet and set up a Jekyll theme.
 
 ~~Honestly I'd prefer to use Obsidian with some custom theming but Publish and Quartz don't support themes in their entirety at the moment.~~
 
-I decided to use *Chirpy*! It took me a bit of headscratching to set up the dev container for Code to work properly with Windows but it was not in vain. The theme looks clean and, with some tweaking, is suitable for the purposes of this portfolio. Having ported over my little animated icon from the previous version, I'm satisfied with what I have now.
+The theme I chose was *Chirpy*! It took me a bit of headscratching to set up the dev container for Code to work properly with Windows but it was not in vain. The theme looks clean and, with some tweaking, is suitable for the purposes of this portfolio. Having ported over my little animated icon from the previous version, I'm satisfied with what I have now.
 
 > The following features are ones I want to add in the future, but it's my first time using Jekyll, having just set up Chirpy earlier today.
 > - [x] Auto generated project cards and related posts. The pagination setup is a little confusing with how the theme sends the posts. It seems it's linked closely to the index.html in some way and I'll have to dig into the `/_includes/`{: .filepath} folder to find out more.

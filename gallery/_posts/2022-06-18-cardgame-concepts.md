@@ -1,7 +1,7 @@
 ---
 title: Cardgame Design Concepts
 categories: [Game Development, Concept]
-tags: [unity, pixel art, card_game, ui]
+tags: [unity, pixel art, card game, ui]
 date: 2022-06-18
 description: >-
   Various concept art and designs for a card game.

@@ -37,6 +37,7 @@ script_includes:
       {% endif %}
 
       {% if page.image %}
+        {% unless page.image.content-hide == true %}
         {% capture src %}src="{{ page.image.path | default: page.image }}"{% endcapture %}
         {% capture class %}class="preview-img{% if page.image.no_bg %}{{ ' no-bg' }}{% endif %}"{% endcapture %}
         {% capture alt %}alt="{{ page.image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
@@ -51,6 +52,7 @@ script_includes:
             <figcaption class="text-center pt-2 pb-2">{{ page.image.alt }}</figcaption>
           {%- endif -%}
         </div>
+        {% endunless %}
       {% endif %}
 
       <div class="d-flex justify-content-between">
