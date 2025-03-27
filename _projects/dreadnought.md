@@ -2,7 +2,7 @@
 title: Dreadnought
 topics: ["Research", "Games"]
 order: 1
-tools: ["JS/TS", "React", "Express"]
+tools: ["JS/TS", "React Three Fiber", "Express"]
 links:
   - summary: https://ik.imagekit.io/uwzmgirgsx/Dreadnought%20Summary%20Presentation.pptx?updatedAt=1742525117590
     icon_override: fas fa-download
