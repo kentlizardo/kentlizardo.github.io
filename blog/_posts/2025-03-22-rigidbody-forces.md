@@ -13,7 +13,7 @@ Physics-based player mobility is commonly defined by rules and assumptions. Many
 
 ## Kinematics, Kinetics, and Mechanics
 
-A player with kinematic movement is fine-tuned, quick, and designed to make you feel directly in control. Many of the "forces" seen are generated from nothing. In Unity, the driving component would be known as a **CharacterController**, or in Godot, the **CharacterBody3D** Node. They are able to double jump, change direction in mid-air, go from a standstill to running in one direction, and then backwards the next. This means they ignore natural forces and momentum.
+A player with kinematic movement is fine-tuned, quick, and designed to make you feel directly in control; as a result, many of the "forces" seen are generated from nothing. In Unity, the driving component would be known as a **CharacterController**, or in Godot, the **CharacterBody3D** Node. They are able to double jump, change direction in mid-air, go from a standstill to running in one direction, and then backwards the next; they ignore natural forces and momentum.
 
 Common rules include the following:
 - Player gravity will always goes down.
@@ -23,27 +23,26 @@ Common rules include the following:
 - You can change running direction without slowing down.
 
 For my current project, some sequences that needed to be possible involve:
-- Falling when gravity changes
+- Standing on a moving platform
 - Losing balance on uneven or shifting terrain
 - Climb and hang onto a massive flying object
 - Push a crushing object off themselves
-- Stand on a moving platform
 - Catch themselves when gravity flips
 - Nullifying an enemy's gravity to make them immobile
 - Switching gravity to leap and attack a large creature
   
 This meant I needed a character that could be affected by the forces around them, and I could not use a kinematic controller. However, using a rigidbody-based controller meant I had to be clever with how I moved the player. Adding a constant force to move would feel like moving on ice with no maximum speed. Moving on shifting terrain would be no longer trivial. The rigidbody would also have to balance themselves or lock rotation to stay upright.
 
-Even with all these natural forces, an important rule is that the player **should not** feel powerless. The player should always feel like they have agency over themselves and their actions, ~~in order for you, as the developer, to take it away at the right time.~~
+Even with all these natural forces, an important rule is that the player **should not** feel powerless. The player should always feel like they have agency over themselves and their actions, ~~in order for you as the developer, to take it away at the right time.~~
 
 > If you've watched Nintendo's [presentation at GDC discussing their "Chemistry" engine](https://www.youtube.com/watch?v=QyMsF31NdNc), this mindset is quite similar to theirs when Breath of the Wild was made. Define a set of rules to make a playground where creative players can find interesting and complex situations that just **work**. I find it funny that the name comes from the term "physics" engine. Would this system be called a "physics" engine as well?
 {: .prompt-info }
 
 These sort of natural interactions are not so easily achieved, without first breaking the assumptions.
 
-Some AAA games handle the problem using solutions like active ragdoll and/or pose matching. These implementations usually result in movement that seems drunken or sluggish. If you have enough computing power, you can also simulate the human body's natural locomotion [using machine learning](https://youtu.be/JZKaqQKcAnw?si=T5cGiix0Nm-BLr2Z). However, machine learning in most applications of game development are limited to a small number of places. They make sense for shallow and broad systems, like generating [stories and dialogue](https://www.playsuckup.com/), but for complex systems that the player interacts with frequently, it requires tuning of a system that can be unpredictable or inextensible at times.
+Some AAA games handle the problem with solutions like active ragdoll and/or pose matching. These implementations usually result in movement that seems drunken or sluggish. If you have enough computing power, you can also simulate the human body's natural locomotion [using machine learning](https://youtu.be/JZKaqQKcAnw?si=T5cGiix0Nm-BLr2Z). However, machine learning in most applications of game development are limited to a small number of places. They make sense for shallow and broad systems, like generating [stories and dialogue](https://www.playsuckup.com/), but for complex systems that the player interacts with frequently, it requires tuning of a system that can be unpredictable or inextensible at times.
 
-The other option is using an approximation; a commonly used one is a capsule-shaped player body combined with an animation system handling a broad number of cases to ensure "seamlessness." A very good example of this in-practice is the one used for Very Very Valet. They have a [great video explaining the core mechanics](https://youtu.be/qdskE8PJy6Q?si=fN9Zx_O4-XS__2bI) of their physics controller.
+The other option is designing around an approximation; a commonly used one is a capsule-shaped player body combined with an animation system handling a broad number of cases to ensure "seamlessness." A very good example of this in-practice is the one used for Very Very Valet. They have a [great video explaining the core mechanics](https://youtu.be/qdskE8PJy6Q?si=fN9Zx_O4-XS__2bI) of their physics controller.
 
 I decided to also use a capsule shape while using a shapecast to detect ground. Damped harmonic oscillation is used to hover the player, and movement is generated with a driving friction force. This is a tried-and-true implementation, frequently used to solve issues like moving up stairs. These decisions provided a good starting point and allowed me to focus on the physics **interactions** instead of **fidelity**. In development, I call this controller the Advanced Player Controller, or APC for short, as it's called in my notes and/or code.
 
@@ -97,9 +96,7 @@ What this meant, was that I could find the contact forces by subtracting gravity
 ![Flow chart explaining reverse integration in Godot](https://ik.imagekit.io/uwzmgirgsx/2025-03-22-rigidbody-forces/02?updatedAt=1742667920131)
 _Above depicts the flow of control for reverse integration of a Godot Rigidbody3D_
 
-At first, I implemented the solution but it was buggy and perceivably off, which made me think it was incorrect. In testing shortly after, I had found that it was a simple issue: I hadn't accounted for [linear damping](https://github.com/godotengine/godot/blob/2582793d408ade0b6ed42f913ae33e7da5fb9184/modules/godot_physics_3d/godot_body_3d.cpp#L636). ~~Later, I would also find out that I should have used Jolt's damping calculation instead~~.
-
-Having done a little tweaking to fix the force solver, it worked!
+At first, I implemented the solution but it was buggy and perceivably off, which made me think it was incorrect. In testing shortly after, I had found that it was a simple issue: I hadn't accounted for [linear damping](https://github.com/godotengine/godot/blob/2582793d408ade0b6ed42f913ae33e7da5fb9184/modules/godot_physics_3d/godot_body_3d.cpp#L636). ~~Later, I would also find out that I should have used Jolt's damping calculation instead~~. Having done a little tweaking to fix the force solver, it worked!
 
 ![Test showing the effect of contact forces with changing gravity](https://ik.imagekit.io/uwzmgirgsx/2025-03-22-rigidbody-forces/06.gif?updatedAt=1742708026718)
 
@@ -156,20 +153,19 @@ Even after all this, there are still some limits to this implementation. The fol
 
 ### Tracking Applied Forces
 
-Each manual or applied force must be accounted for in order to correctly solve for 'contact' forces. I created a `ForceSolver` class to help me with this.
-In addition to this, a problem I encountered was that the applied force from hovering the rigidbody was not included as a reactive force. What was the best way to solve this? Manually add it to an accumulator, then treat it as if it were a contact force.
+Each manual or applied force must be accounted for in order to correctly solve for 'contact' forces so I created a `ForceSolver` class to do so. A problem I encountered was that the applied force from hovering the rigidbody was not included as a reactive force. The best way to solve this was to manually add it to an accumulator, then treat it as if it were a contact force.
 
 All forces meant to approximate contacts like walking or standing had to be added back in the force equation in the reverse integration step. This led to another important step for the APC, defining *idle* and *locomotion* forces. These are force accumulators that have special properties. In order to define these forces, I made an abundant amount of diagrams.
 
-![Diagram depicting general equations for reverse integration](https://ik.imagekit.io/uwzmgirgsx/2025-03-22-rigidbody-forces/04.png?updatedAt=1742668757179)
+![Diagram depicting general equations for reverse integration](https://ik.imagekit.io/uwzmgirgsx/2025-03-22-rigidbody-forces/04.png?updatedAt=1742668757179){: w="400" }
 
-![Diagram depicting different free body states for a floating capsule](https://ik.imagekit.io/uwzmgirgsx/2025-03-22-rigidbody-forces/03.png?updatedAt=1742668306436)
+![Diagram depicting different free body states for a floating capsule](https://ik.imagekit.io/uwzmgirgsx/2025-03-22-rigidbody-forces/03.png?updatedAt=1742668306436){: w="400" }
 _The above contains free body diagrams depicting states of a floating capsule rigidbody_
 
-![Slope approximation](https://ik.imagekit.io/uwzmgirgsx/2025-03-22-rigidbody-forces/01.png)
+![Slope approximation](https://ik.imagekit.io/uwzmgirgsx/2025-03-22-rigidbody-forces/01.png){: w="400" }
 _This diagram depicts an iteration of slope approximation, generalizing slopes and stairs_
 
-There is another limitation to this method. I spent a decent amount of time finding a way to calculate the specific reactive force generated by a force in order to make balancing during running easier. Unfortunately, it's impossible to isolate the specific reactive forces for one force accumulator. Reverse integration can only find the sum of *all engine forces.*
+I encountered some difficulties for balancing the player controller during the running case. As I spent a decent amount of time finding a way to calculate the specific reactive force generated by an applied force, I found out there is another limitation to this method. Unfortunately, it's impossible to isolate the specific reactive forces for one force accumulator. Reverse integration can only find the sum of *all engine forces.*
 
 ### Not All Engine Forces Are Contact Forces
 
