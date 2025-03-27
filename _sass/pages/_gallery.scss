@@ -30,12 +30,13 @@
 }
 
 .mediapost-preview .card-img-overlay {
-  background: linear-gradient(0deg, rgba(109, 109, 109, 0) 0%, rgba(17, 17, 17, 0.4) 80%);
+  background: linear-gradient(0deg, rgba(109, 109, 109, 0) 0%, rgba(17, 17, 17, 1) 60%);
 }
 
 .mediapost-album img {
-  border-radius: 5px;
-  padding: .2rem;
+  padding: .2rem 0;
+  width: 100%;
+  align-self: stretch;
 }
 
 @media (hover: hover) {

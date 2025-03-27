@@ -8,10 +8,9 @@ layout: page
 {% assign mediaposts = paginator.posts %}
 
 <!-- Get normal posts on current page -->
-
 <div id="mediapost-list" class="flex-grow-1 px-xl-1">
   {% for post in mediaposts %}
-    <article class="card-wrapper card">
+    <article class="card-wrapper card position-absolute pt-2">
       <a href="{{ post.url | relative_url }}" class="mediapost-preview">
         {% if post.image %}
           {% assign src = post.image.path | default: post.image %}
@@ -26,15 +25,32 @@ layout: page
           <img class="card-img preview-hover" src="{{ src }}" alt="{{ alt }}" {{ lqip }}>
         {% endif %}
 
-        <div class="{% if post.image %}card-img-overlay{% else %}preview-hover{% endif %}">
-          <div class="card-body">
+        <div class="{% if post.image %}card-img-overlay mt-2{% else %}preview-hover{% endif %}">
+          <div class="card-body{% if post.image %} p-1 my-2{% endif %}">
             <h1 class="card-title my-2 mt-md-0">{{ post.title }}</h1>
 
             <div class="card-text content mt-0 mb-3">
               <p>{% include post-description.html %}</p>
             </div>
 
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
+            {% if post.album %}
+              <div class="mediapost-album">
+              {% for image in post.album %}
+                {% assign src = image.path | default: post.image %}
+                {% unless src contains '//' %}
+                  {% assign src = post.media_subpath | append: '/' | append: src | replace: '//', '/' %}
+                {% endunless %}
+                {% assign alt = image.alt | xml_escape | default: 'Preview Image' %}
+                {% assign lqip = null %}
+                {% if image.lqip %}
+                  {% capture lqip %}lqip="{{ image.lqip }}"{% endcapture %}
+                {% endif %}
+                <img src="{{ src }}" alt="{{ alt }}" {{ lqip }}>
+              {% endfor %}
+              </div>
+            {% endif %}
+
+            <div class="post-meta flex-grow-1 d-flex align-items-end pt-2">
               <div class="me-auto">
                 <!-- posted date -->
                 <i class="far fa-calendar fa-fw me-1"></i>
@@ -57,22 +73,6 @@ layout: page
           </div> <!-- .card-body -->
         </div> <!-- .card-img-overlay -->
       </a>
-      <div class="mediapost-album">
-      {% if post.album %}
-        {% for image in post.album %}
-          {% assign src = image.path | default: post.image %}
-          {% unless src contains '//' %}
-            {% assign src = post.media_subpath | append: '/' | append: src | replace: '//', '/' %}
-          {% endunless %}
-          {% assign alt = image.alt | xml_escape | default: 'Preview Image' %}
-          {% assign lqip = null %}
-          {% if image.lqip %}
-            {% capture lqip %}lqip="{{ image.lqip }}"{% endcapture %}
-          {% endif %}
-          <img class="card-img-bottom" src="{{ src }}" alt="{{ alt }}" {{ lqip }}>
-        {% endfor %}
-      {% endif %}
-      </div>
     </article>
   {% endfor %}
 </div>
@@ -82,4 +82,4 @@ layout: page
   {% include post-paginator.html %}
 {% endif %}
 
-<script src="{{ '/assets/js/gallery-masonry.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/gallery-masonry-init.js' | relative_url }}"></script>
