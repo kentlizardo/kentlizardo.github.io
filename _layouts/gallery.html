@@ -10,7 +10,7 @@ layout: page
 <!-- Get normal posts on current page -->
 <div id="mediapost-list" class="flex-grow-1 px-xl-1">
   {% for post in mediaposts %}
-    <article class="card-wrapper card position-absolute pt-2">
+    <article class="card-wrapper card pt-2">
       <a href="{{ post.url | relative_url }}" class="mediapost-preview">
         {% if post.image %}
           {% assign src = post.image.path | default: post.image %}

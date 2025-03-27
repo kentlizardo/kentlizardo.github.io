@@ -53,6 +53,8 @@
   }
 
   .card-wrapper {
+    position: absolute;
+
     &:hover {
       text-decoration: none;
     }
