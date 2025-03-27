@@ -1,9 +1,9 @@
 ---
-title: Gridknights Showcase
+title: Jam Game Showcase (Gridknights)
 categories: [Game Development, Showcase]
 tags: [godot, jam, tactics]
 description: >-
-  Video showcasing gameplay of Gridknights.
+  Video showcasing unfinished gameplay of Gridknights.
 image:
   path: https://img.youtube.com/vi/l95PGd7lmD8/0.jpg
   content-hide: true
