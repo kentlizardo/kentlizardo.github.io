@@ -5,7 +5,7 @@ order: 7
 toc: true
 ---
 
-# Professional background
+## Professional background
 I graduated from UIC with a Bachelors in Computer Science with a concentration in Software Engineering.
 
 A list of the tools and topics I worked with/on at UIC.
@@ -25,19 +25,50 @@ A list of the tools and topics I worked with/on at UIC.
 - Kanban
 
 > ***What did you enjoy working with the most?***
-> 
+>
 > My personal favorites were **Go** and **Typescript**. The focus on explicit semantics along with the dev environment made the experience of working with them really smooth. I wish I could use TS's type system in game engines like Godot or Unity. In the future, I'd also like to learn more about **F#** or functional programming in general.
 {: .prompt-tip }
 
-# How to contact you?
+## Q&A
+
+### How to contact you?
 
 For business or professional reasons, please reach out through [**LinkedIn**](https://www.linkedin.com/in/kentbrianlizardo) or the email below. If you have my number from a provided resume, you may contact me through that as well.
 
 For any other reasons, you can [email me](mailto:contact@kentmakes.games) at `contact@kentmakes.games`. It may take me a while to answer, so be patient with me.
 
-# Q&A
+### Why do you make games?
 
-## What are your interests?
+I started making small games around ~2012 using *Scratch* and *GameMaker: Studio*. When I first had the feeling of starting up my own game made with code I had written myself, there was no going back.
+
+Some of these included a Galaga clone, a Wolfenstein clone, an idle clicker game, side scrollers, and more. I also made mods and server plugins for Minecraft to play with friends. I always loved creating and working with new tools and languages, from Visual Basic, to Python and PyGame, to Java and LWJGL, and more.
+
+I stopped making games around high school but got back into it during university when I entered a game jam online. You can find many of the games I made after this point on [my itch.io page](https://gamesbykent.itch.io/).
+
+### Why did you decide on software engineering?
+
+I learned programming alongside game development using frameworks like Windows Forms and VB, Python and Tkinter, and more. Some projects I made around then were an emailing program, a compiled scripting language, a voice-controlled assistant, and others.
+
+<p class="overflow-auto my-0">
+<div class="left" style="display: flex; flex-direction: row;">
+<img class="mx-1" src="/about-dddc0.png?updatedAt=1742489048765" style="width: 320px; height: 100%;" alt="An example script written in the scripting lang.">
+<img class="mx-1" src="/about-dddc2.gif?updatedAt=1742489073748" style="width: 320px; height: 100%;" alt="Dragging and dropping the script onto the compiler.">
+<img class="mx-1" src="/about-dddc1.gif?updatedAt=1742489061182" style="width: 320px; height: 100%;" alt="Running a basic program with input.">
+</div>
+When I was younger, I also wanted to work with electronics and microcontroller projects but didn't have access to many of the tools and materials needed; as a result, I spent a larger portion of my time making applications on the software side.
+</p>
+
+### What is this site built with?
+A slightly [modified version](https://github.com/kentlizardo/kentlizardo.github.io) of [Chirpy by Cotes Chung](https://github.com/cotes2020/jekyll-theme-chirpy/), hosted with Github Pages.
+
+Changes include but are not limited to:
+- A gallery with responsive masonry and pagination
+- Project cards from a `projects` collection
+- Pixel art icon for specific site paths
+- An upgrade to jekyll-paginate-v2
+- Enabled TOC on all page layouts
+
+### What are your interests?
 - Video games as both art and software. The topics mentioned below are ones I am always interested in researching and implementing.
 	- Graphics and VFX programming.
 	- Procedural generation.
@@ -48,7 +79,7 @@ For any other reasons, you can [email me](mailto:contact@kentmakes.games) at `co
 - Digital art. However, I am more experienced with pixel art.
 - Software development (as a hobby). I'm always trying to improve and learn more about conventions, best practices, and techniques so that I can use them in my own workflows and processes.
 
-## What's your setup for ___?
+### What's your setup for ___?
 
 **Development**
 
@@ -73,27 +104,3 @@ I spent a long amount of time using **GIMP** for digital art and image editing, 
 My daily driver for programming is a Zephyrus Rog G14.
 
 For my desktop (a gaming prebuilt), my peripherals include a Focusrite Scarlett Solo with an AT2020 Condenser Mic, listening with ATH-M30x headphones. My favorite music setup by far is my Qudelix paired with a Koss KSC75.
-
-## Why do you make games?
-
-I started making small games around ~2012 using *Scratch* and *GameMaker: Studio*. When I first had the feeling of starting up my own game made with code I had written myself, there was no going back.
-
-Some of these included a Galaga clone, a Wolfenstein clone, an idle clicker game, side scrollers, and more. I also made mods and server plugins for Minecraft to play with friends. I always loved creating and working with new tools and languages, from Visual Basic, to Python and PyGame, to Java and LWJGL, and more.
-
-I stopped making games around high school but got back into it during university when I entered a game jam online. You can find many of the games I made after this point on [my itch.io page](https://gamesbykent.itch.io/).
-
-## Why did you decide on software engineering?
-
-I learned programming alongside game development using frameworks like Windows Forms and VB, Python and Tkinter, and more. Some projects I made around then were an emailing program, a compiled scripting language, a voice-controlled assistant, and others.
-
-<p class="overflow-auto my-0">
-<div class="left" style="display: flex; flex-direction: row;">
-<img class="mx-1" src="/about-dddc0.png?updatedAt=1742489048765" style="width: 320px; height: 100%;" alt="An example script written in the scripting lang.">
-<img class="mx-1" src="/about-dddc2.gif?updatedAt=1742489073748" style="width: 320px; height: 100%;" alt="Dragging and dropping the script onto the compiler.">
-<img class="mx-1" src="/about-dddc1.gif?updatedAt=1742489061182" style="width: 320px; height: 100%;" alt="Running a basic program with input.">
-</div>
-When I was younger, I also wanted to work with electronics and microcontroller projects but didn't have access to many of the tools and materials needed; as a result, I spent a larger portion of my time making applications on the software side.
-</p>
-
-## What is this site built with?
-A slightly modified version of [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy/) by Cotes Chung, hosted with Github Pages.
