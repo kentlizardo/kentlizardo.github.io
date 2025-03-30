@@ -12,7 +12,7 @@ A list of the tools and topics I worked with/on at UIC.
 - C and C++
 - C# and F#
 - Go
-- Javascript & Typescript
+- Javascript/Typescript
 - Python
 - Ruby
 - React.js
@@ -21,8 +21,7 @@ A list of the tools and topics I worked with/on at UIC.
 - Postman
 - xv6 operating system
 - x86 & RISC-V Assembly
-- JIRA
-- Kanban
+- Agile, JIRA, Kanban, and Scrum
 
 > ***What did you enjoy working with the most?***
 >
@@ -59,14 +58,12 @@ When I was younger, I also wanted to work with electronics and microcontroller p
 </p>
 
 ### What is this site built with?
-A slightly [modified version](https://github.com/kentlizardo/kentlizardo.github.io) of [Chirpy by Cotes Chung](https://github.com/cotes2020/jekyll-theme-chirpy/), hosted with Github Pages.
+A [modified version](https://github.com/kentlizardo/kentlizardo.github.io) of [Chirpy by Cotes Chung](https://github.com/cotes2020/jekyll-theme-chirpy/), hosted with Github Pages.
 
-Changes include but are not limited to:
-- A gallery with responsive masonry and pagination
+Some changes include but are not limited to:
+- A gallery section with responsive masonry and pagination
 - Project cards from a `projects` collection
 - Pixel art icon for specific site paths
-- An upgrade to jekyll-paginate-v2
-- Enabled TOC on all page layouts
 
 ### What are your interests?
 - Video games as both art and software. The topics mentioned below are ones I am always interested in researching and implementing.

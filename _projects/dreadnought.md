@@ -8,6 +8,7 @@ links:
     icon_override: fas fa-download
   - report: https://ik.imagekit.io/uwzmgirgsx/Dreadnought%20Final%20Coding%20Report.docx?updatedAt=1742525366165
     icon_override: fas fa-download
+  - source: https://github.com/kentlizardo/cs-442-dreadnought
 image:
   path: https://ik.imagekit.io/uwzmgirgsx/pg-dreadnought.png?updatedAt=1742525446000
 description: >-
