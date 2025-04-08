@@ -108,7 +108,7 @@ Here is my current code for reverse integration.
 // <-- ApcBody.cs -->
 void _IntegrateForces(PhysicsDirectBodyState3D state) {
     // At the start of the integration frame, we calculate the force solver results.
-    var forcesResults = ForceSolver.Solve(state.LinearVelocity, deltaTime);
+    var forceResult = ForceSolver.Solve(state.LinearVelocity, deltaTime);
 
     // ... 
 
@@ -130,16 +130,16 @@ public Vector3? LastVelocity { get; set; }  // Nullable to ignore the first fram
 public Vector3 PassiveForces { get; set; }  // Accumulator for gravity and other constant forces on the Rigidbody.
 public float Mass { get; set; }  // In the rare case that the rigidbody will change mass.
 
-public ForcesSolverResult(Vector3 currentVelocity, float deltaTime) {
+public ForceSolverResult Solve(Vector3 currentVelocity, float deltaTime) {
     // Jolt Physics reverse integration
     var velocityDelta = currentVelocity - LastVelocity.Value;
     var acceleration = velocityDelta / deltaTime;
     var netForces = acceleration * Mass.Value;
     var contactForces = netForces - AppliedForces - PassiveForces;
 
-    // ... You may include any other force results like InnerEarForces
+    // ... You may include any other force results like inner ear forces
 
-    return new ForcesSolverResult() {
+    return new ForceSolverResult() {
         ContactForces = contactForces,
         // ... Return any values needed to be sent to ApcBody
     };
