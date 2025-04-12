@@ -28,15 +28,20 @@
 
 .projects .card-text {
   color: var(--text-muted-color);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--card-header-bg);
 }
 
-.project-links {
-  a > span {
-    text-decoration: underline;
-  }
+.project-misc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
 }
 
 .project-tools {
+  justify-items: start;
   span {
     padding: .4rem .5rem;
     border-radius: .75rem;
@@ -44,6 +49,15 @@
 
   span * {
     color: var(--sidebar-active-color);
+  }
+}
+
+.project-links {
+  flex-direction: column;
+  align-items: end;
+
+  a > span {
+    text-decoration: underline;
   }
 }
 
