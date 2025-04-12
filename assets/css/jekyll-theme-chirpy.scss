@@ -30,17 +30,21 @@
   color: var(--text-muted-color);
 }
 
-.project-links a > span {
-  text-decoration: underline;
+.project-links {
+  a > span {
+    text-decoration: underline;
+  }
 }
 
-.project-tools span {
-  padding: .3rem .5rem;
-  border-radius: .75rem;
-}
+.project-tools {
+  span {
+    padding: .4rem .5rem;
+    border-radius: .75rem;
+  }
 
-.project-tools span * {
-  color: var(--sidebar-active-color);
+  span * {
+    color: var(--sidebar-active-color);
+  }
 }
 
 .project-topics {
