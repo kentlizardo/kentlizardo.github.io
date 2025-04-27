@@ -24,7 +24,7 @@ edges and faces to a list of points.
 
 ## Greedy Query on ClutchMeshData
 
-First, we filter the mesh data into edges and faces that are within reach. This is determined with a greedy-algorithm based on an origin distance. In the future, we could also optimize this even more by using AABB's for broad phase analysis since for the game this is for involves a large and sparse 3d environment.
+First, we filter the mesh data into edges and faces that are within reach. This is determined with a greedy algorithm based on distance checking from an origin. In the future, we could also optimize this even more by using AABB's for broad phase analysis since the game this is for involves a large and sparse 3d environment.
 
 {% include embed/video.html src='https://ik.imagekit.io/uwzmgirgsx/2025-04-26-rasterization-algo/01_intro.webm' types='webm' %}
 _Showcasing the greedy query with respect to collision shape scaling, distance, and more_
