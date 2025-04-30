@@ -32,7 +32,7 @@ _Showcasing the greedy query with respect to collision shape scaling, distance, 
 {% include embed/video.html src='https://ik.imagekit.io/uwzmgirgsx/2025-04-26-rasterization-algo/02_greedy.webm' types='webm' %}
 _Showcasing the query without rasterized points. Highlighted sections are within range of the origin_
 
-Originally the algorithm was implemented iterating over each vertex but this reached a specific edge case that needed to be solved. If a tri was large enough (where each vertex was farther than the query's corresponding radius), it would not be included by the query, despite the search clearly encompassing the shape agent. In order to solve this, I implemented a method called *FindClosestPoint* in each non-discrete agent to extrapolate closest points from faces and edges.
+Originally the algorithm was implemented iterating over each vertex but this reached a specific edge case that needed to be solved. If a tri was large enough (where each vertex was farther than the query's corresponding radius), it would not be included by the query, despite the search clearly encompassing the shape agent. In order to solve this, I implemented a method called *GetClosestToPoint* in each non-discrete agent to extrapolate closest points from faces and edges.
 
 ```cs
 // <-- ClutchFaceData.cs -->
