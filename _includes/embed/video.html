@@ -34,19 +34,24 @@
 
 <p>
   <video class="embed-video file" {{ poster }} {{ attributes }}>
-    {% comment %} take out query {% endcomment %}
-    {% assign video_url = video_url | split: '?' | first %}
-    {% assign extension = video_url | split: '.' | last %}
+    {% assign query_split = video_url | split: '?' %}
+    {% assign url_no_query = query_split[0] %}
+    {% assign query = query_split[1] %}
+
+    {% assign extension = url_no_query | split: '.' | last %}
     {% assign types = extension | concat: types %}
 
     {% assign ext_size = extension | size %}
-    {% assign src_size = video_url | size %}
+    {% assign src_size = url_no_query | size %}
     {% assign slice_size = src_size | minus: ext_size %}
 
-    {% assign filepath = video_url | slice: 0, slice_size %}
+    {% assign filepath = url_no_query | slice: 0, slice_size %}
 
     {% for type in types %}
       {% assign src = filepath | append: type %}
+      {% if query %}
+        {% assign src = src | append: '?' | append: query %}
+      {% endif %}
       {% assign media_item = site.data.media | find: 'extension', type %}
       {% assign mime_type = media_item.mime_type | default: type %}
       <source src="{{ src }}" type="video/{{ mime_type }}">
