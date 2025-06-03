@@ -66,7 +66,7 @@ _Mantling testing different angles with both types of climbing integration funct
 Key strafes are directions for strafing onto edges and vertices using functions from *ClutchMeshData*. Although hanging onto a face (full grabs) is possible at the moment, the strafe point functions for those have not been implemented yet.
 Strafing currently just slides the grab position, which looks smooth, but I am considering using IK and "arms" to control the strafe grab if scope allows for it.
 
-{% include embed/video.html src='https://ik.imagekit.io/uwzmgirgsx/2025-06-03-clutch-update/key-strafing.webm' %}
+{% include embed/video.html src='https://ik.imagekit.io/uwzmgirgsx/2025-06-03-clutch-update/key-strafing.webm?tr=orig' %}
 _Key strafe directions are indicated by the green rays_
 
 [^cross-planar]: The plane orthogonal to the relative fall direction
