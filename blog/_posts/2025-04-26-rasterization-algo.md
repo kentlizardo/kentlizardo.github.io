@@ -6,7 +6,7 @@ description: >-
   Fast analysis of collision trimeshes optimized for physics.
 image:
   path: https://ik.imagekit.io/uwzmgirgsx/2025-04-26-rasterization-algo/04_raster_scaling.webm/ik-thumbnail.jpg
-  content-hide: true
+  hide_cover: true
 ---
 
 ## Context for Mesh Rasterization
