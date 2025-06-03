@@ -1,5 +1,6 @@
 ---
 layout: gallery
+title: Gallery
 permalink: /gallery/
 pagination:
   enabled: true
