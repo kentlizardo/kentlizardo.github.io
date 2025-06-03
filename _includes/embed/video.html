@@ -34,6 +34,8 @@
 
 <p>
   <video class="embed-video file" {{ poster }} {{ attributes }}>
+    {% comment %} take out query {% endcomment %}
+    {% assign video_url = video_url | split: '?' | first %}
     {% assign extension = video_url | split: '.' | last %}
     {% assign types = extension | concat: types %}
 
