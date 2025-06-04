@@ -26,10 +26,10 @@ edges and faces to a list of points.
 
 First, we filter the mesh data into edges and faces that are within reach. This is determined with a greedy algorithm based on distance checking from an origin. In the future, we could also optimize this even more by using AABB's for broad phase analysis since the game this is for involves a large and sparse 3d environment.
 
-{% include embed/video.html src='https://ik.imagekit.io/uwzmgirgsx/2025-04-26-rasterization-algo/01_intro.webm' types='webm' %}
+{% include embed/gumlet.html asset_id='684070cc0f8d7a0518336483' %}
 _Showcasing the greedy query with respect to collision shape scaling, distance, and more_
 
-{% include embed/video.html src='https://ik.imagekit.io/uwzmgirgsx/2025-04-26-rasterization-algo/02_greedy.webm' types='webm' %}
+{% include embed/gumlet.html asset_id='684070cced94500acc2ac61c' %}
 _Showcasing the query without rasterized points. Highlighted sections are within range of the origin_
 
 Originally the algorithm was implemented iterating over each vertex but this reached a specific edge case that needed to be solved. If a tri was large enough (where each vertex was farther than the query's corresponding radius), it would not be included by the query, despite the search clearly encompassing the shape agent. In order to solve this, I implemented a method called *GetClosestToPoint* in each non-discrete agent to extrapolate closest points from faces and edges.
@@ -44,7 +44,7 @@ public Vector3 GetClosestToPoint(Vector3 localPoint)
     var ptIsInside = barycentric is { X: >= 0, Y: >= 0, Z: >= 0 };
     if (ptIsInside)
         return projectedPt;
-    // Barycentric conditions for whether or not the extrapolated point relies
+    // Barycentric conditions for whether or not the extrapolated point lies on the triangle
     if (barycentric.Y <= 0 && barycentric.Z <= 0)
         return PointA;
     if (barycentric.X <= 0 && barycentric.Z <= 0)
@@ -78,7 +78,7 @@ public static Vector3 ClosestInEdge(Vector3 point, Vector3 a, Vector3 b)
 }
 ```
 
-{% include embed/video.html src='https://ik.imagekit.io/uwzmgirgsx/2025-04-26-rasterization-algo/03_large_case.webm' types='webm' %}
+{% include embed/gumlet.html asset_id='684070cc0f8d7a051833648e' %}
 _The closest point from each face and edge as shown_
 
 ## Rasterization Algorithm
@@ -97,7 +97,7 @@ It took some more work for the faces. I started by using the first edge and norm
 > More importantly, the rasterization algorithm needed to be calculated in world space otherwise they would be based off of the local segment and barycentric coords of the respective agents.
 {: .prompt-tip }
 
-{% include embed/video.html src='https://ik.imagekit.io/uwzmgirgsx/2025-04-26-rasterization-algo/04_raster_scaling.webm' types='webm' %}
+{% include embed/gumlet.html asset_id='684070cced94500acc2ac623' %}
 _The rasterization algorithm properly represents global transforms and allows for adjusting LOD of rasterization_
 
 ## Fast Sampling in Action
@@ -105,5 +105,5 @@ _The rasterization algorithm properly represents global transforms and allows fo
 When this method is used to create **Node3D**s, a large amount of nodes still create staggering performance issues, hinting at the weight of Godot's Node and Object system. Changing these structures into C# objects make the game much less laggier and smoother, but warrants proper handling of object lifetime(s) with respect to the Node tree which is more than trivial.
 However, I am pleased with the results.
 
-{% include embed/video.html src='https://ik.imagekit.io/uwzmgirgsx/2025-04-26-rasterization-algo/05_sampling.webm' types='webm' %}
+{% include embed/gumlet.html asset_id='684070cc2ea48d13d442fd99' %}
 _Grab prompts hook into the clutch system, showing sampled grab points from the camera. Only meshes of a certain group can support clutching on a face_
