@@ -6,6 +6,7 @@ tools: ["Godot 4"]
 links:
   - itch: https://gamesbykent.itch.io/ol-cupid
   - source: https://github.com/kentlizardo/new-year-new-jam
+  - jam entry: https://itch.io/jam/new-year-new-skills-game-jam/rate/2467832
 image:
   path: https://ik.imagekit.io/uwzmgirgsx/pg-olcupid.png?updatedAt=1742521708953
 description: >-

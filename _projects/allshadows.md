@@ -5,6 +5,7 @@ order: 7
 tools: ["Godot 4"]
 links:
   - itch: https://gamesbykent.itch.io/all-shadows-eve
+  - jam entry: https://itch.io/jam/pirate15/rate/2867849
 image:
   path: https://ik.imagekit.io/uwzmgirgsx/pg-allshadows.png?updatedAt=1742521708939
 description: >-

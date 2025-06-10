@@ -5,6 +5,7 @@ order: 0
 tools: ["Godot 4"]
 links:
   - itch: https://gamesbykent.itch.io/lunar-memory
+  - jam entry: https://itch.io/jam/mini-jam-130-lunar/rate/2023455
 image:
   path: https://ik.imagekit.io/uwzmgirgsx/pg-lunarmemory.png?updatedAt=1742521709125
 description: >-

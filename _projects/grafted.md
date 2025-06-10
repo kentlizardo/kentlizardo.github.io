@@ -6,6 +6,7 @@ tools: ["Godot 4"]
 links:
   - itch: https://gamesbykent.itch.io/grafted
   - trailer: https://www.youtube.com/watch?v=qr_Ugp58i4o
+  - jam entry: https://itch.io/jam/mini-jam-132-severed/rate/2071364
 image:
   path: https://ik.imagekit.io/uwzmgirgsx/pg-grafted.png?updatedAt=1742521708938
 description: >-
