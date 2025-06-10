@@ -34,13 +34,13 @@ A list of the tools and topics I worked with/on at UIC.
 
 For business or professional reasons, please reach out through [**LinkedIn**](https://www.linkedin.com/in/kentbrianlizardo) or the email below. If you have my number from a provided resume, you may contact me through that as well.
 
-For any other reasons, you can [email me](mailto:contact@kentmakes.games) at `contact@kentmakes.games`. It may take me a while to answer, so be patient with me.
+For any other reason, you can [email me](mailto:contact@kentmakes.games) at `contact@kentmakes.games`. It may take me a while to answer, so be patient with me.
 
 ### Why do you make games?
 
-I started making small games around ~2012 using *Scratch* and *GameMaker: Studio*. When I first had the feeling of starting up my own game made with code I had written myself, there was no going back.
+I started making small games around ~2010 using *Scratch* and *GameMaker: Studio*. When I first started up my own game, with code I had written myself, that was it for me. I wanted to learn more. Whenever I used any digital program or tool, I would ask: how does this work? How could I make this?
 
-Some of these included a Galaga clone, a Wolfenstein clone, an idle clicker game, side scrollers, and more. I also made mods and server plugins for Minecraft to play with friends. I always loved creating and working with new tools and languages, from Visual Basic, to Python and PyGame, to Java and LWJGL, and more.
+Some of my earliest projects include top-down shooter games, a Wolfenstein clone, an idle clicker game, side scrollers, and more. I often made mods and server plugins for Minecraft to create custom abilities and items to play with friends. I always loved creating and working with new tools and languages, from Visual Basic, to Python and PyGame, to Java and LWJGL, and more.
 
 I stopped making games around high school but got back into it during university when I entered a game jam online. You can find many of the games I made after this point on [my itch.io page](https://gamesbykent.itch.io/).
 
@@ -66,15 +66,15 @@ Some changes include but are not limited to:
 - Pixel art icon for specific site paths
 
 ### What are your interests?
-- Video games as both art and software. The topics mentioned below are ones I am always interested in researching and implementing.
-	- Graphics and VFX programming.
-	- Procedural generation.
-	- User experience and accessibility.
-- TTRPGs. I've only played and dmed D&D 5E but want to try Call of Cthulhu and Pathfinder 2E.
-  - Making character concepts and art.
+- **Video games as both art and software**: The topics mentioned below are ones I am always interested in researching and implementing.
+	- Graphics and VFX programming
+	- Procedural generation
+	- User experience and accessibility
+- **TTRPGs**: I've only played and dmed D&D 5E but want to try Call of Cthulhu and Pathfinder 2E.
+  - Creating character concepts and art
   - Worldbuilding. I've experimented with using GIS Tools like leaflet and mapbox for making homebrew worlds come to life.
-- Digital art. However, I am more experienced with pixel art.
-- Software development (as a hobby). I'm always trying to improve and learn more about conventions, best practices, and techniques so that I can use them in my own workflows and processes.
+- **Digital art**, though pixel art has been my main focus for longer.
+- **Software development** (with regards to my personal growth): I am always exercising effort to ingrain new lessons into my natural thought process for coding, for my code quality to consistently grow while my quick development speed stays at a consistent pace. Part of this growth involves discovering more solutions and researching best practices so that I can use them in my own workflows and projects.
 
 ### What's your setup for ___?
 
