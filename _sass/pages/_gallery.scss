@@ -39,6 +39,19 @@
   align-self: stretch;
 }
 
+.mediapost-album {
+  .thumbnail {
+    position: relative;
+  }
+
+  .thumbnail-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: white;
+  }
+}
+
 @media (hover: hover) {
   .mediapost-preview .preview-hover {
     transition: background-color 0.35s ease-in-out;

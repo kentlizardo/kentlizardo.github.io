@@ -6,6 +6,6 @@ description: >-
   Video showcasing unfinished gameplay of Gridknights.
 image:
   path: https://img.youtube.com/vi/l95PGd7lmD8/0.jpg
-  hide_content: true
+  hide_cover: true
 ---
 {% include embed/youtube.html id='l95PGd7lmD8' %}

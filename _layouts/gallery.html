@@ -35,17 +35,56 @@ layout: page
 
             {% if post.album %}
               <div class="mediapost-album">
-              {% for image in post.album %}
-                {% assign src = image.path | default: post.image %}
+              {% for element in post.album %}
+                {% assign first_key = element | first | first %}
+
+                {% if first_key == 'path' %}
+                {% assign src = element.path %}
                 {% unless src contains '//' %}
                   {% assign src = post.media_subpath | append: '/' | append: src | replace: '//', '/' %}
                 {% endunless %}
-                {% assign alt = image.alt | xml_escape | default: 'Preview Image' %}
+                {% assign alt = element.alt | xml_escape | default: 'Preview Image' %}
                 {% assign lqip = null %}
                 {% if image.lqip %}
                   {% capture lqip %}lqip="{{ image.lqip }}"{% endcapture %}
                 {% endif %}
                 <img src="{{ src }}" alt="{{ alt }}" {{ lqip }}>
+                {% endif %}
+
+                {% if first_key == "youtube_id" %}
+                  {% capture thumbnail_url %}https://img.youtube.com/vi/{{element.youtube_id}}/0.jpg{% endcapture% %}
+                  {% assign src = thumbnail_url %}
+                  {% unless src contains '//' %}
+                    {% assign src = post.media_subpath | append: '/' | append: src | replace: '//', '/' %}
+                  {% endunless %}
+                  {% assign alt = element.alt | xml_escape | default: 'Preview Image' %}
+                  {% assign lqip = null %}
+                  {% if image.lqip %}
+                    {% capture lqip %}lqip="{{ image.lqip }}"{% endcapture %}
+                  {% endif %}
+                  <div class="thumbnail">
+                    <img src="{{ src }}" alt="{{ alt }}" {{ lqip }}>
+                    <i class="fa-solid fa-video thumbnail-icon"></i>
+                  </div>
+                {% endif %}
+
+                {% if first_key == "gumlet_id" %}
+                  {% capture thumbnail_url %}https://video.gumlet.io/{{element.collection_id}}/{{element.gumlet_id}}/thumbnail-1-0.png{% endcapture% %}
+                  {% assign src = thumbnail_url %}
+                  {% unless src contains '//' %}
+                    {% assign src = post.media_subpath | append: '/' | append: src | replace: '//', '/' %}
+                  {% endunless %}
+                  {% assign alt = element.alt | xml_escape | default: 'Preview Image' %}
+                  {% assign lqip = null %}
+                  {% if image.lqip %}
+                    {% capture lqip %}lqip="{{ image.lqip }}"{% endcapture %}
+                  {% endif %}
+                  <div class="thumbnail">
+                    <img src="{{ src }}" alt="{{ alt }}" {{ lqip }}>
+                    <i class="fa-solid fa-video thumbnail-icon"></i>
+                  </div>
+                {% endif %}
+
               {% endfor %}
               </div>
             {% endif %}
