@@ -1,6 +1,6 @@
 ---
 title: Silent Spaces Locator
-topics: ["Research", "Application"]
+topics: ["Research", "Applications"]
 order: 0
 tools: ["JS", "React", "Firebase"]
 image:

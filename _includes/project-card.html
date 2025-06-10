@@ -29,7 +29,7 @@
         {% for topic in project.topics %}
           {{topic}}
           {%if topic_idx < project.topics.size %}
-          /
+          &gt;
           {% endif %}
           {% assign topic_idx = topic_idx | plus: 1 %}
         {% endfor %}
