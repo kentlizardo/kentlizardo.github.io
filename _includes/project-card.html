@@ -12,8 +12,8 @@
         {%- capture lqip -%}lqip="{{ project.image.lqip }}"{%- endcapture -%}
       {% endif %}
       <img {{ src }} {{ class }} {{ alt }} onerror="this.style.display='none'">
-        {%- if project.image.alt -%}
-          <figcaption class="text-center pt-2 pb-2">{{ project.image.alt }}</figcaption>
+        {%- if project.image.caption -%}
+          <figcaption class="text-center pt-2 pb-2">{{ project.image.caption }}</figcaption>
         {%- endif -%}
   </div>
   {% assign right_col = '8' %}

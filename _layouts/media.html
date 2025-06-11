@@ -129,8 +129,8 @@ script_includes:
               {%- capture lqip -%}lqip="{{ image.lqip }}"{%- endcapture -%}
             {% endif %}
             <img {{ src }} {{ class }} {{ alt }} onerror="this.style.display='none'">
-            {%- if image.alt -%}
-              <figcaption class="text-center pt-2 pb-2">{{ image.alt }}</figcaption>
+            {%- if image.caption -%}
+              <figcaption class="text-center pt-2 pb-2">{{ image.caption }}</figcaption>
             {%- endif -%}
             {% if image.desc %}
               <p>
@@ -141,12 +141,12 @@ script_includes:
 
           {% if first_key == 'youtube_id' %}
             {% include embed/youtube.html id=element.youtube_id %}
-            <figcaption class="text-center mb-2">{{ element.alt }}</figcaption>
+            <figcaption class="text-center mb-2">{{ element.caption }}</figcaption>
           {% endif %}
 
           {% if first_key == 'gumlet_id' %}
             {% include embed/gumlet.html asset_id=element.gumlet_id %}
-            <figcaption class="text-center pt-2 pb-2">{{ element.alt }}</figcaption>
+            <figcaption class="text-center pt-2 pb-2">{{ element.caption }}</figcaption>
           {% endif %}
 
         {% endfor %}
