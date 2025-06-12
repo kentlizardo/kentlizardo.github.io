@@ -1,4 +1,4 @@
-<span class="path-icon" id="pathIcon"></span>
+<div class="path-icon" id="pathIcon"></div>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -64,21 +64,3 @@
     }
   });
 </script>
-
-<style>
-  .path-icon {
-    display: inline-block;
-    margin: 0;
-    width: 32px;
-    height: 32px;
-    background-image: url('/assets/img/pfl-icons.png');
-    background-position: 0px 32px;
-    image-rendering: crisp-edges;
-    background-size: 400%;
-    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.401));
-  }
-
-  .path-icon.animate {
-    transition: background-position 0.25s ease-out;
-  }
-</style>

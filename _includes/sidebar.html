@@ -12,12 +12,18 @@
         {%- endif -%}
       </a>
     {% endcomment %}
-
-    <a class="site-title d-block" href="{{ '/' | relative_url }}">
+    <div>
+      <a class="site-title" href="{{ '/' | relative_url }}">
+        <div>
+          {% assign title_words = site.title | split: ' ' %}
+          {% for word in title_words %}
+            <span class="title-word">{{- word -}}</span>
+          {% endfor %}
+          <span class="title-suffix">(and more.)</span>
+        </div>
+      </a>
       {%- include path-icon.html -%}
-      {{- site.title -}}
-      <span class="title-suffix">(and more)</span>
-    </a>
+    </div>
     <p class="site-subtitle fst-italic mb-0">{{ site.tagline }}</p>
   </header>
   <!-- .profile-wrapper -->
