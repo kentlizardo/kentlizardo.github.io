@@ -128,7 +128,10 @@ script_includes:
             {% if image.lqip %}
               {%- capture lqip -%}lqip="{{ image.lqip }}"{%- endcapture -%}
             {% endif %}
-            <img {{ src }} {{ class }} {{ alt }} onerror="this.style.display='none'">
+
+            {% assign size_attr = img_url | fast_image_size_attributes %}
+
+            <img {{ src }} {{ class }} {{ alt }} {{size_attr}} onerror="this.style.display='none'">
             {%- if image.caption -%}
               <figcaption class="text-center pt-2 pb-2">{{ image.caption }}</figcaption>
             {%- endif -%}

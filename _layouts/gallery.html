@@ -40,6 +40,7 @@ layout: page
 
                 {% if first_key == 'path' %}
                 {% assign src = element.path %}
+
                 {% unless src contains '//' %}
                   {% assign src = post.media_subpath | append: '/' | append: src | replace: '//', '/' %}
                 {% endunless %}
@@ -48,7 +49,8 @@ layout: page
                 {% if image.lqip %}
                   {% capture lqip %}lqip="{{ image.lqip }}"{% endcapture %}
                 {% endif %}
-                <img src="{{ src }}" alt="{{ alt }}" {{ lqip }}>
+                {% assign size_attr = src | fast_image_size_attributes %}
+                <img src="{{ src }}" alt="{{ alt }}" {{ lqip }} {{ size_attr }} >
                 {% endif %}
 
                 {% if first_key == "youtube_id" %}
@@ -62,8 +64,9 @@ layout: page
                   {% if image.lqip %}
                     {% capture lqip %}lqip="{{ image.lqip }}"{% endcapture %}
                   {% endif %}
+                  {% assign size_attr = src | fast_image_size_attributes %}
                   <div class="thumbnail">
-                    <img src="{{ src }}" alt="{{ alt }}" {{ lqip }}>
+                    <img src="{{ src }}" alt="{{ alt }}" {{ lqip }} {{ size_attr }}>
                     <i class="fa-solid fa-video thumbnail-icon"></i>
                   </div>
                 {% endif %}
@@ -79,8 +82,9 @@ layout: page
                   {% if image.lqip %}
                     {% capture lqip %}lqip="{{ image.lqip }}"{% endcapture %}
                   {% endif %}
+                  {% assign size_attr = src | fast_image_size_attributes %}
                   <div class="thumbnail">
-                    <img src="{{ src }}" alt="{{ alt }}" {{ lqip }}>
+                    <img src="{{ src }}" alt="{{ alt }}" {{ lqip }} {{ size_attr }}>
                     <i class="fa-solid fa-video thumbnail-icon"></i>
                   </div>
                 {% endif %}
