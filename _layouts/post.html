@@ -107,6 +107,10 @@ script_includes:
     </dialog>
   {% endif %}
 
+  {% if page.reprise %}
+    {% capture reprise_md %}{% include reprise-note.html url=page.reprise %} {% endcapture %}
+    {{ reprise_md | markdownify }}
+  {% endif %}
   <div class="content">
     {{ content }}
   </div>
