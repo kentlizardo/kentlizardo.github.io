@@ -125,4 +125,4 @@ layout: page
   {% include post-paginator.html %}
 {% endif %}
 
-<script src="{{ '/assets/js/gallery-masonry-init.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/gallery-masonry-init.js' | relative_url | bust_asset }}"></script>
