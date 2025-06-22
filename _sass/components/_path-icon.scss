@@ -1,0 +1,130 @@
+@use 'sass:math';
+
+/* icon's actual size */
+$base-size: 32px;
+
+/* relative size of the spritesheet to a single sprite */
+$sheet-ratio: 400%;
+
+.path-icon-wrapper {
+  flex-shrink: 0;
+  margin: 0;
+  margin-left: 4px;
+  position: relative;
+  width: $base-size;
+  height: $base-size;
+}
+
+// debug
+.path-icon {
+  --sprite-x: 0;
+  --sprite-y: 1; // start invisible
+  --sprite-scale: 1;
+  --width: calc(#{$base-size} * var(--sprite-scale));
+  --height: calc(#{$base-size} * var(--sprite-scale));
+
+  /* shift background pivot */
+  position: absolute;
+  left: calc(-0.5 * var(--width));
+  top: calc(-0.5 * var(--height));
+  margin-top: calc($base-size / 2);
+  margin-left: calc($base-size / 2);
+
+  /* sprite rendering */
+  width: var(--width);
+  height: var(--height);
+  image-rendering: auto;
+  image-rendering: crisp-edges;
+  image-rendering: smooth;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAABACAYAAAD1Xam+AAAAAXNSR0IArs4c6QAABE5JREFUeJzt3T1IlWEUwPHbBy015BBmaV9i10isIaIikiI0zTB0qDs0NYWGUUE6OkQtEUY2FEGbrYZRRlNFSEOESXkLjdCKaGiSqKWmhnNu3qfH9/N6/r/tcF9fn/eDw3PO+9z3ZjIAAAAAAMCCRUkPAMnaVLnmd5C/n5r5zD1UwhYnPQAAySEBAIaRAADDliY9AF+umjVtNWnQGluL+vj6bz8o+nlrY72Iq6vWiuNL2/mPWtjX11fQ880MADCMBAAYRgIADEt9D0DXWDfr+8TndRsmRLzn3mCsNamrBnz47JWI8/kvRffXfbI5nIGFJJutEPH7j99EPDn9ScQLrSfgur66Z6J7JGEbfjQm4u6TzYF6YswAAMNIAIBhJADAsNT1AHTNderCgPj8x+ZNIh7vj2dcf+nx6RrYRfcAXDV/3DX0xLspEesegGatJ+B7vcOmewythefba3/MAADDSACAYSQAwLDE6zFdUx/OnROfn+48IeIz53tEPDH6UMRh15h6fPq5fs36VV770zVa2mpi3+vhos9PqR1/3M/5g/rHOgER6/PNDAAwjAQAGEYCAAyLfR1AwXP0kaz4fHjmoIhzuWMi/j6dF3HQGtJ3rbdvzX+1o2N+A0uIPp/3B68UPT+unkDY6wTifh9E2mt+TY+327E9MwDAMBIAYBgJADAs8h6Aq+Z/fGeZiJtmd4u4e3qliON+J56rBtTPtdtqNoq4qqxcxF07d4n4emY01Wvlk+4JaPr+qW7Kz7ltHFxr7/9xfJFu74sZAGAYCQAwjAQAGBZ6D8C35t9XPy7i2t54a36t4Pv5jvfka0PvP4i4rUZ+3rJjhYhH2uX/a+p5YKonoNeuF9S0bw74DxL/jRkAYBgJADCMBAAYFrgHELTm39IrS8i4a179//TxBH1n31Amo2pkuU6gJTMj4pHLC7sn0HhQftej7mK7iL8OHRVxeaf8+18v3813qPOiexR6XYjvc/iot9fjdWEGABhGAgAMIwEAhnnXk6Ve8ydNnz/93QG9TmDDtkoRN/XIdQlpP3/6eMuq5P3S9+WriLeu+ynia0tWi1ivs4j6HZBa0r8L4OL7zkVmAIBhJADAMBIAYJizfqLmj9ZC7wm47h/tbNcvr/3H3RNI+ncCXO/91+gBAJgTCQAwjAQAGFZQH+ia5+0lucmTsToRN8w+FXHtvWS/z1/qSr0n4Fvz67X9umekj99F9wQ0398dcNX8rnf2RS3o9WUGABhGAgAMIwEAhi3SNY/+Pvr654NFd0DNHy3fnsDryeUivv5iVMRRXx/XWnoX1/sZ9PEf6Lkh4my2QsSH9m4vun/Nd/ylfr8zAwAMIwEAhpEAAMMK3gl4fGBKxHc7cyJO+jmzNfr8ut4xWFUmewBxC/t+cB1//la/2H5/w5FQ/99CxwwAMIwEABhGAgAMK1gH4GKtRko7a9cv7HUG1jEDAAwjAQCGkQAAw/4ASEDcCUZ7T50AAAAASUVORK5CYII='),
+    url('/assets/img/pfl-icons.png');
+  background-position-x: calc(
+    -1 * $base-size * var(--sprite-x) * var(--sprite-scale)
+  );
+  background-position-y: calc(
+    -1 * $base-size * var(--sprite-y) * var(--sprite-scale)
+  );
+  background-repeat: no-repeat;
+  background-size: $sheet-ratio;
+  filter: drop-shadow(0 3px 3px RGB(var(--path-icon-color), 0.3));
+  transition: filter 0.16s linear;
+
+  &:hover {
+    @extend %hovered-icon;
+  }
+
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  animation-duration: 0.6s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
+  &.fade-in {
+    animation-name: fade-in;
+  }
+
+  &.fade-out {
+    animation-name: fade-out;
+  }
+
+  @keyframes fade-in {
+    from {
+      translate: 0 $base-size;
+      opacity: 0;
+    }
+
+    to {
+      translate: 0 0;
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      translate: 0 0;
+      opacity: 1;
+    }
+
+    to {
+      translate: 0 calc(-1 * $base-size);
+      opacity: 0;
+    }
+  }
+}
+
+%hovered-icon {
+  --sprite-scale: 1.05;
+
+  filter: drop-shadow(0 3px 3px RGB(var(--path-icon-color), 0.5));
+}
+
+a.site-title {
+  &:hover + * .path-icon {
+    @extend %hovered-icon;
+  }
+
+  + .path-icon-wrapper:hover {
+    animation: shake 0.16s 2;
+  }
+
+  @keyframes shake {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    25% {
+      transform: rotate(5deg);
+    }
+
+    50% {
+      transform: rotate(0deg);
+    }
+
+    75% {
+      transform: rotate(-5deg);
+    }
+
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+}
