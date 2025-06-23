@@ -111,49 +111,49 @@ script_includes:
     {% if page.album %}
       {% assign visible_album = page.album | where_exp: 'item', 'item.hide_cover != true' %}
       {% if visible_album.size >= 1 %}
+        <section class="album">
+          <h2>Album</h2>
+          {% for element in page.album %}
+            {% assign first_key = element | first | first %}
 
-        <h2> Album </h2>
-        {% for element in page.album %}
-          {% assign first_key = element | first | first %}
-
-          {% if first_key == 'path' %}
-            {% assign image = element %}
-            {%- capture img_url -%}
+            {% if first_key == 'path' %}
+              {% assign image = element %}
+              {%- capture img_url -%}
               {% include media-url.html src=image.path subpath=page.media_subpath absolute=true %}
             {%- endcapture -%}
 
-            {% capture src %}src="{{ img_url | default: image }}"{% endcapture %}
-            {% capture class %}class="card-img mt-0 px-1 py-1{% if image.no_bg %}{{ ' no-bg' }}{% endif %} justify-content-center"{% endcapture %}
-            {% capture alt %}alt="{{ image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
-            {% if image.lqip %}
-              {%- capture lqip -%}lqip="{{ image.lqip }}"{%- endcapture -%}
+              {% capture src %}src="{{ img_url | default: image }}"{% endcapture %}
+              {% capture class %}class="{% if image.no_bg %}{{ ' no-bg' }}{% endif %}"{% endcapture %}
+              {% capture alt %}alt="{{ image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
+              {% if image.lqip %}
+                {%- capture lqip -%}lqip="{{ image.lqip }}"{%- endcapture -%}
+              {% endif %}
+
+              {% assign size_attr = img_url | fast_image_size_attributes %}
+
+              <img {{ src }} {{ class }} {{ alt }} {{ size_attr }} onerror="this.style.display='none'">
+              {%- if image.caption -%}
+                <figcaption class="text-center pt-2 pb-2">{{ image.caption }}</figcaption>
+              {%- endif -%}
+              {% if image.desc %}
+                <p>
+                  {{ image.desc }}
+                </p>
+              {% endif %}
             {% endif %}
 
-            {% assign size_attr = img_url | fast_image_size_attributes %}
-
-            <img {{ src }} {{ class }} {{ alt }} {{size_attr}} onerror="this.style.display='none'">
-            {%- if image.caption -%}
-              <figcaption class="text-center pt-2 pb-2">{{ image.caption }}</figcaption>
-            {%- endif -%}
-            {% if image.desc %}
-              <p>
-              {{image.desc}}
-              </p>
+            {% if first_key == 'youtube_id' %}
+              {% include embed/youtube.html id=element.youtube_id %}
+              <figcaption class="text-center mb-2">{{ element.caption }}</figcaption>
             {% endif %}
-          {% endif%}
 
-          {% if first_key == 'youtube_id' %}
-            {% include embed/youtube.html id=element.youtube_id %}
-            <figcaption class="text-center mb-2">{{ element.caption }}</figcaption>
-          {% endif %}
-
-          {% if first_key == 'gumlet_id' %}
-            {% include embed/gumlet.html asset_id=element.gumlet_id %}
-            <figcaption class="text-center pt-2 pb-2">{{ element.caption }}</figcaption>
-          {% endif %}
-
-        {% endfor %}
+            {% if first_key == 'gumlet_id' %}
+              {% include embed/gumlet.html asset_id=element.gumlet_id %}
+              <figcaption class="text-center pt-2 pb-2">{{ element.caption }}</figcaption>
+            {% endif %}
+          {% endfor %}
       {% endif %}
+      </section>
     {% endif %}
   </div>
 
