@@ -23,7 +23,6 @@ const bufferPathIcon = document.getElementById('bufferPathIcon');
 const blitSpritePos = (sprite, x, y) => {
   sprite.style.setProperty('--sprite-x', x);
   sprite.style.setProperty('--sprite-y', y);
-  console.log(x, y);
 };
 const blitSpriteKey = (sprite, key) => {
   if (!key) key = 'none';
@@ -95,21 +94,18 @@ const trueUpdateBufferPathIcon = debounce(() => {
   bufferPathIcon.classList.remove('enter', 'exit', 'swap');
   if (hoverKey && !bufferKey) {
     // enter
-    console.log('enter', hoverKey);
     blitSpriteKey(bufferPathIcon, hoverKey);
 
     bufferPathIcon.offsetHeight;
     bufferPathIcon.classList.add('enter');
   } else if (!hoverKey && bufferKey) {
     // exit
-    console.log('exit', bufferKey);
     blitSpriteKey(bufferPathIcon, bufferKey);
 
     bufferPathIcon.offsetHeight;
     bufferPathIcon.classList.add('exit');
   } else {
     // swap
-    console.log('swap', hoverKey);
     blitSpriteKey(bufferPathIcon, hoverKey);
 
     bufferPathIcon.offsetHeight;
