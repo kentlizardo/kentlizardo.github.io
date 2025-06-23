@@ -1,4 +1,4 @@
-const iconOverrides = {
+const subpathToKey = {
   '/home': 'sword',
   '/projects': 'hammer',
   '/categories': 'pencil',
@@ -8,69 +8,143 @@ const iconOverrides = {
   '/about': 'bubble'
 };
 
-const iconPositions = {
+const spriteAtlas = {
   pencil: [0, 0],
   hammer: [1, 0],
   sword: [2, 0],
   bubble: [3, 0],
-  none: [0, 1]
+  none: [-1, 0]
 };
 
-const currentPath = window.location.pathname;
 const lastPathIcon = document.getElementById('lastPathIcon');
 const pathIcon = document.getElementById('pathIcon');
+const bufferPathIcon = document.getElementById('bufferPathIcon');
 
-const switchIcon = (nextIcon) => {
-  const previousIcon = sessionStorage.getItem('pathIcon') || 'none';
-  console.log(previousIcon);
-
-  if (pathIcon && lastPathIcon) {
-    sessionStorage.setItem('pathIcon', nextIcon);
-    console.log(lastPathIcon.style);
-    if (previousIcon === 'none') {
-      pathIcon.style.setProperty('--sprite-x', iconPositions[nextIcon][0]);
-      pathIcon.style.setProperty('--sprite-y', iconPositions[nextIcon][1]);
-
-      void pathIcon.offsetWidth;
-      pathIcon.classList.add('fade-in');
-    } else if (previousIcon !== nextIcon) {
-      pathIcon.style.setProperty('--sprite-x', iconPositions[nextIcon][0]);
-      pathIcon.style.setProperty('--sprite-y', iconPositions[nextIcon][1]);
-      lastPathIcon.style.setProperty(
-        '--sprite-x',
-        iconPositions[previousIcon][0]
-      );
-      lastPathIcon.style.setProperty(
-        '--sprite-y',
-        iconPositions[previousIcon][1]
-      );
-
-      void pathIcon.offsetWidth;
-      pathIcon.classList.add('fade-in');
-    } else {
-      pathIcon.style.setProperty('--sprite-x', iconPositions[nextIcon][0]);
-      pathIcon.style.setProperty('--sprite-y', iconPositions[nextIcon][1]);
-    }
-  }
+const blitSpritePos = (sprite, x, y) => {
+  sprite.style.setProperty('--sprite-x', x);
+  sprite.style.setProperty('--sprite-y', y);
+  console.log(x, y);
+};
+const blitSpriteKey = (sprite, key) => {
+  if (!key) key = 'none';
+  blitSpritePos(sprite, spriteAtlas[key][0], spriteAtlas[key][1]);
 };
 
-document.addEventListener('DOMContentLoaded', function () {
-  let currentIcon = 'pencil';
-  for (const [path, icon] of Object.entries(iconOverrides)) {
-    if (currentPath.startsWith(path)) {
-      currentIcon = icon;
+var hoverIconPair = undefined; // [hovered link, iconkey]
+
+const readIconKey = (url) => {
+  if (url === '/') return 'sword';
+  let result = 'pencil';
+  for (const [basePath, pathKey] of Object.entries(subpathToKey)) {
+    if (url.startsWith(basePath)) {
+      result = pathKey;
       break;
     }
   }
-  // If project subpath, then switch to hammer.
-  if (
-    currentPath.startsWith('/projects/') &&
-    currentPath.slice(10).length > 0
-  ) {
-    currentIcon = 'hammer';
+  const projectDir = '/projects/';
+  if (url.startsWith(projectDir) && url !== projectDir) {
+    result = 'hammer';
   }
-  if (currentPath === '/') {
-    currentIcon = 'sword';
+  return result;
+};
+
+const debounce = (callback, wait) => {
+  let timeoutId = null;
+  return (...args) => {
+    window.clearTimeout(timeoutId);
+    timeoutId = window.setTimeout(() => {
+      callback(...args);
+    }, wait);
+  };
+};
+
+const updatePageIcon = () => {
+  if (!pathIcon || !lastPathIcon) return;
+  const prevKey = sessionStorage.getItem('pathIconKey') || 'none';
+  const nextKey = readIconKey(window.location.pathname);
+
+  if (prevKey === 'none') {
+    blitSpriteKey(pathIcon, nextKey);
+    void pathIcon.offsetWidth;
+    pathIcon.classList.add('fade-in');
+  } else if (prevKey !== nextKey) {
+    blitSpriteKey(pathIcon, nextKey);
+    blitSpriteKey(lastPathIcon, prevKey);
+    void pathIcon.offsetWidth;
+    pathIcon.classList.add('fade-in');
+  } else {
+    blitSpriteKey(pathIcon, nextKey);
   }
-  switchIcon(currentIcon);
+  sessionStorage.setItem('pathIconKey', nextKey);
+};
+
+var bufferKey = undefined;
+var hoverKey = undefined;
+
+const trueUpdateBufferPathIcon = debounce(() => {
+  const pageKey = readIconKey(window.location.pathname);
+  if (hoverKey === pageKey) {
+    pathIcon.classList.add('ping');
+    hoverKey = null;
+  } else {
+    pathIcon.classList.remove('ping');
+  }
+
+  if (bufferKey === hoverKey) return;
+
+  bufferPathIcon.classList.remove('enter', 'exit', 'swap');
+  if (hoverKey && !bufferKey) {
+    // enter
+    console.log('enter', hoverKey);
+    blitSpriteKey(bufferPathIcon, hoverKey);
+
+    bufferPathIcon.offsetHeight;
+    bufferPathIcon.classList.add('enter');
+  } else if (!hoverKey && bufferKey) {
+    // exit
+    console.log('exit', bufferKey);
+    blitSpriteKey(bufferPathIcon, bufferKey);
+
+    bufferPathIcon.offsetHeight;
+    bufferPathIcon.classList.add('exit');
+  } else {
+    // swap
+    console.log('swap', hoverKey);
+    blitSpriteKey(bufferPathIcon, hoverKey);
+
+    bufferPathIcon.offsetHeight;
+    bufferPathIcon.classList.add('swap');
+  }
+  bufferKey = hoverKey;
+}, 150);
+
+const updateBufferPathIcon = (key) => {
+  hoverKey = key;
+  trueUpdateBufferPathIcon();
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  updatePageIcon();
+
+  const sidebar = document.getElementById('sidebar');
+
+  sidebar.addEventListener('mouseover', (e) => {
+    const anchor = e.target.closest('nav a');
+    if (!anchor || anchor.tagName.toLowerCase() !== 'a') return;
+    const href = anchor.getAttribute('href');
+    if (!href || href.charAt(0) !== '/') return;
+
+    hoverIconPair = [anchor, readIconKey(href)];
+    updateBufferPathIcon(hoverIconPair[1]);
+  });
+
+  sidebar.addEventListener('mouseout', (e) => {
+    const anchor = e.target.closest('nav a');
+    if (!anchor || anchor.tagName.toLowerCase() !== 'a') return;
+    const href = anchor.getAttribute('href');
+    if (!href || href.charAt(0) !== '/') return;
+
+    if (hoverIconPair && hoverIconPair[0] === anchor) hoverIconPair = null;
+    updateBufferPathIcon(null);
+  });
 });
