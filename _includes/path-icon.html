@@ -1,7 +1,11 @@
 <div class="path-icon-wrapper">
   <div class="path-icon buffer" id="bufferPathIcon"></div>
-  <div class="path-icon fade-out" id="lastPathIcon"></div>
-  <div class="path-icon" id="pathIcon"></div>
+  <div class="fade-wrapper fade-out">
+    <div class="path-icon" id="lastPathIcon"></div>
+  </div>
+  <div class="fade-wrapper">
+    <div class="path-icon" id="pathIcon"></div>
+  </div>
 </div>
 
 <script src="{{'assets/js/path-icon.js' | relative_url | bust_asset }}"></script>

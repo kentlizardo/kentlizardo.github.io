@@ -6,7 +6,7 @@ $base-size: 32px;
 /* relative size of the spritesheet to a single sprite */
 $sheet-ratio: 4;
 $sheet-tilesize: 256px / 4;
-$shake-magnitude: 6deg;
+$shake-magnitude: 5deg;
 
 @keyframes shake {
   0% {
@@ -30,6 +30,30 @@ $shake-magnitude: 6deg;
   }
 }
 
+@keyframes fade-in {
+  from {
+    translate: 0 calc(-1 * $base-size);
+    opacity: 0.5;
+  }
+
+  to {
+    translate: 0 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    translate: 0 0;
+    opacity: 1;
+  }
+
+  to {
+    translate: 0 $base-size;
+    opacity: 0;
+  }
+}
+
 .path-icon-wrapper {
   flex-shrink: 0;
   margin: 0;
@@ -37,6 +61,21 @@ $shake-magnitude: 6deg;
   position: relative;
   width: $base-size;
   height: $base-size;
+
+  .fade-wrapper {
+    animation-timing-function: cubic-bezier(0.83, 0, 0.17, 1);
+    animation-duration: 0.45s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+    &.fade-in {
+      animation-name: fade-in;
+    }
+
+    &.fade-out {
+      animation-name: fade-out;
+    }
+  }
 }
 
 // debug
@@ -82,56 +121,21 @@ $shake-magnitude: 6deg;
   background-repeat: no-repeat;
   background-size: 100% * $sheet-ratio;
   filter: drop-shadow(0 3px 3px RGB(var(--path-icon-color), 0.3));
-  transition: filter 0.16s linear;
+  transition: filter 0.16s cubic-bezier(0.22, 1, 0.36, 1);
 
   &:hover {
     @extend %hovered-icon;
+
+    animation: shake 0.16s 1;
   }
 
   &.ping {
     animation: shake 0.16s 1;
   }
 
-  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-  animation-duration: 0.6s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-
-  &.fade-in {
-    animation-name: fade-in;
-  }
-
-  &.fade-out {
-    animation-name: fade-out;
-  }
-
-  @keyframes fade-in {
-    from {
-      translate: 0 calc(-1 * $base-size);
-      opacity: 0.5;
-    }
-
-    to {
-      translate: 0 0;
-      opacity: 1;
-    }
-  }
-
-  @keyframes fade-out {
-    from {
-      translate: 0 0;
-      opacity: 1;
-    }
-
-    to {
-      translate: 0 $base-size;
-      opacity: 0;
-    }
-  }
-
   &.buffer {
     margin-top: calc($base-size / 2 - $base-size);
-    opacity: 0.2;
+    opacity: 0.25;
 
     &.swap {
       animation: shake 0.16s 1;
@@ -143,7 +147,7 @@ $shake-magnitude: 6deg;
     }
 
     &.enter {
-      animation: 0.16s cubic-bezier(0.22, 1, 0.36, 1) 0s 1 buffer-enter;
+      animation: 0.16s cubic-bezier(0.64, 0, 0.78, 0) 0s 1 buffer-enter;
       animation-fill-mode: both;
     }
 
@@ -155,7 +159,7 @@ $shake-magnitude: 6deg;
 
       to {
         translate: 0 0;
-        opacity: 0.2;
+        opacity: 0.25;
       }
     }
 
@@ -182,9 +186,5 @@ $shake-magnitude: 6deg;
 a.site-title {
   &:hover + * .path-icon {
     @extend %hovered-icon;
-  }
-
-  + .path-icon-wrapper:has(.path-icon:hover) {
-    animation: shake 0.16s 1;
   }
 }

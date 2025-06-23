@@ -17,7 +17,9 @@ const spriteAtlas = {
 };
 
 const lastPathIcon = document.getElementById('lastPathIcon');
+const lastPathIconFader = lastPathIcon.parentElement;
 const pathIcon = document.getElementById('pathIcon');
+const pathIconFader = pathIcon.parentElement;
 const bufferPathIcon = document.getElementById('bufferPathIcon');
 
 const blitSpritePos = (sprite, x, y) => {
@@ -64,13 +66,13 @@ const updatePageIcon = () => {
 
   if (prevKey === 'none') {
     blitSpriteKey(pathIcon, nextKey);
-    void pathIcon.offsetWidth;
-    pathIcon.classList.add('fade-in');
+    void pathIconFader.offsetWidth;
+    pathIconFader.classList.add('fade-in');
   } else if (prevKey !== nextKey) {
     blitSpriteKey(pathIcon, nextKey);
     blitSpriteKey(lastPathIcon, prevKey);
-    void pathIcon.offsetWidth;
-    pathIcon.classList.add('fade-in');
+    void pathIconFader.offsetWidth;
+    pathIconFader.classList.add('fade-in');
   } else {
     blitSpriteKey(pathIcon, nextKey);
   }
