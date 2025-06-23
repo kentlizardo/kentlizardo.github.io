@@ -23,6 +23,11 @@
   border: 0;
 }
 
+.projects a.popup.preview-img {
+  margin: 0;
+  padding: 0.25rem;
+}
+
 .projects .card-text {
   color: var(--text-muted-color);
   padding-bottom: 1rem;
@@ -40,8 +45,8 @@
 .project-tools {
   justify-items: start;
   span {
-    padding: .4rem .5rem;
-    border-radius: .75rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: 0.75rem;
   }
 
   span * {
@@ -59,7 +64,7 @@
 }
 
 .project-topics {
-  color: var(--text-muted-color)g
+  color: var(--text-muted-color);
 }
 
 html {

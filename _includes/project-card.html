@@ -6,7 +6,7 @@
   {% if project.image %}
   <div class="col-md-4">
       {% capture src %}src="{{ project.image.path | default: project.image }}"{% endcapture %}
-      {% capture class %}class="card-img mt-0 px-1 py-1 preview-img{% if project.image.no_bg %}{{ ' no-bg' }}{% endif %} justify-content-center"{% endcapture %}
+      {% capture class %}class="card-img preview-img{% if project.image.no_bg %}{{ ' no-bg' }}{% endif %} justify-content-center"{% endcapture %}
       {% capture alt %}alt="{{ project.image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
       {% if project.image.lqip %}
         {%- capture lqip -%}lqip="{{ project.image.lqip }}"{%- endcapture -%}
