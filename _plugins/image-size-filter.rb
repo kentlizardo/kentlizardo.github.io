@@ -33,6 +33,9 @@ module ImageSizeFilterPlugin
       rescue FastImage::UnknownImageType => e
         puts "  unknown image type: #{e}"
         ""
+      rescue => e
+        puts "  unknown error: #{e}"
+        ""
       end
     end
 
