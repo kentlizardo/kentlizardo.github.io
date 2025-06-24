@@ -108,6 +108,10 @@
       margin: 0;
     }
 
+    div:has(> .popup) {
+      text-align: center;
+    }
+
     .row > div:has(> .popup) {
       > .popup {
         @extend %rounded;
@@ -143,10 +147,6 @@
             }
           }
         }
-      }
-
-      @include bp.lte(bp.get(md)) {
-        text-align: center;
       }
     }
   }
