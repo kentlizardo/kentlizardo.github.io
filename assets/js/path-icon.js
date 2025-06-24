@@ -121,9 +121,9 @@ const updateBufferPathIcon = (key) => {
   trueUpdateBufferPathIcon();
 };
 
-document.addEventListener('DOMContentLoaded', () => {
-  updatePageIcon();
+updatePageIcon();
 
+document.addEventListener('DOMContentLoaded', () => {
   const sidebar = document.getElementById('sidebar');
 
   sidebar.addEventListener('mouseover', (e) => {
