@@ -116,8 +116,16 @@
       > .popup {
         @extend %rounded;
 
+        @include bp.lte(bp.get(md)) {
+          border-radius: 0 !important;
+        }
+
         img {
           @extend %rounded;
+
+          @include bp.lte(bp.get(md)) {
+            border-radius: 0 !important;
+          }
         }
       }
 
@@ -125,10 +133,12 @@
         @include bp.md {
           > .popup {
             border-top-right-radius: 0 !important;
+            border-top-left-radius: 0 !important;
             border-bottom-right-radius: 0 !important;
 
             img {
               border-top-right-radius: 0 !important;
+              border-top-left-radius: 0 !important;
               border-bottom-right-radius: 0 !important;
             }
           }
@@ -138,10 +148,12 @@
       &:last-child {
         @include bp.md {
           > .popup {
+            border-top-right-radius: 0 !important;
             border-top-left-radius: 0 !important;
             border-bottom-left-radius: 0 !important;
 
             img {
+              border-top-right-radius: 0 !important;
               border-top-left-radius: 0 !important;
               border-bottom-left-radius: 0 !important;
             }
