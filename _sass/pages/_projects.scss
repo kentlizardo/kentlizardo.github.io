@@ -1,0 +1,130 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/placeholders';
+
+.projects {
+  color: var(--text-color);
+
+  li {
+    border: 0;
+  }
+
+  .card-title {
+    color: var(--heading-color);
+  }
+
+  .card-text {
+    color: var(--text-muted-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--card-header-bg);
+  }
+
+  .project-topics {
+    color: var(--text-muted-color);
+  }
+
+  .project-misc {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+
+  a.popup.preview-img {
+    margin: 0;
+    padding: 0.25rem;
+  }
+
+  .project-tools {
+    justify-items: start;
+
+    span {
+      padding: 0.4rem 0.5rem;
+      border-radius: 0.75rem;
+    }
+
+    span * {
+      color: var(--sidebar-active-color);
+    }
+  }
+
+  .project-links {
+    flex-direction: column;
+    align-items: end;
+
+    a > span {
+      text-decoration: underline;
+    }
+  }
+
+  .card {
+    margin-bottom: 2rem;
+    border-color: var(--categories-border);
+    background-color: var(--card-bg);
+
+    &.card,
+    .list-group {
+      @extend %rounded;
+    }
+
+    .card-header {
+      $radius: calc(v.$radius-lg - 1px);
+
+      padding: 0.75rem;
+      border-radius: $radius;
+      border-bottom: 0;
+
+      &.hide-border-bottom {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    .list-group-item {
+      border-left: none;
+      border-right: none;
+      padding-left: 2rem;
+
+      &:first-child {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+}
+
+html {
+  @media (prefers-color-scheme: light) {
+    &:not([data-mode]),
+    &[data-mode='light'] {
+      .project-tools span {
+        background-color: rgb(116, 178, 243);
+      }
+    }
+
+    &[data-mode='dark'] {
+      .project-tools span {
+        background-color: rgb(248, 138, 156);
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    &:not([data-mode]),
+    &[data-mode='dark'] {
+      .project-tools span {
+        background-color: rgb(248, 138, 156);
+      }
+    }
+
+    &[data-mode='light'] {
+      .project-tools span {
+        background-color: rgb(116, 178, 243);
+      }
+    }
+  }
+}
