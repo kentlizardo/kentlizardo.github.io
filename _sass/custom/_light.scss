@@ -3,7 +3,7 @@
 
   .projects {
     .card {
-      .card-text {
+      .card-text:has(+ .project-misc) {
         border-bottom: 2px solid var(--bs-card-cap-bg);
       }
     }
