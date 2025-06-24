@@ -11,4 +11,5 @@ image:
   path: https://ik.imagekit.io/uwzmgirgsx/pg-demakers.png?updatedAt=1742520901272
 description: >-
   An FPS based on collecting retro fantasy consoles as modular weapons and player modules.
+post_tag: demakers
 ---

@@ -1,11 +1,32 @@
 {% assign project = include.project %}
 <div class="card mb-3">
+  <div class="card-header d-flex flex-row justify-content-between align-items-center hide-border-bottom">
+    <h5 class="card-title d-inline my-1">
+      {{ project.title }}
+    </h5>
+    <span class="project-topics">
+      {% assign topic_idx = 1 %}
+      {% for topic in project.topics %}
+        {{ topic }}
+        {% if topic_idx < project.topics.size %}
+          &gt;
+        {% endif %}
+        {% assign topic_idx = topic_idx | plus: 1 %}
+      {% endfor %}
+    </span>
+  </div>
   <div class="row g-0 flex-md-row">
-    {% assign right_col = '12' %}
+    {% assign right_col = 12 %}
+
     {% if project.image %}
-      <div class="col-md-4">
+      {% assign img_col_md = 4 %}
+      {% if project.card_style.img_col_md %}
+        {% assign img_col_md = project.card_style.img_col_md %}
+      {% endif %}
+
+      <div class="col-md-{{ img_col_md }}">
         {% capture src %}src="{{ project.image.path | default: project.image }}"{% endcapture %}
-        {% capture class %}class="card-img preview-img{% if project.image.no_bg %}{{ ' no-bg' }}{% endif %} justify-content-center"{% endcapture %}
+        {% capture class %}class="{% if project.image.no_bg %}{{ ' no-bg' }}{% endif %} justify-content-center"{% endcapture %}
         {% capture alt %}alt="{{ project.image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
         {% if project.image.lqip %}
           {%- capture lqip -%}lqip="{{ project.image.lqip }}"{%- endcapture -%}
@@ -15,28 +36,18 @@
           <figcaption class="text-center pt-2 pb-2">{{ project.image.caption }}</figcaption>
         {%- endif -%}
       </div>
-      {% assign right_col = '8' %}
+      {% assign right_col = 12 | minus: img_col_md %}
     {% endif %}
 
     <div class="col-md-{{right_col}}">
-      <div class="card-header d-flex flex-row justify-content-between align-items-center hide-border-bottom">
-        <h5 class="card-title d-inline my-1">
-          {{ project.title }}
-        </h5>
-        <span class="project-topics">
-          {% assign topic_idx = 1 %}
-          {% for topic in project.topics %}
-            {{ topic }}
-            {% if topic_idx < project.topics.size %}
-              &gt;
-            {% endif %}
-            {% assign topic_idx = topic_idx | plus: 1 %}
-          {% endfor %}
-        </span>
-      </div>
       <div class="card-body">
         <p class="card-text">
           {{ project.description }}
+        </p>
+        <p class="card-text project-tag">
+          {% if project.post_tag -%}
+            <a href="/tags/{{ project.post_tag }}">View related posts</a>
+          {%- endif %}
         </p>
 
         <div class="project-misc">
@@ -51,11 +62,6 @@
                   </li>
                 {% endfor %}
               </ul>
-              {% if project.post_tag -%}
-                <a
-                  >View related posts <span>#{{ project.post_tag }}</span></a
-                >
-              {%- endif %}
             </div>
           {% endif %}
           {% if project.links %}
@@ -66,7 +72,7 @@
                   {% assign link_text = link_data[0] %}
                   {% assign link_url = link_data[1] %}
 
-                  <li class="list-group-item border-0 py-1 px-2">
+                  <li class="list-group-item">
                     <a href="{{link_url}}" class="card-link text-nowrap">
                       {% assign link_icon_class = null %}
                       {% for project_link_type in site.data['project-links'] %}

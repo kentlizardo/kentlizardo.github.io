@@ -1,7 +1,7 @@
 ---
 title: Jam Progress (Demakers Game)
 categories: [Game Development, Showcase]
-tags: [godot, jam, experimental, prototype, fps, 3d]
+tags: [godot, jam, experimental, prototype, fps, 3d, demakers]
 description: >-
   Devlog for progress throughout a 48-hour game jam
 album:

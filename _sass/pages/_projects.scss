@@ -1,9 +1,8 @@
 @use '../abstracts/variables' as v;
 @use '../abstracts/placeholders';
+@use '../abstracts/breakpoints' as bp;
 
 .projects {
-  color: var(--text-color);
-
   li {
     border: 0;
   }
@@ -14,8 +13,15 @@
 
   .card-text {
     color: var(--text-muted-color);
-    padding-bottom: 1rem;
     margin-bottom: 1rem;
+
+    &:has(+ .project-misc) {
+      padding-bottom: 1rem;
+    }
+
+    &.project-tag {
+      text-align: end;
+    }
   }
 
   .project-topics {
@@ -27,11 +33,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: stretch;
-  }
-
-  a.popup.preview-img {
-    margin: 0;
-    padding: 0.25rem;
+    color: var(--text-color);
   }
 
   .project-tools {
@@ -54,6 +56,10 @@
   .project-links {
     flex-direction: column;
     align-items: end;
+
+    li {
+      padding: 0;
+    }
 
     a > i {
       color: grey;
@@ -95,6 +101,76 @@
 
       &:last-child {
         border-bottom: 0;
+      }
+    }
+
+    .popup.img-link {
+      margin: 0;
+    }
+
+    .row > div:has(> .popup) {
+      > .popup {
+        @extend %rounded;
+
+        img {
+          @extend %rounded;
+        }
+      }
+
+      &:first-child {
+        @include bp.md {
+          > .popup {
+            border-top-right-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+
+            img {
+              border-top-right-radius: 0 !important;
+              border-bottom-right-radius: 0 !important;
+            }
+          }
+        }
+      }
+
+      &:last-child {
+        @include bp.md {
+          > .popup {
+            border-top-left-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+
+            img {
+              border-top-left-radius: 0 !important;
+              border-bottom-left-radius: 0 !important;
+            }
+          }
+        }
+      }
+
+      @include bp.lte(bp.get(md)) {
+        text-align: center;
+      }
+    }
+  }
+
+  .row .popup {
+    @include bp.md {
+      aspect-ratio: 40 / 21;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+
+      &:not(.no-bg) {
+        background: var(--img-bg);
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+
+        @at-root #post-list & {
+          width: 100%;
+        }
       }
     }
   }

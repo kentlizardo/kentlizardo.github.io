@@ -1,7 +1,7 @@
 ---
 title: Post-Jam Concept Development (Demakers Game)
 categories: [Game Development, Concept]
-tags: [godot, experimental, shaders, prototype, fps, 3d]
+tags: [godot, experimental, shaders, prototype, fps, 3d, demakers]
 description: >-
   Exploring concepts to research feasibility and accessibility limitations for a previous game.
 album:

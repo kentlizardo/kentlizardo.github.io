@@ -18,7 +18,11 @@ order: 2
 
 <section class="projects">
 {% for project in research_projects %}
-  {% include project-card.html project=project %}
+  {% assign include_link = 'custom/project-card.html' %}
+  {% if project.card_style.type %}
+    {% capture include_link %}custom/project-card-{{project.card_style.type}}.html{% endcapture %}
+  {% endif %}
+  {% include {{ include_link }} project=project %}
 {% endfor %}
 </section>
 
@@ -30,7 +34,7 @@ order: 2
 
 {% for project in sorted_projects %}
   {% if project.topics[0] == "Games" %}
-    {% include project-card.html project=project %}
+    {% include custom/project-card.html project=project %}
   {% endif %}
 {% endfor %}
 
