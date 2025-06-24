@@ -87,6 +87,10 @@
         left: 77px;
         height: 3.1rem;
       }
+
+      i {
+        vertical-align: middle;
+      }
     }
 
     &:last-child li:last-child::before {

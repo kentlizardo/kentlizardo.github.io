@@ -9,7 +9,7 @@
   }
 
   .card-title {
-    color: var(--heading-color);
+    color: var(--text-color);
   }
 
   .card-text {
@@ -46,11 +46,19 @@
     span * {
       color: var(--sidebar-active-color);
     }
+
+    i {
+      font-size: 86%;
+    }
   }
 
   .project-links {
     flex-direction: column;
     align-items: end;
+
+    a > i {
+      color: grey;
+    }
   }
 
   .card {
@@ -69,6 +77,7 @@
       padding: 0.75rem;
       border-radius: $radius;
       border-bottom: 0;
+      background-color: var(--card-header-bg);
 
       &.hide-border-bottom {
         border-bottom-left-radius: 0;
