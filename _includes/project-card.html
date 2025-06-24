@@ -1,94 +1,98 @@
 {% assign project = include.project %}
-<div class="card categories mb-3">
+<div class="card mb-3">
   <div class="row g-0 flex-md-row">
-
-  {% assign right_col = '12' %}
-  {% if project.image %}
-  <div class="col-md-4">
-      {% capture src %}src="{{ project.image.path | default: project.image }}"{% endcapture %}
-      {% capture class %}class="card-img preview-img{% if project.image.no_bg %}{{ ' no-bg' }}{% endif %} justify-content-center"{% endcapture %}
-      {% capture alt %}alt="{{ project.image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
-      {% if project.image.lqip %}
-        {%- capture lqip -%}lqip="{{ project.image.lqip }}"{%- endcapture -%}
-      {% endif %}
-      <img {{ src }} {{ class }} {{ alt }} onerror="this.style.display='none'">
+    {% assign right_col = '12' %}
+    {% if project.image %}
+      <div class="col-md-4">
+        {% capture src %}src="{{ project.image.path | default: project.image }}"{% endcapture %}
+        {% capture class %}class="card-img preview-img{% if project.image.no_bg %}{{ ' no-bg' }}{% endif %} justify-content-center"{% endcapture %}
+        {% capture alt %}alt="{{ project.image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
+        {% if project.image.lqip %}
+          {%- capture lqip -%}lqip="{{ project.image.lqip }}"{%- endcapture -%}
+        {% endif %}
+        <img {{ src }} {{ class }} {{ alt }} onerror="this.style.display='none'">
         {%- if project.image.caption -%}
           <figcaption class="text-center pt-2 pb-2">{{ project.image.caption }}</figcaption>
         {%- endif -%}
-  </div>
-  {% assign right_col = '8' %}
-  {% endif %}
+      </div>
+      {% assign right_col = '8' %}
+    {% endif %}
 
-  <div class="col-md-{{right_col}}">
-    <div class="card-header d-flex flex-row justify-content-between align-items-center hide-border-bottom">
-      <h5 class="card-title d-inline my-1">
-      {{ project.title }}
-      </h5>
-      <span class="project-topics">
-        {% assign topic_idx = 1 %}
-        {% for topic in project.topics %}
-          {{topic}}
-          {%if topic_idx < project.topics.size %}
-          &gt;
-          {% endif %}
-          {% assign topic_idx = topic_idx | plus: 1 %}
-        {% endfor %}
-      </span>
-    </div>
-    <div class="card-body">
-    <p class="card-text">
-    {{ project.description }}
-    </p>
-
-    <div class="project-misc">
-      {% if project.tools %}
-      <div class="col-8">
-        <ul class="project-tools list-group list-group-horizontal list-group-flush d-flex flex-wrap flex-row">
-          {% for tool in project.tools %}
-          <li class="list-group-item border-0 py-1 px-1 text-nowrap">
-            <span><i>{{tool}}</i></span>
-          </li>
+    <div class="col-md-{{right_col}}">
+      <div class="card-header d-flex flex-row justify-content-between align-items-center hide-border-bottom">
+        <h5 class="card-title d-inline my-1">
+          {{ project.title }}
+        </h5>
+        <span class="project-topics">
+          {% assign topic_idx = 1 %}
+          {% for topic in project.topics %}
+            {{ topic }}
+            {% if topic_idx < project.topics.size %}
+              &gt;
+            {% endif %}
+            {% assign topic_idx = topic_idx | plus: 1 %}
           {% endfor %}
-        </ul>
+        </span>
       </div>
-      {% endif %}
-      {% if project.links %}
-      <div class="col-4">
-      <ul class="project-links list-group list-group-horizontal list-group-flush">
-        {% for link in project.links %}
-        {% assign link_data = link | first %}
-        {% assign link_text = link_data[0] %}
-        {% assign link_url = link_data[1] %}
+      <div class="card-body">
+        <p class="card-text">
+          {{ project.description }}
+        </p>
 
-        <li class="list-group-item border-0 py-1 px-2">
-          <a href="{{link_url}}" class="card-link text-nowrap">
-            {% assign link_icon_class = nil %}
-            {% for project_link_type in site.data.project-links %}
-              {% assign url_trimmed = link_url | slice: 0, project_link_type.base_url.size %}
-              {% if url_trimmed == project_link_type.base_url %}
-                {% assign link_icon_class = project_link_type.icon_class %}
-                {% break %}
-              {% endif %}
-            {% endfor %}
+        <div class="project-misc">
+          {% if project.tools %}
+            <div class="col-8">
+              <ul class="project-tools list-group list-group-horizontal list-group-flush d-flex flex-wrap flex-row">
+                {% for tool in project.tools %}
+                  <li class="list-group-item border-0 py-1 px-1 text-nowrap">
+                    <span
+                      ><i>{{ tool }}</i></span
+                    >
+                  </li>
+                {% endfor %}
+              </ul>
+              {% if project.post_tag -%}
+                <a
+                  >View related posts <span>#{{ project.post_tag }}</span></a
+                >
+              {%- endif %}
+            </div>
+          {% endif %}
+          {% if project.links %}
+            <div class="col-4">
+              <ul class="project-links list-group list-group-horizontal list-group-flush">
+                {% for link in project.links %}
+                  {% assign link_data = link | first %}
+                  {% assign link_text = link_data[0] %}
+                  {% assign link_url = link_data[1] %}
 
-            {% if link.icon_override %}
-              {% assign link_icon_class = link.icon_override %}
-            {% endif %}
+                  <li class="list-group-item border-0 py-1 px-2">
+                    <a href="{{link_url}}" class="card-link text-nowrap">
+                      {% assign link_icon_class = null %}
+                      {% for project_link_type in site.data['project-links'] %}
+                        {% assign url_trimmed = link_url | slice: 0, project_link_type.base_url.size %}
+                        {% if url_trimmed == project_link_type.base_url %}
+                          {% assign link_icon_class = project_link_type.icon_class %}
+                          {% break %}
+                        {% endif %}
+                      {% endfor %}
 
-            {% if link_icon_class %}
-              <i class="{{link_icon_class}}"></i>
-            {% endif %}
-            <span>{{link_text}}</span>
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
+                      {% if link.icon_override %}
+                        {% assign link_icon_class = link.icon_override %}
+                      {% endif %}
+
+                      {% if link_icon_class %}
+                        <i class="{{link_icon_class}}"></i>
+                      {% endif %}
+                      <span>{{ link_text }}</span>
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        </div>
       </div>
-      {% endif %}
     </div>
-
-    </div>
-  </div>
-
   </div>
 </div>
