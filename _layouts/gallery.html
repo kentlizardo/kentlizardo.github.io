@@ -2,7 +2,6 @@
 layout: page
 # pagination data in gallery.md
 ---
-
 {% include lang.html %}
 
 {% assign mediaposts = paginator.posts %}
@@ -10,7 +9,7 @@ layout: page
 <!-- Get normal posts on current page -->
 <div id="mediapost-list" class="flex-grow-1 px-xl-1">
   {% for post in mediaposts %}
-    <article class="card-wrapper card pt-2">
+    <article class="card-wrapper card">
       <a href="{{ post.url | relative_url }}" class="mediapost-preview">
         {% if post.image %}
           {% assign src = post.image.path | default: post.image %}
@@ -22,10 +21,10 @@ layout: page
           {% if post.image.lqip %}
             {% capture lqip %}lqip="{{ post.image.lqip }}"{% endcapture %}
           {% endif %}
-          <img class="card-img preview-hover" src="{{ src }}" alt="{{ alt }}" {{ lqip }}>
+          <img class="card-img" src="{{ src }}" alt="{{ alt }}" {{ lqip }}>
         {% endif %}
 
-        <div class="{% if post.image %}card-img-overlay mt-2{% else %}preview-hover{% endif %}">
+        <div class="{% if post.image %}card-img-overlay {% endif %}preview-hover">
           <div class="card-body{% if post.image %} p-1 my-2{% endif %}">
             <h1 class="card-title my-2 mt-md-0">{{ post.title }}</h1>
 
@@ -35,61 +34,60 @@ layout: page
 
             {% if post.album %}
               <div class="mediapost-album">
-              {% for element in post.album %}
-                {% assign first_key = element | first | first %}
+                {% for element in post.album %}
+                  {% assign first_key = element | first | first %}
 
-                {% if first_key == 'path' %}
-                {% assign src = element.path %}
+                  {% if first_key == 'path' %}
+                    {% assign src = element.path %}
 
-                {% unless src contains '//' %}
-                  {% assign src = post.media_subpath | append: '/' | append: src | replace: '//', '/' %}
-                {% endunless %}
-                {% assign alt = element.alt | xml_escape | default: 'Preview Image' %}
-                {% assign lqip = null %}
-                {% if image.lqip %}
-                  {% capture lqip %}lqip="{{ image.lqip }}"{% endcapture %}
-                {% endif %}
-                {% assign size_attr = src | fast_image_size_attributes %}
-                <img src="{{ src }}" alt="{{ alt }}" {{ lqip }} {{ size_attr }} >
-                {% endif %}
-
-                {% if first_key == "youtube_id" %}
-                  {% capture thumbnail_url %}https://img.youtube.com/vi/{{element.youtube_id}}/0.jpg{% endcapture% %}
-                  {% assign src = thumbnail_url %}
-                  {% unless src contains '//' %}
-                    {% assign src = post.media_subpath | append: '/' | append: src | replace: '//', '/' %}
-                  {% endunless %}
-                  {% assign alt = element.alt | xml_escape | default: 'Preview Image' %}
-                  {% assign lqip = null %}
-                  {% if image.lqip %}
-                    {% capture lqip %}lqip="{{ image.lqip }}"{% endcapture %}
-                  {% endif %}
-                  {% assign size_attr = src | fast_image_size_attributes %}
-                  <div class="thumbnail">
+                    {% unless src contains '//' %}
+                      {% assign src = post.media_subpath | append: '/' | append: src | replace: '//', '/' %}
+                    {% endunless %}
+                    {% assign alt = element.alt | xml_escape | default: 'Preview Image' %}
+                    {% assign lqip = null %}
+                    {% if image.lqip %}
+                      {% capture lqip %}lqip="{{ image.lqip }}"{% endcapture %}
+                    {% endif %}
+                    {% assign size_attr = src | fast_image_size_attributes %}
                     <img src="{{ src }}" alt="{{ alt }}" {{ lqip }} {{ size_attr }}>
-                    <i class="fa-solid fa-video thumbnail-icon"></i>
-                  </div>
-                {% endif %}
-
-                {% if first_key == "gumlet_id" %}
-                  {% capture thumbnail_url %}https://video.gumlet.io/{{element.collection_id}}/{{element.gumlet_id}}/thumbnail-1-0.png{% endcapture% %}
-                  {% assign src = thumbnail_url %}
-                  {% unless src contains '//' %}
-                    {% assign src = post.media_subpath | append: '/' | append: src | replace: '//', '/' %}
-                  {% endunless %}
-                  {% assign alt = element.alt | xml_escape | default: 'Preview Image' %}
-                  {% assign lqip = null %}
-                  {% if image.lqip %}
-                    {% capture lqip %}lqip="{{ image.lqip }}"{% endcapture %}
                   {% endif %}
-                  {% assign size_attr = src | fast_image_size_attributes %}
-                  <div class="thumbnail">
-                    <img src="{{ src }}" alt="{{ alt }}" {{ lqip }} {{ size_attr }}>
-                    <i class="fa-solid fa-video thumbnail-icon"></i>
-                  </div>
-                {% endif %}
 
-              {% endfor %}
+                  {% if first_key == 'youtube_id' %}
+                    {% capture thumbnail_url %}https://img.youtube.com/vi/{{element.youtube_id}}/0.jpg{% endcapture %}
+                    {% assign src = thumbnail_url %}
+                    {% unless src contains '//' %}
+                      {% assign src = post.media_subpath | append: '/' | append: src | replace: '//', '/' %}
+                    {% endunless %}
+                    {% assign alt = element.alt | xml_escape | default: 'Preview Image' %}
+                    {% assign lqip = null %}
+                    {% if image.lqip %}
+                      {% capture lqip %}lqip="{{ image.lqip }}"{% endcapture %}
+                    {% endif %}
+                    {% assign size_attr = src | fast_image_size_attributes %}
+                    <div class="thumbnail">
+                      <img src="{{ src }}" alt="{{ alt }}" {{ lqip }} {{ size_attr }}>
+                      <i class="fa-solid fa-video thumbnail-icon"></i>
+                    </div>
+                  {% endif %}
+
+                  {% if first_key == 'gumlet_id' %}
+                    {% capture thumbnail_url %}https://video.gumlet.io/{{element.collection_id}}/{{element.gumlet_id}}/thumbnail-1-0.png{% endcapture %}
+                    {% assign src = thumbnail_url %}
+                    {% unless src contains '//' %}
+                      {% assign src = post.media_subpath | append: '/' | append: src | replace: '//', '/' %}
+                    {% endunless %}
+                    {% assign alt = element.alt | xml_escape | default: 'Preview Image' %}
+                    {% assign lqip = null %}
+                    {% if image.lqip %}
+                      {% capture lqip %}lqip="{{ image.lqip }}"{% endcapture %}
+                    {% endif %}
+                    {% assign size_attr = src | fast_image_size_attributes %}
+                    <div class="thumbnail">
+                      <img src="{{ src }}" alt="{{ alt }}" {{ lqip }} {{ size_attr }}>
+                      <i class="fa-solid fa-video thumbnail-icon"></i>
+                    </div>
+                  {% endif %}
+                {% endfor %}
               </div>
             {% endif %}
 
@@ -112,9 +110,12 @@ layout: page
                   </span>
                 {% endif %}
               </div>
-            </div> <!-- .post-meta -->
-          </div> <!-- .card-body -->
-        </div> <!-- .card-img-overlay -->
+            </div>
+            <!-- .post-meta -->
+          </div>
+          <!-- .card-body -->
+        </div>
+        <!-- .card-img-overlay -->
       </a>
     </article>
   {% endfor %}

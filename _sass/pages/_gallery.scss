@@ -8,12 +8,13 @@
   border: 0;
   background: var(--card-bg);
   box-shadow: var(--card-shadow);
-  position: relative;
 
   &::before {
     @extend %rounded;
 
     content: '';
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -30,11 +31,15 @@
 }
 
 .mediapost-preview .card-img-overlay {
-  background: linear-gradient(0deg, rgba(109, 109, 109, 0) 0%, color-mix(in srgb, var(--main-bg), transparent 20%) 60%);
+  background: linear-gradient(
+    0deg,
+    rgba(109, 109, 109, 0) 0%,
+    color-mix(in srgb, var(--main-bg), transparent 20%) 60%
+  );
 }
 
 .mediapost-album img {
-  padding: .2rem 0;
+  padding: 0.2rem 0;
   width: 100%;
   align-self: stretch;
 }
@@ -45,10 +50,10 @@
   }
 
   .thumbnail-icon {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  color: white;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: white;
   }
 }
 
