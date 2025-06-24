@@ -1,0 +1,15 @@
+@mixin styles {
+  --path-icon-color: 110, 110, 110;
+
+  .projects {
+    .card {
+      .card-text {
+        border-bottom: 2px solid var(--card-header-bg);
+      }
+
+      .card-header {
+        background-color: var(--card-header-bg);
+      }
+    }
+  }
+}

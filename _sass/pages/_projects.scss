@@ -16,7 +16,6 @@
     color: var(--text-muted-color);
     padding-bottom: 1rem;
     margin-bottom: 1rem;
-    border-bottom: 2px solid var(--card-header-bg);
   }
 
   .project-topics {
@@ -77,7 +76,6 @@
       padding: 0.75rem;
       border-radius: $radius;
       border-bottom: 0;
-      background-color: var(--card-header-bg);
 
       &.hide-border-bottom {
         border-bottom-left-radius: 0;

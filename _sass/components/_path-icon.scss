@@ -120,7 +120,7 @@ $shake-magnitude: 5deg;
   background-position-y: calc(-1 * var(--height) * var(--sprite-y));
   background-repeat: no-repeat;
   background-size: 100% * $sheet-ratio;
-  filter: drop-shadow(0 3px 3px RGB(var(--path-icon-color), 0.3));
+  filter: drop-shadow(0 3px 3px #{'rgba(var(--path-icon-color), 0.3)'});
   transition: filter 0.16s cubic-bezier(0.22, 1, 0.36, 1);
 
   &:hover {
@@ -177,14 +177,14 @@ $shake-magnitude: 5deg;
   }
 }
 
+a.site-title {
+  &:hover + * .path-icon {
+    filter: drop-shadow(0 3px 3px #{'rgba(var(--path-icon-color), 0.5)'});
+  }
+}
+
 %hovered-icon {
   --sprite-scale: 1.2;
 
-  filter: drop-shadow(0 3px 3px RGB(var(--path-icon-color), 0.5));
-}
-
-a.site-title {
-  &:hover + * .path-icon {
-    @extend %hovered-icon;
-  }
+  filter: drop-shadow(0 3px 3px #{'rgba(var(--path-icon-color), 0.6)'});
 }
