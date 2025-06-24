@@ -34,7 +34,7 @@
       <li class="nav-item{% if page.layout == 'home' %}{{ " active" }}{% endif %}">
         <a href="{{ '/' | relative_url }}" class="nav-link">
           <i class="fa-fw fas fa-home"></i>
-          <span>{{ site.data.locales[include.lang].tabs.home | upcase }}</span>
+          <span>{{ site.data.locales[include.lang].tabs.home | capitalize }}</span>
         </a>
       </li>
       <!-- the real tabs -->
@@ -46,7 +46,7 @@
           <a href="{{ 'gallery/' | relative_url }}" class="nav-link">
             <i class="fa-fw fas fa-photo-film"></i>
             {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
-            <span>{{ "gallery" | upcase }}</span>
+            <span>{{ "gallery" | capitalize }}</span>
           </a>
         </li>
         {% endif %}
@@ -56,7 +56,7 @@
             <i class="fa-fw {{ tab.icon }}"></i>
             {% capture tab_name %}{{ tab.url | split: '/' }}{% endcapture %}
 
-            <span>{{ site.data.locales[include.lang].tabs.[tab_name] | default: tab.title | upcase }}</span>
+            <span>{{ site.data.locales[include.lang].tabs.[tab_name] | default: tab.title | capitalize }}</span>
           </a>
         </li>
         <!-- .nav-item -->

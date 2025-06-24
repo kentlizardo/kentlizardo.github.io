@@ -90,7 +90,7 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
     @include bp.xxxl {
       margin-top: 3.5rem;
       margin-bottom: 2.5rem;
-      padding-left: 2.75rem;
+      padding-left: 2.25rem;
     }
 
     > div {
@@ -127,7 +127,7 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
     .title-suffix {
       display: inline-block;
       flex-grow: 1;
-      margin: 0 0.5rem;
+      margin: 0 0.25rem;
       font-size: small;
       text-align: right;
       vertical-align: text-top;
@@ -135,16 +135,16 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
 
     @media (hover: hover) {
       .title-suffix {
-        // visibility: hidden;
         opacity: 0.4;
-        transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s ease-in 0.2s;
+        transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+          visibility 0s ease-in 0.2s;
       }
 
       &:hover {
         .title-suffix {
-          visibility: visible;
-          opacity: .8;
-          transition: opacity 0.2s cubic-bezier(0.7, 0, 0.84, 0), visibility 0s ease-in 0s;
+          opacity: 0.6;
+          transition: opacity 0.2s cubic-bezier(0.7, 0, 0.84, 0),
+            visibility 0s ease-in 0s;
         }
       }
     }
@@ -194,7 +194,7 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
         }
 
         span {
-          font-size: 90%;
+          font-size: 100%;
           letter-spacing: 0.2px;
         }
       }

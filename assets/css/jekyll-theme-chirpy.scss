@@ -15,6 +15,11 @@
   overflow: auto !important;
 }
 
+#post-list .card {
+  max-width: 792px;
+  margin: auto;
+}
+
 .content section.album {
   width: 100%;
   display: flex;
