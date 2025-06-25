@@ -64,6 +64,7 @@
 }
 
 #mediapost-list {
+  position: relative;
   margin-top: 2rem;
 
   @include bp.lg {
