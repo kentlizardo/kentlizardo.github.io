@@ -2,7 +2,7 @@
 @use '../abstracts/breakpoints' as bp;
 @use '../abstracts/placeholders';
 
-.mediapost-preview .preview-hover {
+.gallery-preview .preview-hover {
   @extend %rounded;
 
   border: 0;
@@ -30,7 +30,7 @@
   }
 }
 
-.mediapost-preview .card-img-overlay {
+.gallery-preview .card-img-overlay {
   background: linear-gradient(
     0deg,
     rgba(109, 109, 109, 0) 0%,
@@ -38,13 +38,13 @@
   );
 }
 
-.mediapost-album img {
+.gallery-album img {
   padding: 0.2rem 0;
   width: 100%;
   align-self: stretch;
 }
 
-.mediapost-album {
+.gallery-album {
   .thumbnail {
     position: relative;
   }
@@ -58,12 +58,12 @@
 }
 
 @media (hover: hover) {
-  .mediapost-preview .preview-hover {
+  .gallery-preview .preview-hover {
     transition: background-color 0.35s ease-in-out;
   }
 }
 
-#mediapost-list {
+#gallery-list {
   position: relative;
   margin-top: 2rem;
 
@@ -97,6 +97,12 @@
     .card-body {
       height: 100%;
       padding: 1rem;
+
+      .album img {
+        padding: 0.2rem 0;
+        width: 100%;
+        align-self: stretch;
+      }
 
       @include bp.md {
         padding: 1.75rem 1.75rem 1.25rem;
@@ -164,4 +170,4 @@
       }
     }
   }
-} /* #mediapost-list */
+}
