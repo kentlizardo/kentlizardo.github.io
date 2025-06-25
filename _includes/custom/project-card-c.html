@@ -1,9 +1,8 @@
 {% assign project = include.project %}
 <div class="card mb-3">
   <div class="card-header d-flex flex-row justify-content-between align-items-center hide-border-bottom">
-    <h5 class="card-title d-inline my-1">
-      {{ project.title }}
-    </h5>
+    {% assign project_id = project.title | slugify %}
+    {% include custom/snippets/proj-card-header.html id=project_id %}
     <span class="project-topics">
       {% assign topic_idx = 1 %}
       {% for topic in project.topics %}

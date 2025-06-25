@@ -13,6 +13,7 @@ order: 2
 ---
 
 {% assign research_projects = sorted_projects | where_exp:"project", 'project.topics[0] == "Research"' %}
+{% assign games_projects = sorted_projects | where_exp:"project", 'project.topics[0] == "Games"' %}
 
 ## Research
 
@@ -32,10 +33,12 @@ order: 2
 
 <section class="projects">
 
-{% for project in sorted_projects %}
-  {% if project.topics[0] == "Games" %}
-    {% include custom/project-card.html project=project %}
+{% for project in games_projects %}
+  {% assign include_link = 'custom/project-card.html' %}
+  {% if project.card_style.type %}
+    {% capture include_link %}custom/project-card-{{project.card_style.type}}.html{% endcapture %}
   {% endif %}
+  {% include {{ include_link }} project=project %}
 {% endfor %}
 
 </section>
