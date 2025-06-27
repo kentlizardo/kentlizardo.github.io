@@ -5,7 +5,6 @@ tags: [unity, pixel art, card game, ui]
 date: 2022-06-18
 description: >-
   Various concept art and designs for a card game.
-media_subpath: https://kentmakes.games/portfolio-assets
 album:
   - path: /cards-4.png?updatedAt=1742599108704
     alt: Card frames with white backgrounds.

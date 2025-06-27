@@ -4,7 +4,6 @@ categories: [Game Development, Concept]
 tags: [unity, shaders, ui]
 description: >-
   Early concepts. Placeholder sprite from Octopath.
-media_subpath: https://kentmakes.games/portfolio-assets
 album:
   - path: /2020-12-24-notebook-9tile.gif?updatedAt=1750659831018
     alt: Seamless notebook paper UI window

@@ -4,7 +4,6 @@ categories: [Game Development, Showcase]
 tags: [godot, jam, experimental, prototype, fps, 3d, demakers]
 description: >-
   Devlog for progress throughout a 48-hour game jam
-media_subpath: https://kentmakes.games/portfolio-assets
 album:
   - path: /2023-04-29-dmg-midjam1.gif?updatedAt=1750659209451
     alt: Transparent window showing swapping consoles with a viewport of the game.

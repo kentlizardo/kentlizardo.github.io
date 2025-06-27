@@ -119,11 +119,8 @@ script_includes:
 
               {% if first_key == 'path' %}
                 {% assign image = element %}
-                {%- capture img_url -%}
-              {% include media-url.html src=image.path subpath=page.media_subpath absolute=true %}
-            {%- endcapture -%}
 
-                {% capture src %}src="{{ img_url | default: image }}"{% endcapture %}
+                {% capture src %}src="{{ image.path }}"{% endcapture %}
                 {% capture class %}class="{% if image.no_bg %}{{ ' no-bg' }}{% endif %}"{% endcapture %}
                 {% capture alt %}alt="{{ image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
                 {% if image.lqip %}

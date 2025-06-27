@@ -4,7 +4,6 @@ categories: [Game Development, Concept]
 tags: [godot, experimental, shaders, prototype, fps, 3d, demakers]
 description: >-
   Exploring concepts to research feasibility and accessibility limitations for a previous game.
-media_subpath: https://kentmakes.games/portfolio-assets
 album:
   - youtube_id: yGq1T0EjWO8
     caption: A barebones concept of the game's visual aesthetic as "terminal-punk."

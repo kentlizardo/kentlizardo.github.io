@@ -5,7 +5,6 @@ tags: [pixel art, unity, 3d, rpg]
 description: >-
   A school themed 3d concept RPG made in Unity. Tilesets and models created by me.
   Placeholder character from the game Octopath Traveler.
-media_subpath: https://kentmakes.games/portfolio-assets
 album:
   - path: /school-rpg-1.gif?updatedAt=1742348943814
     alt: Small trees swaying in front of a classroom

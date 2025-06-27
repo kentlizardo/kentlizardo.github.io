@@ -4,7 +4,6 @@ categories: [Game Development, Showcase]
 tags: [godot, jam, physics, fps]
 description: >-
   Gifs showing a game made for Mini Jam 150: Magic.
-media_subpath: https://kentmakes.games/portfolio-assets
 album:
   - path: /2024-01-22-ck-0.gif?updatedAt=1743040937383
     alt: Casting a light spell then hitting it with a mace to send it flying

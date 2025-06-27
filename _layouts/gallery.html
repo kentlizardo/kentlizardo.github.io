@@ -12,10 +12,12 @@ layout: page
     <article class="card-wrapper card">
       <a href="{{ post.url | relative_url }}" class="gallery-preview">
         {% if post.image %}
-          {% assign src = post.image.path | default: post.image %}
-          {% unless src contains '//' %}
-            {% assign src = post.media_subpath | append: '/' | append: src | replace: '//', '/' %}
+          {% assign src = post.image.path %}
+
+          {% unless src contains '://' %}
+            {%- capture src -%}{% include media-url.html src=src subpath=post.media_subpath %}{%- endcapture -%}
           {% endunless %}
+
           {% assign alt = post.image.alt | xml_escape | default: 'Preview Image' %}
           {% assign lqip = null %}
           {% if post.image.lqip %}
@@ -40,8 +42,8 @@ layout: page
                   {% if first_key == 'path' %}
                     {% assign src = element.path %}
 
-                    {% unless src contains '//' %}
-                      {% assign src = post.media_subpath | append: '/' | append: src | replace: '//', '/' %}
+                    {% unless src contains '://' %}
+                      {%- capture src -%}{% include media-url.html src=src subpath=post.media_subpath %}{%- endcapture -%}
                     {% endunless %}
                     {% assign alt = element.alt | xml_escape | default: 'Preview Image' %}
                     {% assign lqip = null %}
@@ -73,8 +75,8 @@ layout: page
                   {% if first_key == 'gumlet_id' %}
                     {% capture thumbnail_url %}https://video.gumlet.io/{{element.collection_id}}/{{element.gumlet_id}}/thumbnail-1-0.png{% endcapture %}
                     {% assign src = thumbnail_url %}
-                    {% unless src contains '//' %}
-                      {% assign src = post.media_subpath | append: '/' | append: src | replace: '//', '/' %}
+                    {% unless src contains '://' %}
+                      {%- capture src -%}{% include media-url.html src=src subpath=post.media_subpath %}{%- endcapture -%}
                     {% endunless %}
                     {% assign alt = element.alt | xml_escape | default: 'Preview Image' %}
                     {% assign lqip = null %}
