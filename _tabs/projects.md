@@ -6,7 +6,7 @@ order: 2
 {% assign projects = site.projects %}
 
 {%- if jekyll.environment == 'production' -%}
-  {% assign projects = projects | where_exp: "project", 'project.placeholder != true' %}
+  {% assign projects = projects | where_exp: "project", 'project.placeholder != true' | where_exp: "project", 'project.hidden != true' %}
 {%- endif -%}
 {% assign sorted_projects = projects | sort: "order" | reverse %}
 

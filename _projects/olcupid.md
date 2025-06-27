@@ -8,7 +8,7 @@ links:
   - source: https://github.com/kentlizardo/new-year-new-jam
   - jam entry: https://itch.io/jam/new-year-new-skills-game-jam/rate/2467832
 image:
-  path: https://ik.imagekit.io/uwzmgirgsx/pg-olcupid.png?updatedAt=1742521708953
+  path: /pg-olcupid.png?updatedAt=1742521708953
 description: >-
   The non-dating simulator where you help others find the match of their dreams! Made for the New Year, New Skills Game Jam.
 ---

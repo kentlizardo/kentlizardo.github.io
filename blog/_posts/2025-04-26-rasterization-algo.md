@@ -5,7 +5,7 @@ tags: [godot, algorithm, c#, math, physics, mesh]
 description: >-
   Fast analysis of collision trimeshes optimized for physics.
 image:
-  path: https://ik.imagekit.io/uwzmgirgsx/2025-04-26-rasterization-algo/04_raster_scaling.webm/ik-thumbnail.jpg
+  path: /2025-04-26-rasterization-algo/04_raster_scaling.webm/ik-thumbnail.jpg
   hide_cover: true
 ---
 
@@ -90,7 +90,7 @@ In my case, I wanted to include the end point for most of the handhold cases, so
 
 It took some more work for the faces. I started by using the first edge and normal to create a "guide edge". Along this edge, find the mapped height using the second edge which will then give you a "quad" to iterate over. Then check if the point is included in the triangle and if it is, add to the list. With half of the triangle area being misses, this still resulted in O(n\*m) for each face.
 
-![Diagram showing face conversion](https://ik.imagekit.io/uwzmgirgsx/2025-04-26-rasterization-algo/face.png?updatedAt=1745729337286){: height="580" }
+![Diagram showing face conversion](/2025-04-26-rasterization-algo/face.png?updatedAt=1745729337286){: height="580" }
 
 > Note, since these agents are stored in local space of the collision node, I also had to keep track of transformations from local space of the mesh to world space.
 > This meant I could not just transform a world position to a local position and use the distance comparison since it would not take into account the shape's basis (scale and rotation).

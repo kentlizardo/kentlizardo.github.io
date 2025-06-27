@@ -28,7 +28,7 @@ Here are some gifs showcasing the current systems.
 
 Here is a silly concept to show irregularly shaped item shapes with slots that can move.
 
-![Irregular shaped inventory concepts](https://ik.imagekit.io/uwzmgirgsx/inventory-test.gif?updatedAt=1742350060048)
+![Irregular shaped inventory concepts](/inventory-test.gif?updatedAt=1742350060048)
 
 At some point, I implemented a custom editor and addon for containers and items. I'm still not entirely satisfied with the workflow and editing interface but I learned a lot from the process.
 

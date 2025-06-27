@@ -5,7 +5,7 @@ date: 2025-03-22
 categories: [Game Development, Devlog]
 tags: [godot, physics, c#, devlog]
 image:
-  path: https://ik.imagekit.io/uwzmgirgsx/01-movement-c02-frame_118_delay-0.06s.webp?updatedAt=1750403252226
+  path: /01-movement-c02-frame_118_delay-0.06s.webp?updatedAt=1750403252226
   hide_cover: true
 ---
 

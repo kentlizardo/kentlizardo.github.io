@@ -4,11 +4,11 @@ topics: ["Research", "Games"]
 order: 2
 tools: ["Python", "PyGame", "Whisper", "UX/UI"]
 links:
-  - report: https://ik.imagekit.io/uwzmgirgsx/CS423-Group2-Project-04-Final-Report.docx?updatedAt=1742537510333
+  - report: https://kentmakes.games/portfolio-assets/bard/CS423-Group2-Project-04-Final-Report.docx/
     icon_override: fas fa-download
-  - report slides: https://ik.imagekit.io/uwzmgirgsx/Bard%20Final%20Presentation.pptx?updatedAt=1742537816785
+  - report slides: https://kentmakes.games/portfolio-assets/bard/Bard%20Final%20Presentation.pdf
     icon_override: fas fa-download
-  - demo slides: https://ik.imagekit.io/uwzmgirgsx/Bard%20Demo%20Presentation.pptx?updatedAt=1742538821872
+  - demo slides: https://kentmakes.games/portfolio-assets/bard/Bard%20Demo%20Presentation.pptx?updatedAt=1742538821872
     icon_override: fas fa-download
   - source: https://github.com/kentlizardo/cs-423-bard
 image:

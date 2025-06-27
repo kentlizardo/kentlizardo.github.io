@@ -17,7 +17,7 @@ A list of the tools used:
 
 Here are screenshots of some bugs from during development:
 
-|![Text messages from an NPC with oversized images](https://ik.imagekit.io/uwzmgirgsx/2024-01-15-new-year-new-skills-reprise/texting.png?updatedAt=1749595359598)|![Bug with hundreds of papers cluttering the desk](https://ik.imagekit.io/uwzmgirgsx/2024-01-15-new-year-new-skills-reprise/papers.png?updatedAt=1749595359821)|
+|![Text messages from an NPC with oversized images](/2024-01-15-new-year-new-skills-reprise/texting.png?updatedAt=1749595359598)|![Bug with hundreds of papers cluttering the desk](/2024-01-15-new-year-new-skills-reprise/papers.png?updatedAt=1749595359821)|
 
 ## What worked
 
@@ -99,10 +99,10 @@ Some friends tried to stream the game to me after it was done and one of them en
 
 The colors were also oddly desaturated for some reason. Here's a few examples showing the difference between the web and editor build.
 
-| Web | Standalone |
-| --- | --- |
-| ![Suitor profile](https://ik.imagekit.io/uwzmgirgsx/2024-01-15-new-year-new-skills-reprise/colors_web.png?updatedAt=1749595357772){: width="300" } | ![Suitor profile with more saturation](https://ik.imagekit.io/uwzmgirgsx/2024-01-15-new-year-new-skills-reprise/colors_standalone.png?updatedAt=1749595357851){: width="340" } |
-| ![MC grabs morning coffee](https://ik.imagekit.io/uwzmgirgsx/2024-01-15-new-year-new-skills-reprise/colors_web_2.png?updatedAt=1749595358587){: width="340" }  | ![MC grabs coffee with more color](https://ik.imagekit.io/uwzmgirgsx/2024-01-15-new-year-new-skills-reprise/colors_standalone_2.png?updatedAt=1749595358659){: width="340" }  |
+| Web                                                                                                                          | Standalone                                                                                                                                    |
+| ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| ![Suitor profile](/2024-01-15-new-year-new-skills-reprise/colors_web.png?updatedAt=1749595357772){: width="300" }            | ![Suitor profile with more saturation](/2024-01-15-new-year-new-skills-reprise/colors_standalone.png?updatedAt=1749595357851){: width="340" } |
+| ![MC grabs morning coffee](/2024-01-15-new-year-new-skills-reprise/colors_web_2.png?updatedAt=1749595358587){: width="340" } | ![MC grabs coffee with more color](/2024-01-15-new-year-new-skills-reprise/colors_standalone_2.png?updatedAt=1749595358659){: width="340" }   |
 
 ### Using Trello to organize major milestones
 

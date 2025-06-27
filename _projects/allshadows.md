@@ -7,7 +7,7 @@ links:
   - itch: https://gamesbykent.itch.io/all-shadows-eve
   - jam entry: https://itch.io/jam/pirate15/rate/2867849
 image:
-  path: https://ik.imagekit.io/uwzmgirgsx/pg-allshadows.png?updatedAt=1742521708939
+  path: /pg-allshadows.png?updatedAt=1742521708939
 description: >-
   Play a frenzy of microgames as you help the rookie alchemist Aqua Regia wrangle shadow creatures from the depths!
 ---
