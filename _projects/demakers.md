@@ -4,7 +4,7 @@ topics: ["Games", "Jam Games"]
 order: 1
 tools: ["Godot 4"]
 links:
-  - itch: https://gamesbykent.itch.io/demakers-game-jam-ver
+  - itch.io: https://gamesbykent.itch.io/demakers-game-jam-ver
   - jam entry (ludum dare): https://ldjam.com/events/ludum-dare/53/demaker-s-game
   - source: https://github.com/kentlizardo/demakers-game-jam
 image:

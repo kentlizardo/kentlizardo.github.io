@@ -4,7 +4,7 @@ topics: ["Games", "Jam Games"]
 order: 5
 tools: ["Godot 4"]
 links:
-  - itch: https://gamesbykent.itch.io/ol-cupid
+  - itch.io: https://gamesbykent.itch.io/ol-cupid
   - source: https://github.com/kentlizardo/new-year-new-jam
   - jam entry: https://itch.io/jam/new-year-new-skills-game-jam/rate/2467832
 image:

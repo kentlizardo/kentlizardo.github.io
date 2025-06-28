@@ -4,7 +4,7 @@ topics: ["Research", "Games"]
 order: 2
 tools: ["Python", "PyGame", "Whisper", "UX/UI"]
 links:
-  - report: https://kentmakes.games/portfolio-assets/bard/CS423-Group2-Project-04-Final-Report.docx/
+  - report: https://kentmakes.games/portfolio-assets/bard/CS423-Group2-Project-04-Final-Report.docx
     icon_override: fas fa-download
   - report slides: https://kentmakes.games/portfolio-assets/bard/Bard%20Final%20Presentation.pdf
     icon_override: fas fa-download

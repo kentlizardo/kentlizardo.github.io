@@ -4,7 +4,7 @@ topics: ["Games", "Jam Games"]
 order: 3
 tools: ["Godot 4"]
 links:
-  - itch: https://gamesbykent.itch.io/grid-knights-demo
+  - itch.io: https://gamesbykent.itch.io/grid-knights-demo
   - trailer: https://www.youtube.com/watch?v=l95PGd7lmD8
   - jam entry (ludum dare): https://ldjam.com/events/ludum-dare/54/grid-knights
 image:
