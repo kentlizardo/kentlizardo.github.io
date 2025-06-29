@@ -63,3 +63,25 @@
     }
   }
 }
+
+#post-list,
+#gallery-list {
+  h2 {
+    display: flex;
+    justify-content: space-between;
+
+    a span {
+      color: var(--sidebar-muted-color);
+      font-size: 1.75rem;
+      font-weight: 700;
+
+      &.active {
+        color: var(--sidebar-active-color);
+      }
+
+      &:hover {
+        color: var(--sidebar-active-color);
+      }
+    }
+  }
+}

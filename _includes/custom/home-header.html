@@ -1,0 +1,24 @@
+<h2>
+  <a href="/blog"
+    ><span
+      {% if page.layout == 'blog' %}
+        class="active"
+      {% endif %}
+      >Blog</span
+    ></a
+  ><a href="/"
+    ><span
+      {% if page.layout == 'home' %}
+        class="active"
+      {% endif %}
+      >Home</span
+    ></a
+  ><a href="/gallery"
+    ><span
+      {% if page.layout == 'gallery' %}
+        class="active"
+      {% endif %}
+      >Gallery</span
+    ></a
+  >
+</h2>

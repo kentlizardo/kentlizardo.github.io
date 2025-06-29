@@ -1,5 +1,5 @@
 var masonry = new MiniMasonry({
-  container: '#gallery-list',
+  container: '#gallery-list .posts-container',
   baseWidth: 300,
   gutterX: 20,
   gutterY: 20

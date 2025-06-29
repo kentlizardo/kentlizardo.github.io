@@ -8,6 +8,8 @@ layout: page
 
 <!-- Get normal posts on current page -->
 <div id="gallery-list" class="flex-grow-1 px-xl-1">
+  {% include custom/home-header.html %}
+  <div class="posts-container">
   {% for post in gallery_posts %}
     <article class="card-wrapper card">
       <a href="{{ post.url | relative_url }}" class="gallery-preview">
@@ -119,6 +121,7 @@ layout: page
       </a>
     </article>
   {% endfor %}
+</div>
 </div>
 <!-- #post-list -->
 
