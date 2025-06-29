@@ -7,6 +7,7 @@ tags: [godot, physics, c#, devlog]
 image:
   path: /01-movement-c02-frame_118_delay-0.06s.webp?updatedAt=1750403252226
   hide_cover: true
+pin: true
 ---
 
 Physics-based player mobility is commonly defined by rules and assumptions. Many assumptions and constraints are chosen to simplify the implementation of player controllers. The most common player controller in games is driven by kinematics, where the player's input directly changes velocity and acceleration through calculations decided by the developer.

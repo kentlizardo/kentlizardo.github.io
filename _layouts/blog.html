@@ -1,13 +1,13 @@
 ---
-layout: page
-# pagination data in blog.md
+layout: default
+# pagination in blog.html
+refactor: true
 ---
-
 {% include lang.html %}
 
-{% assign blog_posts = paginator.posts %}
-{% assign all_pinned = blog_posts | where: 'pin', 'true' %}
-{% assign all_normal = blog_posts | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
+{% assign all_posts = site.posts %}
+{% assign all_pinned = all_posts | where: 'pin', 'true' %}
+{% assign all_normal = all_posts | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
 
 {% assign posts = '' | split: '' %}
 
