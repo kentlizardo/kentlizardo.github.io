@@ -103,9 +103,9 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
     @extend %clickable-transition;
     @extend %sidebar-link-hover;
 
-    font-family: inherit;
-    font-weight: 900;
-    font-size: 1.5rem;
+    font-family: v.$font-family-heading;
+    font-weight: 800;
+    font-size: 1.4rem;
     line-height: 1.2;
     letter-spacing: 0.25px;
     margin-top: 1.25rem;
@@ -120,15 +120,17 @@ $sidebar-display: 'sidebar-display'; /* the attribute for sidebar display */
       align-items: center;
     }
 
-    .title-word {
-      margin-right: 0.5ch;
+    .title-word:has(+ .title-word) {
+      margin-right: 0.4ch;
     }
 
     .title-suffix {
       display: inline-block;
       flex-grow: 1;
-      margin: 0 0.25rem;
-      font-size: small;
+      margin: 0;
+      margin-right: 0.8rem;
+      font-size: 13px;
+      font-weight: 400;
       text-align: right;
       vertical-align: text-top;
     }

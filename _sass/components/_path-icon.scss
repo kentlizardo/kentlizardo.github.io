@@ -57,7 +57,7 @@ $shake-magnitude: 5deg;
 .path-icon-wrapper {
   flex-shrink: 0;
   margin: 0;
-  margin-left: 4px;
+  margin-left: -4px;
   position: relative;
   width: $base-size;
   height: $base-size;
