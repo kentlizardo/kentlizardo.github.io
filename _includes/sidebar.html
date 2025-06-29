@@ -40,7 +40,7 @@
       <!-- the real tabs -->
       {% assign tab_idx = 0 %}
       {% for tab in site.tabs %}
-        {% if tab_idx == 1 %}
+        {% if tab_idx == 0 %}
           <li class="nav-item{% if page.layout == 'blog' %}{{ " active" }}{% endif %}">
             <a href="{{ 'blog/' | relative_url }}" class="nav-link">
               <i class="fa-fw fas fa-newspaper"></i>

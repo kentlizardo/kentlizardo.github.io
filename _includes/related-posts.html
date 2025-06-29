@@ -13,9 +13,7 @@
 
 {% assign match_posts = '' | split: '' %}
 
-{% assign leaf_categories_n = page.categories | size | minus: 1 %}
-{% assign leaf_categories = page.categories | slice: 1, leaf_categories_n %}
-{% for category in leaf_categories %}
+{% for category in page.categories %}
   {% assign match_posts = match_posts | push: site.categories[category] | uniq %}
 {% endfor %}
 
@@ -37,12 +35,15 @@
   {% assign score = 0 %}
 
   {% for tag in post.tags %}
+    {% if tag == 'gallery post' or tag == 'blog post' %}
+      {% continue %}
+    {% endif %}
     {% if page.tags contains tag %}
       {% assign score = score | plus: TAG_SCORE %}
     {% endif %}
   {% endfor %}
 
-  {% for category in leaf_categories %}
+  {% for category in post.categories %}
     {% if page.categories contains category %}
       {% assign score = score | plus: CATEGORY_SCORE %}
     {% endif %}

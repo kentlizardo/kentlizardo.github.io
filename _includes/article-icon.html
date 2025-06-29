@@ -1,1 +1,2 @@
-{% if include.root_category == "gallery" %}<i class="fa-solid fa-photo-film"></i>{% endif %}{% if include.root_category == "blog" %}<i class="fa-solid fa-file-lines"></i>{% endif %}
+{% if include.post.post_type == 'gallery' %}<i class="fa-solid fa-photo-film"></i>{% endif -%}
+{%- if include.post.post_type == 'blog' %}<i class="fa-solid fa-file-lines"></i>{% endif %}

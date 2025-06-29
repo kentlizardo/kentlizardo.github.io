@@ -5,9 +5,11 @@ refactor: true
 ---
 {% include lang.html %}
 
-{% assign all_posts = site.posts %}
+{% assign all_posts = site.posts | where_exp: 'post', "post.tags contains 'blog post'" %}
 {% assign all_pinned = all_posts | where: 'pin', 'true' %}
-{% assign all_normal = all_posts | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
+{% assign all_normal = all_posts
+  | where_exp: 'item', 'item.pin != true and item.hidden != true and item.unpublished != true'
+%}
 
 {% assign posts = '' | split: '' %}
 
@@ -90,12 +92,10 @@ refactor: true
                 {% include datetime.html date=post.date lang=lang %}
 
                 <!-- categories -->
-                {% assign leaf_categories_n = post.categories | size | minus: 1 %}
-                {% assign leaf_categories = post.categories | slice: 1, leaf_categories_n %}
-                {% if leaf_categories.size > 0 %}
+                {% if post.categories.size > 0 %}
                   <i class="far fa-folder-open fa-fw me-1"></i>
                   <span class="categories">
-                    {% for category in leaf_categories %}
+                    {% for category in post.categories %}
                       {{ category }}
                       {%- unless forloop.last -%},{%- endunless -%}
                     {% endfor %}
