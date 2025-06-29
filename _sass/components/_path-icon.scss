@@ -135,7 +135,7 @@ $shake-magnitude: 5deg;
 
   &.buffer {
     margin-top: calc($base-size / 2 - $base-size);
-    opacity: 0.25;
+    opacity: 0.75;
 
     &.swap {
       animation: shake 0.16s 1;
@@ -159,14 +159,14 @@ $shake-magnitude: 5deg;
 
       to {
         translate: 0 0;
-        opacity: 0.25;
+        opacity: 0.75;
       }
     }
 
     @keyframes buffer-exit {
       from {
         translate: 0 0;
-        opacity: 0.2;
+        opacity: 0.75;
       }
 
       to {
