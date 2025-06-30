@@ -161,13 +161,16 @@
       {% assign _left = _left | append: ' loading="lazy"' %}
     {% endif %}
 
-    {% if page.layout == 'home' %}
+    {% if page.layout == 'home' or page.layout == 'blog' %}
       <!-- create the image wrapper -->
       {% assign _wrapper_start = '<div class="preview-img ' | append: _class | append: '">' %}
 
       {% assign _img_content = _img_content | append: _wrapper_start %}
       {% assign _right = _right | prepend: '></div' %}
-
+    {% elsif page.layout == 'gallery' %}
+      {% assign _wrapper_start = '<div class="' | append: _class | append: '">' %}
+      {% assign _img_content = _img_content | append: _wrapper_start %}
+      {% assign _right = _right | prepend: '></div' %}
     {% else %}
       <!-- make sure the `<img>` is wrapped by `<a>` -->
       {% assign _parent = _right | slice: 1, 4 %}

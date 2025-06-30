@@ -1,6 +1,4 @@
 @mixin styles {
-  --path-icon-color: 40, 40, 40;
-
   .projects {
     .card {
       .card-text:has(+ .project-misc) {

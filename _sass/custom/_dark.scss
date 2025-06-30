@@ -1,6 +1,4 @@
 @mixin styles {
-  --path-icon-color: 110, 110, 110;
-
   .projects {
     .card {
       .card-text:has(+ .project-misc) {
@@ -11,5 +9,9 @@
         background-color: var(--card-header-bg);
       }
     }
+  }
+
+  .path-icon {
+    --sprite-outline-color: #cccccc;
   }
 }

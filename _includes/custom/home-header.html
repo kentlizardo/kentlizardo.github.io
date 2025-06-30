@@ -1,0 +1,20 @@
+<nav class="compound-header compound-header--sticky stuck-listen" aria-labelledby="home-navigation">
+  <h2>
+    <a
+      class="{% if page.layout == 'blog' %}active{% else %}inactive{% endif %}"
+      href="/blog"
+      ><span>Blog</span></a
+    >
+    <a
+      class="{% if page.layout == 'home' %}active{% else %}inactive{% endif %}"
+      href="/"
+      ><span>Home</span></a
+    >
+    <a
+      class="{% if page.layout == 'gallery' %}active{% else %}inactive{% endif %}"
+      href="/gallery"
+      ><span>Gallery</span></a
+    >
+  </h2>
+</nav>
+<hr>

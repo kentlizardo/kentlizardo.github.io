@@ -1,10 +1,11 @@
 ---
 layout: gallery
+title: Gallery
 permalink: /gallery/
 pagination:
   enabled: true
   per_page: 5
-  category: gallery
+  tag: gallery post
   permalink: '/page:num/'
 masonry: true
 ---

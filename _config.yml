@@ -2,7 +2,8 @@
 
 # Import the theme
 theme: jekyll-theme-chirpy
-
+plugins:
+  - jekyll-paginate-v2
 # The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
 # If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
 # otherwise, the layout language will use the default value of 'en'.
@@ -151,14 +152,14 @@ paginate_path: "/page/:num/"
 pagination:
   enabled: true
   debug: true
-  collection: 'posts'
+  collection: "posts"
   per_page: 10
-  permalink: '/page:num/'
-  title: ':title - page :num'
+  permalink: "/page:num/"
+  title: ":title - page :num"
   limit: 0
-  sort_field: 'date'
+  sort_field: "date"
   sort_reverse: true
-  category: 'posts'
+  category: "posts"
   trail:
     before: 2
     after: 2
@@ -200,10 +201,15 @@ defaults:
       # to update the code of all other post links in this project.
       permalink: /posts/:title/
   - scope:
-      path: "gallery/_posts/*"
+      path: "_posts/blog/*"
       type: posts
     values:
-      layout: media
+      post_type: blog
+  - scope:
+      path: "_posts/gallery/*"
+      type: posts
+    values:
+      post_type: gallery
   - scope:
       path: _drafts
     values:
