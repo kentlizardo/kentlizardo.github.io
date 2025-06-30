@@ -61,6 +61,8 @@
 {% case page.layout %}
   {% when 'home', 'categories', 'post', 'page', 'gallery' %}
     {% assign js = page.layout %}
+  {% when 'blog' %}
+    {% assign js = 'home' %}
   {% when 'archives', 'category', 'tag' %}
     {% assign js = 'misc' %}
   {% else %}
@@ -69,7 +71,7 @@
 
 {% capture script %}/assets/js/dist/{{ js }}.min.js{% endcapture %}
 
-<script defer src="{{ script | relative_url }}"></script>
+<script defer src="{{ script | relative_url | bust_asset }}"></script>
 
 {% if page.math %}
   <!-- MathJax -->

@@ -237,13 +237,33 @@
 }
 
 .compound-header {
-  display: flex;
-  justify-content: space-between;
-  margin: 0.8rem;
+  padding: 0.8rem;
+  z-index: 1;
+  background-color: var(--main-bg);
+
+  + hr {
+    margin-top: 0;
+  }
+
+  &--sticky {
+    position: sticky;
+    top: -2px;
+
+    &[data-stuck] {
+      // filter: drop-shadow(0 3px 3px black);
+      box-shadow: 0 6px 3px -2px #00000075;
+    }
+  }
+
+  h2 {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+  }
 
   a {
     color: var(--sidebar-muted-color);
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 700;
     transition: all 0.16s cubic-bezier(0.25, 1, 0.5, 1);
 
