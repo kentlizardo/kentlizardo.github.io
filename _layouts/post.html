@@ -112,6 +112,56 @@ script_includes:
   {% endif %}
   <div class="content">
     {{ content }}
+    {% if page.album %}
+      {% assign visible_album = page.album | where_exp: 'item', 'item.hide_cover != true' %}
+      {% if visible_album.size >= 1 %}
+        <h2>Album</h2>
+        <section class="album">
+          {% for element in page.album %}
+            <div class="media">
+              {% assign first_key = element | first | first %}
+
+              {% if first_key == 'path' %}
+                {% assign image = element %}
+
+                {% capture src %}src="{{ image.path }}"{% endcapture %}
+                {% capture class %}class="{% if image.no_bg %}{{ ' no-bg' }}{% endif %}"{% endcapture %}
+                {% capture alt %}alt="{{ image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
+                {% if image.lqip %}
+                  {%- capture lqip -%}lqip="{{ image.lqip }}"{%- endcapture -%}
+                {% endif %}
+
+                {% assign size_attr = img_url | fast_image_size_attributes %}
+
+                <img {{ src }} {{ class }} {{ alt }} {{ size_attr }} onerror="this.style.display='none'">
+                {%- if image.caption -%}
+                  <figcaption class="">
+                    <em>{{ image.caption }}</em>
+                  </figcaption>
+                {%- endif -%}
+                {% if image.desc %}
+                  <p>
+                    {{ image.desc }}
+                  </p>
+                {% endif %}
+              {% endif %}
+
+              {% if first_key == 'youtube_id' %}
+                <div class="iframe-container">
+                  {% include embed/youtube.html id=element.youtube_id %}
+                </div>
+                <figcaption>{{ element.caption }}</figcaption>
+              {% endif %}
+
+              {% if first_key == 'gumlet_id' %}
+                {% include embed/gumlet.html asset_id=element.gumlet_id %}
+                <figcaption>{{ element.caption }}</figcaption>
+              {% endif %}
+            </div>
+          {% endfor %}
+      {% endif %}
+      </section>
+    {% endif %}
   </div>
 
   <div class="post-tail-wrapper text-muted">

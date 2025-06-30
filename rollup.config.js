@@ -79,7 +79,6 @@ export default [
   build('categories'),
   build('page'),
   build('post'),
-  build('media'),
   build('gallery'),
   build('misc'),
   build('theme', { outputName: 'Theme' }),

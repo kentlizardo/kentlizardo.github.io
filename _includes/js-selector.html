@@ -7,7 +7,6 @@
 <!-- layout specified -->
 
 {% if page.layout == 'post'
-  or page.layout == 'media'
   or page.layout == 'page'
   or page.layout == 'home'
   or page.layout == 'gallery'
@@ -28,7 +27,6 @@
 
 {% if page.layout == 'home'
   or page.layout == 'post'
-  or page.layout == 'media'
   or page.layout == 'blog'
   or page.layout == 'gallery'
   or page.layout == 'archives'
@@ -61,7 +59,7 @@
 {% include jsdelivr-combine.html urls=urls %}
 
 {% case page.layout %}
-  {% when 'home', 'categories', 'post', 'page', 'media' %}
+  {% when 'home', 'categories', 'post', 'page' %}
     {% assign js = page.layout %}
   {% when 'archives', 'category', 'tag' %}
     {% assign js = 'misc' %}
@@ -86,7 +84,7 @@
 {% endif %}
 
 <!-- Pageviews -->
-{% if page.layout == 'post' or page.layout == 'media' %}
+{% if page.layout == 'post' %}
   {% assign provider = site.pageviews.provider %}
 
   {% if provider and provider != empty %}
