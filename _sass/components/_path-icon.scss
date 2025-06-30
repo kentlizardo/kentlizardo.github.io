@@ -7,6 +7,15 @@ $base-size: 32px;
 $sheet-ratio: 4;
 $sheet-tilesize: 256px / 4;
 $shake-magnitude: 5deg;
+$outline-color: var(--sprite-outline-color);
+$outline-size: 1px;
+$outline-feather: 0;
+$white-outline: drop-shadow(
+    $outline-size $outline-size $outline-feather $outline-color
+  )
+  drop-shadow(-$outline-size $outline-size $outline-feather $outline-color)
+  drop-shadow(-$outline-size (-$outline-size) $outline-feather $outline-color)
+  drop-shadow($outline-size (-$outline-size) $outline-feather $outline-color);
 
 @keyframes shake {
   0% {
@@ -32,7 +41,7 @@ $shake-magnitude: 5deg;
 
 @keyframes fade-in {
   from {
-    translate: 0 calc(-1 * $base-size);
+    translate: 0 calc(-1 * $base-size - 4px);
     opacity: 0.5;
   }
 
@@ -85,6 +94,8 @@ $shake-magnitude: 5deg;
   --sprite-scale: 1;
   --width: calc(#{$base-size} * var(--sprite-scale));
   --height: calc(#{$base-size} * var(--sprite-scale));
+  --sprite-shadow-color: 40, 40, 40;
+  --sprite-outline-color: #fcfcfc;
 
   $compute-left: calc(-0.5 * var(--width));
   $compute-top: calc(-0.5 * var(--width));
@@ -120,7 +131,8 @@ $shake-magnitude: 5deg;
   background-position-y: calc(-1 * var(--height) * var(--sprite-y));
   background-repeat: no-repeat;
   background-size: 100% * $sheet-ratio;
-  filter: drop-shadow(0 3px 3px #{'rgba(var(--path-icon-color), 0.3)'});
+  filter: $white-outline
+    drop-shadow(0 3px 3px #{'rgba(var(--sprite-shadow-color), 0.3)'});
   transition: filter 0.16s cubic-bezier(0.22, 1, 0.36, 1);
 
   &:hover {
@@ -134,7 +146,7 @@ $shake-magnitude: 5deg;
   }
 
   &.buffer {
-    margin-top: calc($base-size / 2 - $base-size);
+    margin-top: calc($base-size / 2 - $base-size - 4px);
     opacity: 0.25;
 
     &.swap {
@@ -179,12 +191,14 @@ $shake-magnitude: 5deg;
 
 a.site-title {
   &:hover + * .path-icon {
-    filter: drop-shadow(0 3px 3px #{'rgba(var(--path-icon-color), 0.5)'});
+    filter: $white-outline
+      drop-shadow(0 3px 3px #{'rgba(var(--sprite-shadow-color), 0.5)'});
   }
 }
 
 %hovered-icon {
   --sprite-scale: 1.2;
 
-  filter: drop-shadow(0 3px 3px #{'rgba(var(--path-icon-color), 0.6)'});
+  filter: $white-outline
+    drop-shadow(0 3px 3px #{'rgba(var(--sprite-shadow-color), 0.6)'});
 }
