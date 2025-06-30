@@ -101,9 +101,6 @@ refactor: true
                   <p>{% include post-description.html %}</p>
                 </div>
 
-                {% if post.album %}
-                {% endif %}
-
                 <div class="post-meta flex-grow-1 d-flex align-items-end pt-2">
                   <div class="me-auto">
                     <!-- posted date -->
@@ -122,6 +119,11 @@ refactor: true
                     {% endif %}
                   </div>
                 </div>
+
+                {% if post.album %}
+                  <div class="card album-bit"></div>
+                  <div class="card album-bit album-bit-1"></div>
+                {% endif %}
               </div>
             </div>
           {% else %}
