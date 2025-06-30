@@ -167,7 +167,10 @@
 
       {% assign _img_content = _img_content | append: _wrapper_start %}
       {% assign _right = _right | prepend: '></div' %}
-
+    {% elsif page.layout == 'gallery' %}
+      {% assign _wrapper_start = '<div class="' | append: _class | append: '">' %}
+      {% assign _img_content = _img_content | append: _wrapper_start %}
+      {% assign _right = _right | prepend: '></div' %}
     {% else %}
       <!-- make sure the `<img>` is wrapped by `<a>` -->
       {% assign _parent = _right | slice: 1, 4 %}

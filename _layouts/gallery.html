@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 # pagination data in gallery.md
 ---
 {% include lang.html %}
@@ -7,9 +7,8 @@ layout: page
 {% assign gallery_posts = paginator.posts %}
 
 <!-- Get normal posts on current page -->
+{% include custom/home-header.html %}
 <div id="gallery-list" class="flex-grow-1 px-xl-1">
-  {% include custom/home-header.html %}
-  <div class="posts-container">
   {% for post in gallery_posts %}
     <article class="card-wrapper card">
       <a href="{{ post.url | relative_url }}" class="gallery-preview">
@@ -121,7 +120,6 @@ layout: page
       </a>
     </article>
   {% endfor %}
-</div>
 </div>
 <!-- #post-list -->
 

@@ -50,10 +50,10 @@ refactor: true
   {% endfor %}
 {% endif %}
 
-<div id="post-list" class="flex-grow-1 px-xl-1">
-  {% include custom/home-header.html %}
+{% include custom/home-header.html %}
+<div id="post-list" class="home flex-grow-1 px-xl-1">
   {% for post in posts %}
-    <article class="card-wrapper card">
+    <article class="card-wrapper card post-type-{{ post.post_type }}">
       <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
         {% assign card_body_col = '12' %}
 
