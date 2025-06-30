@@ -8,6 +8,8 @@
 {%- endif -%}
 ';
 
+@use 'abstracts/breakpoints' as bp;
+
 @import 'github-alerts.css';
 
 /* append your custom style below */
@@ -22,15 +24,169 @@
   }
 
   &.home {
+    position: relative;
+
+    &::before {
+      content: '';
+      left: 12px;
+      position: absolute;
+      width: 4px;
+      height: calc(100% + 32px);
+      top: -16px;
+      opacity: 0.1;
+      z-index: -1;
+      background: linear-gradient(
+        0deg,
+        transparent,
+        var(--timeline-color),
+        var(--timeline-color),
+        var(--timeline-color),
+        transparent
+      );
+
+      @include bp.xl {
+        left: 16px;
+      }
+    }
+
+    &::after {
+      content: '';
+      right: 12px;
+      position: absolute;
+      width: 4px;
+      height: calc(100% + 32px);
+      top: -16px;
+      opacity: 0.1;
+      z-index: -1;
+      background: linear-gradient(
+        0deg,
+        transparent,
+        var(--timeline-color),
+        var(--timeline-color),
+        var(--timeline-color),
+        transparent
+      );
+
+      @include bp.xl {
+        right: 16px;
+      }
+    }
+
+    .card-wrapper {
+      position: relative;
+      margin-bottom: 0;
+
+      &:not(:last-child) {
+        padding-bottom: 0.625rem;
+      }
+
+      &:not(:first-child) {
+        padding-top: 0.625rem;
+      }
+
+      &::before {
+        content: '';
+        left: 12px;
+        position: absolute;
+        width: 4px;
+        height: 120%;
+        top: -10%;
+        opacity: 0.9;
+        z-index: -1;
+      }
+
+      $fade-down: linear-gradient(
+        0deg,
+        transparent,
+        transparent 20%,
+        var(--timeline-color) 80%,
+        var(--timeline-color)
+      );
+      $fade-up: linear-gradient(
+        180deg,
+        transparent,
+        transparent 20%,
+        var(--timeline-color) 80%,
+        var(--timeline-color)
+      );
+
+      &.curr-blog.prev-blog:not(.next-blog)::before {
+        background: $fade-down;
+      }
+
+      &.curr-blog.next-blog:not(.prev-blog)::before {
+        background: $fade-up;
+      }
+
+      &.prev-blog:not(.curr-blog.next-blog)::before {
+        background: $fade-down;
+      }
+
+      &.next-blog:not(.curr-blog.prev-blog)::before {
+        background: $fade-up;
+      }
+
+      &.curr-blog.prev-blog.next-blog::before,
+      &.curr-blog:not(.prev-blog.next-blog)
+        :not(:first-child):not(:last-child)::before,
+      &.prev-blog.next-blog:not(.curr-blog)::before {
+        background-color: var(--timeline-color);
+      }
+
+      &::after {
+        content: '';
+        right: 12px;
+        position: absolute;
+        width: 4px;
+        height: 120%;
+        top: -10%;
+        opacity: 0.9;
+        z-index: -1;
+      }
+
+      &.curr-gallery.prev-gallery:not(.next-gallery)::after {
+        background: $fade-down;
+      }
+
+      &.curr-gallery.next-gallery:not(.prev-gallery)::after {
+        background: $fade-up;
+      }
+
+      &.prev-gallery:not(.curr-gallery.next-gallery)::after {
+        background: $fade-down;
+      }
+
+      &.next-gallery:not(.curr-gallery.prev-gallery)::after {
+        background: $fade-up;
+      }
+
+      &.curr-gallery.prev-gallery.next-gallery::after,
+      &.curr-gallery:not(.prev-gallery.next-gallery)
+        :not(:first-child):not(:last-child)::after,
+      &.prev-gallery.next-gallery:not(.curr-gallery)::after {
+        background-color: var(--timeline-color);
+      }
+
+      // &:last-child::before,
+      // &:last-child::after {
+      //   background: linear-gradient(0deg, transparent, var(--timeline-color));
+      // }
+
+      // &:first-child::before,
+      // &:first-child::after {
+      //   background: linear-gradient(180deg, transparent, var(--timeline-color));
+      // }
+    }
+
     .card {
       &.post-type-blog {
         margin-left: 0;
-        max-width: 80%;
+        max-width: 85%;
       }
 
       &.post-type-gallery {
         margin-right: 0;
-        max-width: 80%;
+        max-width: 85%;
       }
     }
   }
@@ -85,6 +241,16 @@
   justify-content: space-between;
   margin: 0.8rem;
 
+  @include bp.xl {
+    a:first-child {
+      padding-left: 1.2rem;
+    }
+
+    a:last-child {
+      padding-right: 1.2rem;
+    }
+  }
+
   a {
     color: var(--sidebar-muted-color);
     font-size: 1.75rem;
@@ -104,7 +270,7 @@
     }
 
     &.inactive {
-      $half: rgba(white, 0.5);
+      $half: rgba(white, 0.75);
 
       opacity: 0.6;
 
