@@ -14,4 +14,10 @@
   .path-icon {
     --sprite-outline-color: #cccccc;
   }
+
+  #post-list {
+    &.home {
+      --post-timeline-active-color: rgb(39, 39, 45);
+    }
+  }
 }

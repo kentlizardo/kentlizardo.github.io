@@ -42,7 +42,7 @@ $white-outline: drop-shadow(
 @keyframes fade-in {
   from {
     translate: 0 calc(-1 * $base-size - 4px);
-    opacity: 0.5;
+    opacity: 0.6;
   }
 
   to {
@@ -147,7 +147,7 @@ $white-outline: drop-shadow(
 
   &.buffer {
     margin-top: calc($base-size / 2 - $base-size - 4px);
-    opacity: 0.75;
+    opacity: 0.6;
 
     &.swap {
       animation: shake 0.16s 1;
@@ -171,14 +171,14 @@ $white-outline: drop-shadow(
 
       to {
         translate: 0 0;
-        opacity: 0.75;
+        opacity: 0.6;
       }
     }
 
     @keyframes buffer-exit {
       from {
         translate: 0 0;
-        opacity: 0.75;
+        opacity: 0.6;
       }
 
       to {
