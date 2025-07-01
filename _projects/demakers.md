@@ -1,6 +1,6 @@
 ---
 title: Demaker's Game
-topics: ["Games", "Jam Games"]
+topics: ["Games", "Jam Entries"]
 order: 1
 tools: ["Godot 4"]
 links:

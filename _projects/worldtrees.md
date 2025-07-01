@@ -1,6 +1,6 @@
 ---
 title: Worldtrees
-topics: ["Games", "Jam Games"]
+topics: ["Games", "Jam Entries"]
 order: 4
 tools: ["Godot 4"]
 links:

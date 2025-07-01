@@ -1,6 +1,6 @@
 ---
 title: Lunar Memory
-topics: ["Games", "Jam Games"]
+topics: ["Games", "Jam Entries"]
 order: 0
 tools: ["Godot 4"]
 links:

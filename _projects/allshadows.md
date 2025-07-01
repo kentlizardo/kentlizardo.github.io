@@ -1,6 +1,6 @@
 ---
 title: All Shadows' Eve
-topics: ["Games", "Jam Games"]
+topics: ["Games", "Jam Entries"]
 order: 7
 tools: ["Godot 4"]
 links:

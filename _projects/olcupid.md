@@ -1,6 +1,6 @@
 ---
 title: Save me, OL Cupid!
-topics: ["Games", "Jam Games"]
+topics: ["Games", "Jam Entries"]
 order: 5
 tools: ["Godot 4"]
 links:

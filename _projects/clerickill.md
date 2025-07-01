@@ -1,6 +1,6 @@
 ---
 title: Clerickill
-topics: ["Games", "Jam Games"]
+topics: ["Games", "Jam Entries"]
 order: 6
 tools: ["Godot 4"]
 links:

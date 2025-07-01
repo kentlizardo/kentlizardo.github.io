@@ -1,6 +1,6 @@
 ---
 title: Gridknights
-topics: ["Games", "Jam Games"]
+topics: ["Games", "Jam Entries"]
 order: 3
 tools: ["Godot 4"]
 links:

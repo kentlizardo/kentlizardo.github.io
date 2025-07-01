@@ -1,6 +1,6 @@
 ---
 title: Grafted
-topics: ["Games", "Jam Games"]
+topics: ["Games", "Jam Entries"]
 order: 2
 tools: ["Godot 4"]
 links:
