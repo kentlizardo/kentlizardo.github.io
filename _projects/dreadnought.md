@@ -4,9 +4,9 @@ topics: ["Research", "Games"]
 order: 1
 tools: ["JS/TS", "React Three Fiber", "Express"]
 links:
-  - summary: https://ik.imagekit.io/uwzmgirgsx/Dreadnought%20Summary%20Presentation.pptx?updatedAt=1742525117590
+  - summary: https://kentmakes.games/portfolio-assets/Dreadnought%20Summary%20Presentation.pptx
     icon_override: fas fa-download
-  - report: https://ik.imagekit.io/uwzmgirgsx/Dreadnought%20Final%20Coding%20Report.docx?updatedAt=1742525366165
+  - report: https://kentmakes.games/portfolio-assets/Dreadnought%20Final%20Coding%20Report.docx
     icon_override: fas fa-download
   - source: https://github.com/kentlizardo/cs-442-dreadnought
 image:
