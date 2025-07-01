@@ -123,26 +123,35 @@ const updateBufferPathIcon = (key) => {
 
 updatePageIcon();
 
+const hoverAction = (e) => {
+  const anchor = e.target.closest('a');
+  if (!anchor || anchor.tagName.toLowerCase() !== 'a') return;
+  const href = anchor.getAttribute('href');
+  if (!href || href.charAt(0) !== '/') return;
+
+  hoverIconPair = [anchor, readIconKey(href)];
+  updateBufferPathIcon(hoverIconPair[1]);
+};
+const unhoverAction = (e) => {
+  const anchor = e.target.closest('a');
+  if (!anchor || anchor.tagName.toLowerCase() !== 'a') return;
+  const href = anchor.getAttribute('href');
+  if (!href || href.charAt(0) !== '/') return;
+
+  if (hoverIconPair && hoverIconPair[0] === anchor) hoverIconPair = null;
+  updateBufferPathIcon(null);
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   const sidebar = document.getElementById('sidebar');
+  sidebar.addEventListener('mouseover', hoverAction);
+  sidebar.addEventListener('mouseout', unhoverAction);
 
-  sidebar.addEventListener('mouseover', (e) => {
-    const anchor = e.target.closest('nav a');
-    if (!anchor || anchor.tagName.toLowerCase() !== 'a') return;
+  const allLinks = document.body.querySelectorAll('a:not(#sidebar a)');
+  [...allLinks].forEach((anchor) => {
     const href = anchor.getAttribute('href');
     if (!href || href.charAt(0) !== '/') return;
-
-    hoverIconPair = [anchor, readIconKey(href)];
-    updateBufferPathIcon(hoverIconPair[1]);
-  });
-
-  sidebar.addEventListener('mouseout', (e) => {
-    const anchor = e.target.closest('nav a');
-    if (!anchor || anchor.tagName.toLowerCase() !== 'a') return;
-    const href = anchor.getAttribute('href');
-    if (!href || href.charAt(0) !== '/') return;
-
-    if (hoverIconPair && hoverIconPair[0] === anchor) hoverIconPair = null;
-    updateBufferPathIcon(null);
+    anchor.addEventListener('mouseover', hoverAction);
+    anchor.addEventListener('mouseout', unhoverAction);
   });
 });
