@@ -47,28 +47,28 @@ The feature I'm currently putting a huge amount of work into is a physics-based 
 
 Safe to say, I'm really satisfied with the current work I've done and the seamlessness of the controller's states. I'd like to write a more extensive post soon about the system, so I will leave you with just some screenshots and gifs as well.
 
-![Movement 1](/01-movement-c01.gif?updatedAt=1742422950918)
+![Movement 1](/01-movement-c01.gif)
 
 The player body supports any gravitational force. What is considered "ground" is determined by the direction of the G forces applied to the player. The player also can sense "passive" forces similar to the functions of the inner ear, aligning the camera when needed. The forces are determined with a process which I will call "reverse force integration."
 
 Both Unity and Godot do not give access to accurate contact impulses in addition to the frictional component of those impulses, which was necessary for the problems I needed to solve. However, Godot is open-source, which meant I could "reverse integrate" the physics system's effect on the rigidbody's acceleration. This is done by comparing and tracking all applied forces while also adding properties to specific ones such as marking a "running" force as a locomotion force. Jolt also helped with the natural stability of the physics system, which made things easier.
 
-![Movement 2](/01-movement-c02.gif?updatedAt=1742422948119)
+![Movement 2](/01-movement-c02.gif)
 
 Here are a few clips testing the vaulting system. It's largely based on shapecast validation. A damped harmonic force is applied to push the player up (similar to the force used to stand) in addition to a frictional force generated from relative velocity to the surface. The more force the player hits the vault with, the more momentum is applied to carry over to the vault speed.
 
-![Vaulting 1](/01-vaulting-c01.gif?updatedAt=1742422954984)
+![Vaulting 1](/01-vaulting-c01.gif)
 
 A special case happens when the player cancels a vault right when the vault is completed. The previously built velocity allows them to "jump" with more force applied horizontally. Additionally, there is also some directional influence from the player's input direction.
 
-![Vaulting 2](/01-vaulting-c02.gif?updatedAt=1742422949587)
+![Vaulting 2](/01-vaulting-c02.gif)
 
 The part of the game I am currently taking a break from working on—in order to add to my portfolio—is the climbing system. Most of it is handled procedurally but not in the way you might think. I took a look at many attempts to recreate the system of Shadow of the Colossus in Unity (which used barycentric coordinates to traverse a climbable mesh) but settled on a simpler approach using mesh analysis. I'm designing the large creatures in my game to be more like how dolls are designed—with fixed rigid parts since they will be mechanical in nature rather than organic. (This also largely simplifies the implementation as I do not have to support deformation of collision meshes.)
 
 Here are a few clips of the current ledge grab integration in the climbing state. This is for a "flat" grab, meaning only forces from the surface's normal and friction coefficient are applicable. The clutches are placed procedurally through analysis of a trimesh, which I will go into further detail on in a later post.
 
-![Climbing 1](/01-climbing-c01.gif?updatedAt=1742422925303)
+![Climbing 1](/01-climbing-c01.gif)
 
 The system also works with any direction of gravity, like the ones before. A boon of working with robust systems like the force-based integration I mentioned earlier is that code created for previous applications can be reused for many things. I reused the first iteration of the "ledge walk" integration (which included damped harmonic forces and drive-based frictional forces on a non-centered position of the rigid body) in order to achieve proper mantling from a ledge grab state.
 
-![Climbing 2](/01-climbing-c02.gif?updatedAt=1742422931262)
+![Climbing 2](/01-climbing-c02.gif)
