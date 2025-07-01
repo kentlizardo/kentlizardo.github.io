@@ -1,4 +1,8 @@
 @mixin styles {
+  & {
+    --link-hover-color: #d2603a;
+  }
+
   .projects {
     .card {
       .card-text:has(+ .project-misc) {
@@ -8,6 +12,10 @@
       .card-header {
         background-color: var(--card-header-bg);
       }
+    }
+
+    .project-tools span {
+      background-color: rgb(116, 178, 243);
     }
   }
 

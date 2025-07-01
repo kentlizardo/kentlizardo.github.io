@@ -1,4 +1,8 @@
 @mixin styles {
+  & {
+    --link-hover-color: #3aa4d2;
+  }
+
   .projects {
     .card {
       .card-text:has(+ .project-misc) {
